@@ -1,0 +1,3 @@
+rootProject.name = 'roundsmanApp'
+
+include ':app'
