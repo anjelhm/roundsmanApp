@@ -4,6 +4,8 @@ import {
   Text
 } from 'react-native';
 
+import Drawer from './drawer/Drawer';
+
 class Inicio extends Component {
 
   static navigationOptions = {
@@ -12,9 +14,11 @@ class Inicio extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <Text>Inicio</Text>
-      </View>
+      <Drawer>
+        <View style={{ flex: 1 }}>
+          <Text>Inicio</Text>
+        </View>
+      </Drawer>
     );
   }
 }
