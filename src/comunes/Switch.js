@@ -45,6 +45,6 @@ Interruptor.defaultProps={
   nombre: "Texto",
   circulo: '#607D8B',
   fondoa: '#CFD8DC',
-  fondoe: '#00C853'
+  fondoe: '#212121'
 }
 export default Interruptor;
