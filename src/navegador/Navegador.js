@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 
 import Inicio from '../componentes/Inicio';
+import MiCuenta from '../contenedores/MiCuenta';
 
 const rutas = {
-  Inicio: { screen: Inicio }
+  Inicio: { screen: Inicio },
+  MiCuenta: { screen: MiCuenta }
 };
 
 export const Navegador = StackNavigator(rutas);

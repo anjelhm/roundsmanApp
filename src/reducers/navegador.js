@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 import { NavigationActions } from 'react-navigation';
 
 import {
-  INICIO
+  INICIO,
+  CUENTA
 } from '../constantes/ActionTypes';
 
 import { Navegador } from '../navegador/Navegador';
@@ -17,6 +18,12 @@ const nav = (state = rutaInicial, action) => {
     case INICIO :
       nextState = Navegador.router.getStateForAction(
         NavigationActions.navigate({ routeName: 'Inicio' }),
+        state
+      );
+      break;
+    case CUENTA :
+      nextState = Navegador.router.getStateForAction(
+        NavigationActions.navigate({ routeName: 'MiCuenta' }),
         state
       );
       break;
