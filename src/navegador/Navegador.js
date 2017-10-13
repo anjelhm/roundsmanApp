@@ -7,7 +7,8 @@ import MiCuenta from '../contenedores/MiCuenta';
 
 const rutas = {
   Inicio: { screen: Inicio },
-  MiCuenta: { screen: MiCuenta }
+  MiCuenta: { screen: MiCuenta },
+  Sesion: { screen: Sesion }
 };
 
 export const Navegador = StackNavigator(rutas);
