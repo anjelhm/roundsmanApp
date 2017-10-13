@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import navegador from './navegador';
+import autentificador from './autentificador';
 
 const rootReducer = combineReducers({
-  navegador
+  navegador,
+  autentificador
 });
 
 export default rootReducer;

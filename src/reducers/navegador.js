@@ -3,12 +3,13 @@ import { NavigationActions } from 'react-navigation';
 
 import {
   INICIO,
-  CUENTA
+  CUENTA,
+  INICIASESION
 } from '../constantes/ActionTypes';
 
 import { Navegador } from '../navegador/Navegador';
 
-const rutaInicial = Navegador.router.getStateForAction(Navegador.router.getActionForPathAndParams('Inicio'));
+const rutaInicial = Navegador.router.getStateForAction(Navegador.router.getActionForPathAndParams('IniciaSesion'));
 
 const nav = (state = rutaInicial, action) => {
 
@@ -24,6 +25,12 @@ const nav = (state = rutaInicial, action) => {
     case CUENTA :
       nextState = Navegador.router.getStateForAction(
         NavigationActions.navigate({ routeName: 'MiCuenta' }),
+        state
+      );
+      break;
+    case INICIASESION :
+      nextState = Navegador.router.getStateForAction(
+        NavigationActions.navigate({ routeName: 'IniciaSesion' }),
         state
       );
       break;

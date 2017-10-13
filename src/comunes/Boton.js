@@ -12,7 +12,8 @@ class Boton extends Component {
           height:height,
           width:width,
           justifyContent:'center',
-          alignItems:'center'}}>
+          alignItems:'center',
+         elevation: 4}}>
           <Text style={{color:color, fontSize:18}}>
             {etiqueta}
           </Text>
