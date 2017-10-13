@@ -10,6 +10,11 @@ import Sesion from '../componentes/Sesion';
 
 class ContenedorMiSesion extends Component{
 
+
+    static navigationOptions = {
+      header: null
+    };
+
   irARegistro(){
     this.props.lanzarRegistro();
   }
