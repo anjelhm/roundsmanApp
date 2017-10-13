@@ -9,8 +9,7 @@ import Dimensions from 'Dimensions';
 import Drawer from './drawer/Drawer';
 import Boton from './Menu/Boton';
 import Menubar from './Menu/Menubar';
-import Input from '../comunes/Input';
-
+import ListaActual from './ListaActual/ListaActual';
 class Inicio extends Component {
 
   static navigationOptions = {
@@ -49,8 +48,8 @@ class Inicio extends Component {
               ref={ vp=>this.ViewPager=vp }
               onPageSelected={this.cambiapagina.bind(this)}
                 initialPage={0}>
-                  <View style={{ paddingTop:200, backgroundColor: "red" }}>
-
+                  <View style={{ paddingTop:50, backgroundColor: "red" }}>
+                    <ListaActual/>
                   </View>
                 <View style={{ paddingTop:200, backgroundColor: "blue" }}>
                   <Text>Second page</Text>
