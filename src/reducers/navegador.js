@@ -5,7 +5,8 @@ import {
   INICIO,
   CUENTA,
   INICIASESION,
-  REGISTRO
+  REGISTRO,
+  SESION
 } from '../constantes/ActionTypes';
 
 import { Navegador } from '../navegador/Navegador';
