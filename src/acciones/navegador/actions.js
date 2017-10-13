@@ -1,6 +1,7 @@
 import {
   INICIO,
-  CUENTA
+  CUENTA,
+  SESION
 } from '../../constantes/ActionTypes';
 
 export const pantallaCuenta = () =>
@@ -12,5 +13,17 @@ export const pantallaCuenta = () =>
 export const lanzarMiCuenta = () => {
   return dispatch => {
     dispatch(pantallaCuenta());
+  };
+};
+
+export const pantallaSesion = () =>
+  ({ type: SESION });
+
+/**
+ * accion para cambiar a pantalla de mi cuenta
+*/
+export const lanzarASesion = () => {
+  return dispatch => {
+    dispatch(pantallaSesion());
   };
 };
