@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
+import Perfil from '../componentes/Perfil';
+
 class MiCuenta extends Component {
 
   static navigationOptions = {
@@ -10,7 +12,7 @@ class MiCuenta extends Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Mi cuenta</Text>
+        <Perfil/>
       </View>
     );
   }

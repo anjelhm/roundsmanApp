@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View} from 'react-native';
 
-import Rsgistro from '../componentes/Registro';
+import Registro from '../componentes/Registro';
 
 class NuevoRegistro extends Component {
 
