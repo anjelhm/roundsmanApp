@@ -4,6 +4,7 @@ import Boton from '../comunes/Boton'
 
 class Sesion extends Component {
   render() {
+    const {ingresar, registrar}=this.props;
     return(
         <View style = {{
           justifyContent:'center',
@@ -16,7 +17,7 @@ class Sesion extends Component {
             elevation: 4 }}>
           </View>
           <Boton etiqueta = 'Ingresar' />
-          <Boton etiqueta = 'Registrar' />
+          <Boton etiqueta = 'Registrar' accion = {registrar} />
       </View>
      );
   }

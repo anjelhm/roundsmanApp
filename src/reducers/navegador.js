@@ -4,7 +4,8 @@ import { NavigationActions } from 'react-navigation';
 import {
   INICIO,
   CUENTA,
-  INICIASESION
+  INICIASESION,
+  REGISTRO
 } from '../constantes/ActionTypes';
 
 import { Navegador } from '../navegador/Navegador';
@@ -37,6 +38,12 @@ const nav = (state = rutaInicial, action) => {
     case INICIASESION :
       nextState = Navegador.router.getStateForAction(
         NavigationActions.navigate({ routeName: 'IniciaSesion' }),
+        state
+      );
+      break;
+    case REGISTRO :
+      nextState = Navegador.router.getStateForAction(
+        NavigationActions.navigate({ routeName: 'Registro' }),
         state
       );
       break;

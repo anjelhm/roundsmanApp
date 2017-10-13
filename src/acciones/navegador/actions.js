@@ -35,7 +35,7 @@ export const lanzarASesion = () => {
 /**
  * accion para cambiar a pantalla de Registro
 */
-export const lanzarASesion = () => {
+export const lanzarRegistro = () => {
   return dispatch => {
     dispatch(pantallaRegistro());
   };

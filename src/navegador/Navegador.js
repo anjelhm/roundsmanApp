@@ -5,13 +5,15 @@ import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 import Inicio from '../componentes/Inicio';
 import MiCuenta from '../contenedores/MiCuenta';
 import IniciaSesion from '../contenedores/IniciaSesion';
-import Sesion from '../componentes/Sesion';
+import MiSesion from '../contenedores/MiSesion';
+import NuevoRegistro from '../contenedores/NuevoRegistro';
 
 const rutas = {
   Inicio: { screen: Inicio },
   MiCuenta: { screen: MiCuenta },
   IniciaSesion: { screen: IniciaSesion },
-  Sesion: { screen: Sesion }
+  Sesion: { screen: MiSesion },
+  Registro: { screen: NuevoRegistro }
 };
 
 export const Navegador = StackNavigator(rutas);
