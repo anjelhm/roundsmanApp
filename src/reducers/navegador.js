@@ -27,6 +27,12 @@ const nav = (state = rutaInicial, action) => {
         state
       );
       break;
+      case SESION :
+        nextState = Navegador.router.getStateForAction(
+          NavigationActions.navigate({ routeName: 'Sesion' }),
+          state
+        );
+        break;
     default:
       nextState = Navegador.router.getStateForAction(action, state);
   }

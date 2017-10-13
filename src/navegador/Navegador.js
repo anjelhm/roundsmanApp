@@ -4,6 +4,7 @@ import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 
 import Inicio from '../componentes/Inicio';
 import MiCuenta from '../contenedores/MiCuenta';
+import Sesion from '../componentes/Sesion';
 
 const rutas = {
   Inicio: { screen: Inicio },

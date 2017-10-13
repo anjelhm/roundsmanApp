@@ -5,18 +5,18 @@ import Boton from '../comunes/Boton'
 class Sesion extends Component {
   render() {
     return(
-        <View style={{
+        <View style = {{
           justifyContent:'center',
           alignItems:'center'}}
         >
-          <View style={{ height:200,
+          <View style = {{ height:200,
             width: 200,
             borderRadius:100,
             justifyContent: 'center',
             elevation: 4 }}>
           </View>
-          <Boton etiqueta = {'Ingresar'} />
-          <Boton etiqueta = {'Registrar'} />
+          <Boton etiqueta = 'Ingresar' />
+          <Boton etiqueta = 'Registrar' />
       </View>
      );
   }
