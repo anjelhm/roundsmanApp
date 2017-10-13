@@ -12,8 +12,8 @@ class Perfil extends Component {
       <View style = {{ backgroundColor: '#FFFFFF' }}>
         <Barra_nav/>
         <Image
-          style = { width = 50, height = 50 }
-          source = { uri: imagen }
+          style = {{ width : 50, height : 50 }}
+          source = {{ uri: imagen }}
         />
         <View style = { estilo.vista }>
           <Text style = { estilo.texto1 }>
@@ -33,7 +33,7 @@ class Perfil extends Component {
         </View>
         <View style = { estilo.vista }>
           <Text style = { estilo.texto1 }>
-            Sexo: { sexo }
+            Sexo:
           </Text>
           <Text style = { estilo.texto2}>
             { sexo }
@@ -41,7 +41,7 @@ class Perfil extends Component {
         </View>
         <View style = { estilo.vista }>
           <Text style = { estilo.texto1 }>
-            Correo: { correo }
+            Correo:
           </Text>
           <Text style = { estilo.texto2 }>
             { correo }
@@ -60,7 +60,7 @@ const estilo = StyleSheet.create({
   texto2:{
     color: '#90A4AE',
     fontSize: 18
-  }
+  },
   vista:{
     justifyContent: 'space-between'
   }
@@ -68,7 +68,7 @@ const estilo = StyleSheet.create({
 
 Barra_nav.defaultProps = {
   imagen : 'https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg',
-  nombre : 'nombre'
+  nombre : 'nombre',
   fecha : 'fecha',
   sexo : 'sexo',
   correo : 'correo'
