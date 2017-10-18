@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import {View, ListView} from 'react-native';
+import { View, ListView } from 'react-native';
+
 import Item from './Item';
 
 class ListaActual extends Component {
-constructor(){
+
+constructor() {
   super();
 
-const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1!==r2});
-this.state={
-  dataSource: ds.cloneWithRows(data)
-};}
+  const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1!==r2});
+
+  this.state = {
+    dataSource: ds.cloneWithRows(data)
+  };
+
+}
+
   render() {
     return (
       <View style={{flex:1,backgroundColor: '#F5F5F5'}}>
@@ -20,7 +26,7 @@ this.state={
       </View>
     );
   }
-  }
+}
 
     const data = [
       {

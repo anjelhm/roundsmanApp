@@ -22,7 +22,7 @@ class Drawer extends Component {
     super();
 
     this.state = {
-      landscape: false
+      horizontal: false
     };
 
   }
@@ -31,10 +31,18 @@ class Drawer extends Component {
     this.drawer.openDrawer();
   }
 
+  /**
+  * función que obtiene el evento layout del View y lo pasa a la función cambiarPosicion
+  * @param { obj } event
+  */
   onLayout = event => this.cambiarPosicion(event.nativeEvent.layout);
 
+  /**
+  * función que compara las medidas en pixeles de la pantalla y modifica el state horizontal si el dispositivo fue girado
+  * @param { obj } evento
+  */
   cambiarPosicion(evento) {
-    (evento.width > evento.height) ? this.setState({ landscape: true }) : this.setState({ landscape: false });
+    (evento.width > evento.height) ? this.setState({ horizontal: true }) : this.setState({ horizontal: false });
   }
 
   render() {
@@ -44,9 +52,9 @@ class Drawer extends Component {
     var menu = (
       <View style={{ flex: 1, backgroundColor: '#E0E0E0' }}>
         <View style={{ backgroundColor: '#90A4AE', flex: 1, elevation: 4, justifyContent: 'center', alignItems: 'center' }}>
-          <View style={{ backgroundColor: '#FFC107', height: this.state.landscape ? 80 : 140, width: this.state.landscape ? 80 : 140, borderRadius: 100, elevation: 2 }}></View>
+          <View style={{ backgroundColor: '#FFC107', height: this.state.horizontal ? 80 : 140, width: this.state.horizontal ? 80 : 140, borderRadius: 100, elevation: 2 }}></View>
         </View>
-        <View style={{ flex: this.state.landscape ? 3 : 2, paddingTop: 20, justifyContent: 'space-between'   }}>
+        <View style={{ flex: this.state.horizontal ? 3 : 2, paddingTop: 20, justifyContent: 'space-between'   }}>
           <MenuLateral/>
           <View style={{ borderTopColor: '#78909C', borderTopWidth: 0.5, height: 62, justifyContent: 'center', paddingLeft: 10 }}>
             <Text style={{ fontSize: 18, color: '#90A4AE' }}>{ "Desarrollado por F4Lab" }</Text>

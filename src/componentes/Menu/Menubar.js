@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
+
 class Menubar extends Component {
 
-renderTabs (){
-  const { children, activo }= this.props;
-  return React.Children.map(children,(child,index)=>{
-    return React.cloneElement(child,{
-      active: activo===index
+renderTabs () {
+  const { children, activo } = this.props;
+  return React.Children.map(children, (child,index) => {
+    return React.cloneElement(child, {
+      active: activo === index
     })
   })
 }
@@ -15,11 +16,13 @@ renderTabs (){
 
     return (
     <View style={ estilo.contenido }>
-    {this.renderTabs()}
+      { this.renderTabs() }
     </View>
-    );}
+    );
+  }
 }
-const estilo= StyleSheet.create({
+
+const estilo = StyleSheet.create({
   contenido:{
     height: 50,
     flexDirection: 'row',
@@ -28,4 +31,5 @@ const estilo= StyleSheet.create({
     justifyContent: 'space-around'
   }
 });
+
 export default Menubar;

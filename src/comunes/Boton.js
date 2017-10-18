@@ -6,20 +6,24 @@ import {
 } from 'react-native';
 
 class Boton extends Component {
+
   render() {
+
     const { etiqueta, accion, color, fondo, height, width } = this.props;
+
     return(
         <TouchableOpacity
           onPress = { accion }
           style = {{
-          backgroundColor: fondo,
-          height: height,
-          width: width,
-          justifyContent: 'center',
-          alignItems: 'center',
-          elevation: 4,
-          marginTop: 10,
-          marginBottom: 10 }}
+            backgroundColor: fondo,
+            height: height,
+            width: width,
+            justifyContent: 'center',
+            alignItems: 'center',
+            elevation: 4,
+            marginTop: 10,
+            marginBottom: 10
+          }}
         >
           <Text style = {{ color: color, fontSize: 18 }}>
             { etiqueta }

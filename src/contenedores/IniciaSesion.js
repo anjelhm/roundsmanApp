@@ -15,20 +15,27 @@ class ContenedorIniciaSesion extends Component {
     header: null
   };
 
+  /**
+  * función que ejecuta la acción para iniciar sesión
+  * @param { string } correo
+  * @param { string } clave
+  */
   sesion(correo, clave) {
     this.props.iniciaAutentificacion(correo, clave);
   }
 
+  /**
+  * función que ejecuta la acción para reestablecer la clave
+  * @param { string } correo
+  */
   restableceClave(correo) {
     this.props.enviaCorreoClave(correo);
   }
 
   render() {
 
-    console.log(this.props.autentificacion);
-
     return (
-      <View style={{ flex: 1 }}>
+      <View style = {{ flex: 1 }}>
         <NuevaSesion
           enviaDatos = { this.sesion.bind(this) }
           autentificacion = { this.props.autentificacion }

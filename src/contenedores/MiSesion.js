@@ -1,27 +1,30 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { View } from 'react-native';
+import { connect } from 'react-redux';
 
 import { lanzarRegistro, lanzarIniciaSesion } from '../acciones/navegador/actions';
 
 import Sesion from '../componentes/Sesion';
 
-
-
 class ContenedorMiSesion extends Component{
-
 
     static navigationOptions = {
       header: null
     };
 
-  irARegistro() {
-    this.props.lanzarRegistro();
-  }
+    /**
+    * función que ejecuta la acción para cambiar a la pantalla de Registro
+    */
+    irARegistro() {
+      this.props.lanzarRegistro();
+    }
 
-  irAIniciar() {
-    this.props.lanzarIniciaSesion();
-  }
+    /**
+    * función que ejecuta la acción para cambiar a la pantalla de IniciarSesion
+    */
+    irAIniciar() {
+      this.props.lanzarIniciaSesion();
+    }
 
   render(){
     return(

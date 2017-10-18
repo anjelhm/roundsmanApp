@@ -5,7 +5,6 @@ import {
   AUTENTIFICACION_CORRECTA,
   AUTENTIFICACION_ERROR,
   INICIO,
-  INICIASESION,
   SESION
 } from '../../constantes/ActionTypes';
 
@@ -18,14 +17,12 @@ export const autentificacionError = error =>
 
 export const pantallaInicio = () =>
   ({ type: INICIO });
-export const pantallaIniciaSesion = () =>
-  ({ type: INICIASESION });
 export const pantallaSesion = () =>
   ({ type: SESION });
 
 /**
  * función para agregar el acceso al historial
- * @param correo (string)
+ * @param { string } correo
 */
 const registraAcceso = correo => {
   firebaseRef.child('historial').push({
@@ -36,9 +33,9 @@ const registraAcceso = correo => {
 };
 
 /**
- * Acción para inicar autentificación por correo y contraseña
- * @param correo (string)
- * @param clave (string)
+ * Acción para iniciar autentificación por correo y contraseña
+ * @param { string } correo
+ * @param { string } clave
 */
 export const iniciaAutentificacion = (correo, clave) => {
   return dispatch => {
@@ -56,13 +53,13 @@ export const iniciaAutentificacion = (correo, clave) => {
 
 /**
   * acción para enviar correo de restablecimiento de contraseña
-  * @param correo
+  * @param { string } correo
 */
 export const enviaCorreoClave = correo => dispatch =>
   firebaseAuth.sendPasswordResetEmail(correo);
 
 /**
- * accion para desautentificar al usuario y cerrar su sesion.
+ * acción para cerrar la sesión del usuario.
  */
 export const desautentificar = () => {
   return dispatch => {

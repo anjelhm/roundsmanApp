@@ -16,11 +16,11 @@ class Input extends Component {
     this.setState({ value: text }, this.props.onChange(text));
   }
 
-  render(){
+  render() {
     const { etiqueta, onFocus, color, width, fontSize, placeholder, editable, underlineColorAndroid, value, password, tipo } = this.props;
 
     return(
-      <View style = {{ width: width, margin: 5, backgroundColor:'white', justifyContent: 'center'}} >
+      <View style = {{ width: width, margin: 5, backgroundColor: 'white', justifyContent: 'center'}} >
         <Text style = {{ color:color, width: '100%', fontSize: 15, justifyContent: 'center', alignItems: 'center' }}>
           { etiqueta }
         </Text>
@@ -30,16 +30,15 @@ class Input extends Component {
           editable = { editable }
           underlineColorAndroid = { underlineColorAndroid }
           onChangeText = { this.onChange.bind(this) }
-          secureTextEntry={ password }
-          value={ value }
-          autoFocus={false}
-          keyboardType={tipo}
-          onFocus={ onFocus }
+          secureTextEntry = { password }
+          value = { value }
+          autoFocus = { false }
+          keyboardType = { tipo }
+          onFocus = { onFocus }
         />
       </View>
     );
   }
-
 }
 
 Input.defaultProps = {

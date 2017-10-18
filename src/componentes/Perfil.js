@@ -4,6 +4,7 @@ import { View, Image, Text, StyleSheet } from 'react-native';
 import Barra_nav from '../comunes/Barra_nav';
 
 class Perfil extends Component {
+
   render() {
 
     const { imagen, nombre, fecha, sexo, correo } = this.props;

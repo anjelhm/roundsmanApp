@@ -9,18 +9,18 @@ class Sesion extends Component {
     const { ingresar, registrar, iniciar } = this.props;
 
     return(
-        <View style = {{ flex: 1, justifyContent:'center', alignItems:'center'}}>
-          <View style = {{ height:200,
+        <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <View style = {{ height: 200,
             width: 200,
-            borderRadius:100,
+            borderRadius: 100,
             justifyContent: 'center',
             elevation: 4 }}>
           </View >
-          <View style= {{ marginTop: 20 }}>
+          <View style = {{ marginTop: 20 }}>
             <Boton etiqueta = 'Ingresar' accion = { iniciar } />
             <Boton etiqueta = 'Registrar'
-             color= {'#000000'}
-             fondo = {'#FFFFFF'}
+             color= { '#000000' }
+             fondo = { '#FFFFFF' }
              accion = { registrar }
              />
           </View>

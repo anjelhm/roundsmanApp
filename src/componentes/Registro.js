@@ -4,9 +4,8 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  Picker,
+  Picker
 } from 'react-native';
-
 import DatePicker from 'react-native-datepicker';
 
 import Input from '../comunes/Input';
@@ -24,14 +23,18 @@ class Registro extends Component {
           selected3: 'key1',
           color: 'red',
           mode: Picker.MODE_DIALOG,
-    };}
+    };
+
+  }
 
 
   render() {
-        const highestTimeoutId = setTimeout(() => ';');
-                for (let i = 0; i < highestTimeoutId; i++) {
-                clearTimeout(i);
-        }
+
+    const highestTimeoutId = setTimeout(() => ';');
+            for (let i = 0; i < highestTimeoutId; i++) {
+            clearTimeout(i);
+    }
+
     return (
       <View >
         <Input
@@ -43,10 +46,10 @@ class Registro extends Component {
           placeholder = "Ingresa tu sexo"
         />
         <Picker
-            style={styles.picker}
-            selectedValue={this.state.selected1}>
-            <Picker.Item label="Mujer" value="key0" />
-            <Picker.Item label="Hombre" value="key1" />
+            style = { styles.picker }
+            selectedValue = { this.state.selected1 }>
+            <Picker.Item label = "Mujer" value = "key0" />
+            <Picker.Item label = "Hombre" value = "key1" />
           </Picker>
               <Input
                 etiqueta = "Correo Electrónico"
@@ -55,15 +58,15 @@ class Registro extends Component {
               />
 
               <DatePicker
-                    style={{width: 200}}
-                    date={this.state.date}
-                    mode="date"
-                    format="YYYY-MM-DD"
-                    minDate="1980-05-01"
-                    maxDate="2500-06-01"
-                    confirmBtnText="Confirm"
-                    cancelBtnText="Cancel"
-                    customStyles={{
+                    style = {{ width: 200 }}
+                    date = { this.state.date }
+                    mode = "date"
+                    format = "YYYY-MM-DD"
+                    minDate = "1980-05-01"
+                    maxDate = "2500-06-01"
+                    confirmBtnText = "Confirm"
+                    cancelBtnText = "Cancel"
+                    customStyles = {{
                       dateIcon: {
                         position: 'absolute',
                         left: 0,
@@ -74,8 +77,8 @@ class Registro extends Component {
                         marginLeft: 36
                       }
                       }}
-                    minuteInterval={10}
-                    onDateChange={(date) => {this.setState({date: date});}}
+                    minuteInterval = { 10 }
+                    onDateChange = { (date) => { this.setState({ date: date }); } }
         />
         <View style={{ marginTop: 10 }}>
             <Boton

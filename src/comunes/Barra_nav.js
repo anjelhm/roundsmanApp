@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { DrawerLayoutAndroid, StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-class Barra_nav extends Component{
+class Barra_nav extends Component {
+
   render() {
+
     const { onPress, retroceder, lenght, titulo, fondo, etiqueta, width, fontSize, texto } = this.props;
 
     return(
       <DrawerLayoutAndroid
-      drawerWidth = { 300 }
-      drawerPosition = { DrawerLayoutAndroid.positions.Left }
-      renderNavigationView = { retroceder }>
+        drawerWidth = { 300 }
+        drawerPosition = { DrawerLayoutAndroid.positions.Left }
+        renderNavigationView = { retroceder }>
       <View style = {{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', backgroundColor: '#000000' }}>
         <TouchableOpacity style = {{ elevation:4 }}>
           <Icon
@@ -19,9 +21,9 @@ class Barra_nav extends Component{
             color = "#FFFFFF"
           />
         </TouchableOpacity>
-        <Text style = {{ color:'#FFFFFF', margin: 10, fontSize: 30, textAlign: 'center' }}>{ titulo }</Text>
+        <Text style = {{ color: '#FFFFFF', margin: 10, fontSize: 30, textAlign: 'center' }}>{ titulo }</Text>
         <View style = {{ height: 30, width: 40 , justifyContent: 'center', alignItems: 'center'}}>
-          <TouchableOpacity style = {{ justifyContent: 'center', backgroundColor:'#FFFFFF', borderRadius: 5, margin: 4, elevation: 4 }} onPress = { onPress }>
+          <TouchableOpacity style = {{ justifyContent: 'center', backgroundColor: '#FFFFFF', borderRadius: 5, margin: 4, elevation: 4 }} onPress = { onPress }>
             <Text style = {{ fontSize: 20 }}>
               OK
             </Text>
