@@ -5,7 +5,8 @@ import {
   AUTENTIFICACION_CORRECTA,
   AUTENTIFICACION_ERROR,
   INICIO,
-  INICIASESION
+  INICIASESION,
+  SESION
 } from '../../constantes/ActionTypes';
 
 export const autentificacionIniciar = () =>
@@ -18,7 +19,9 @@ export const autentificacionError = error =>
 export const pantallaInicio = () =>
   ({ type: INICIO });
 export const pantallaIniciaSesion = () =>
-    ({ type: INICIASESION });
+  ({ type: INICIASESION });
+export const pantallaSesion = () =>
+  ({ type: SESION });
 
 /**
  * función para agregar el acceso al historial
@@ -64,6 +67,6 @@ export const enviaCorreoClave = correo => dispatch =>
 export const desautentificar = () => {
   return dispatch => {
     firebaseAuth.signOut();
-    dispatch(pantallaIniciaSesion());
+    dispatch(pantallaSesion());
   };
 };

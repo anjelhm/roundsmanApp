@@ -1,27 +1,29 @@
 import React, {Component} from 'react';
 import { View } from 'react-native';
+
 import Boton from '../comunes/Boton'
 
 class Sesion extends Component {
   render() {
-    const {ingresar, registrar}=this.props;
+
+    const { ingresar, registrar, iniciar } = this.props;
+
     return(
-        <View style = {{
-          justifyContent:'center',
-          alignItems:'center'}}
-        >
+        <View style = {{ flex: 1, justifyContent:'center', alignItems:'center'}}>
           <View style = {{ height:200,
             width: 200,
             borderRadius:100,
             justifyContent: 'center',
             elevation: 4 }}>
           </View >
-          <View style = {{ height: 15}} ></View >
-          <Boton etiqueta = 'Ingresar' />
-          <View style = {{ height: 5}} ></View >
-          <Boton etiqueta = 'Registrar'
-           color= {'#000000'}
-           fondo = {'#FFFFFF'}/>
+          <View style= {{ marginTop: 20 }}>
+            <Boton etiqueta = 'Ingresar' accion = { iniciar } />
+            <Boton etiqueta = 'Registrar'
+             color= {'#000000'}
+             fondo = {'#FFFFFF'}
+             accion = { registrar }
+             />
+          </View>
       </View>
      );
   }

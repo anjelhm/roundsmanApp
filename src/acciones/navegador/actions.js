@@ -2,17 +2,30 @@ import {
   INICIO,
   CUENTA,
   SESION,
-  REGISTRO
+  REGISTRO,
+  INICIASESION
 } from '../../constantes/ActionTypes';
 
 export const pantallaCuenta = () =>
   ({ type: CUENTA });
 
 export const pantallaSesion = () =>
-    ({ type: SESION });
+  ({ type: SESION });
 
 export const pantallaRegistro = () =>
-      ({ type: REGISTRO });
+  ({ type: REGISTRO });
+
+export const pantallaIniciaSesion = () =>
+  ({ type: INICIASESION });
+
+/**
+ * accion para cambiar a pantalla de IniciaSesion
+*/
+export const lanzarIniciaSesion = () => {
+  return dispatch => {
+    dispatch(pantallaIniciaSesion());
+  };
+};
 
 /**
  * accion para cambiar a pantalla de mi cuenta

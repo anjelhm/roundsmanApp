@@ -17,7 +17,9 @@ class Boton extends Component {
           width: width,
           justifyContent: 'center',
           alignItems: 'center',
-          elevation: 4 }}
+          elevation: 4,
+          marginTop: 10,
+          marginBottom: 10 }}
         >
           <Text style = {{ color: color, fontSize: 18 }}>
             { etiqueta }
@@ -33,7 +35,7 @@ Boton.defaultProps = {
   accion: ()=>{},
   color: '#FFFFFF',
   height: 50,
-  width: 140
+  width: 280
 };
 
 export default Boton;
