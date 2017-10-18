@@ -44,7 +44,7 @@ class Registro extends Component {
         />
         <Picker
             style={styles.picker}
-            selectedValue={this.state.selected1}
+            selectedValue={this.state.selected1}>
             <Picker.Item label="Mujer" value="key0" />
             <Picker.Item label="Hombre" value="key1" />
           </Picker>
