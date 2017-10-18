@@ -3,7 +3,8 @@ import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet
+  StyleSheet,
+  Picker,
 } from 'react-native';
 
 import DatePicker from 'react-native-datepicker';
@@ -17,72 +18,79 @@ class Registro extends Component {
     super();
 
     this.state = {
-      date_in: '2016-05-01',
-      date_out: '2016-05-01',
-    };
+          date: '',
+          selected1: 'key1',
+          selected2: 'key1',
+          selected3: 'key1',
+          color: 'red',
+          mode: Picker.MODE_DIALOG,
+    };}
 
-  }
-
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  }
-
-  onChange(tipo, value) {
-  }
 
   render() {
+        const highestTimeoutId = setTimeout(() => ';');
+                for (let i = 0; i < highestTimeoutId; i++) {
+                clearTimeout(i);
+        }
     return (
-      <View style={ estilo.contenedor }>
+      <View >
         <Input
           etiqueta = "Nombre"
           placeholder = "Ingresa aquí tu nombre"
-          onChange = {}
-          value = {}
-          onFocus = {  }
         />
         <Input
-          etiqueta = "Fecha de nacimiento"
-          placeholder = "Ingresa aquí tu fecha de nacimiento"
-          onChange = {}
-          value = {}
-          onFocus = {  }
+          etiqueta = "Sexo"
+          placeholder = "Ingresa tu sexo"
         />
+        <Picker
+            style={styles.picker}
+            selectedValue={this.state.selected1}
+            <Picker.Item label="Mujer" value="key0" />
+            <Picker.Item label="Hombre" value="key1" />
+          </Picker>
+              <Input
+                etiqueta = "Correo Electrónico"
+                placeholder = "Ingresa aquí tu correo"
+                tipo = "email-address"
+              />
 
-        <DatePicker
-              style ={{padding:10}}
-              date={this.state.date_in}
-              mode="date"
-              format="YYYY-MM-DD"
-              minDate="2016-05-01"
-              maxDate="2016-06-01"
-              showIcon={false}
-              customStyles={{
-                    dateInput: {
-                    alignItems : 'flex-start',
-                    padding:5
-                },
-               }}
-    onDateChange={(date_in) => {this.setState({date_in: date_in});}}/>
-
-        <View>
+              <DatePicker
+                    style={{width: 200}}
+                    date={this.state.date}
+                    mode="date"
+                    format="YYYY-MM-DD"
+                    minDate="1980-05-01"
+                    maxDate="2500-06-01"
+                    confirmBtnText="Confirm"
+                    cancelBtnText="Cancel"
+                    customStyles={{
+                      dateIcon: {
+                        position: 'absolute',
+                        left: 0,
+                        top: 4,
+                        marginLeft: 0
+                      },
+                      dateInput: {
+                        marginLeft: 36
+                      }
+                      }}
+                    minuteInterval={10}
+                    onDateChange={(date) => {this.setState({date: date});}}
+        />
+        <View style={{ marginTop: 10 }}>
             <Boton
                etiqueta = "Aceptar"
                width = { 280 }
-               accion = { }
              />
         </View>
       </View>
     );
   }
 }
-
-const estilo = StyleSheet.create({
-  contenedor: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF'
-  }
+const styles = StyleSheet.create({
+  picker: {
+    width: 300,
+  },
 });
 
 export default Registro;
