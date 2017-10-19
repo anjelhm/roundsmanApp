@@ -35,12 +35,12 @@ class NuevaSesion extends Component {
 
   /**
   * función que obtiene el valor de la tecla presionada y la asigna al value del input correspondiente
-  * @param { string } tipo
+  * @param { string } NombreInput
   * @param { string } value
   */
-  onChange(tipo, value) {
+  onChange(NombreInput, value) {
     this.setState({
-      [tipo]: value
+      [NombreInput]: value
     });
   }
 
@@ -81,7 +81,6 @@ class NuevaSesion extends Component {
           onChange = { this.onChange.bind(this, 'correo') }
           value = { this.state.correo }
           tipo = "email-address"
-          onFocus = { this.onFocus.bind(this) }
         />
         <Input
           etiqueta = "Contraseña"

@@ -29,7 +29,7 @@ class ContenedorMiSesion extends Component{
   render(){
     return(
       <View style = {{ flex: 1 }}>
-      <Sesion registrar = { this.irARegistro.bind( this ) } iniciar = { this.irAIniciar.bind(this) }/>
+        <Sesion registrar = { this.irARegistro.bind( this ) } iniciar = { this.irAIniciar.bind(this) }/>
       </View>
     );
   }

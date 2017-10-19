@@ -7,7 +7,7 @@ class Interruptor extends Component {
     super();
 
     this.state = {
-      encendido : false
+      encendido: false
     };
 
   }
@@ -15,7 +15,7 @@ class Interruptor extends Component {
   /**
   * función que activa/desactiva el switch
   */
-  cambia(){
+  cambia() {
     this.setState({
       encendido: !this.state.encendido
     });
@@ -56,4 +56,5 @@ Interruptor.defaultProps = {
   fondoa: '#CFD8DC',
   fondoe: '#212121'
 }
+
 export default Interruptor;

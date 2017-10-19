@@ -50,22 +50,22 @@ class Drawer extends Component {
     const { children } = this.props;
 
     var menu = (
-      <View style={{ flex: 1, backgroundColor: '#E0E0E0' }}>
-        <View style={{ backgroundColor: '#90A4AE', flex: 1, elevation: 4, justifyContent: 'center', alignItems: 'center' }}>
-          <View style={{ backgroundColor: '#FFC107', height: this.state.horizontal ? 80 : 140, width: this.state.horizontal ? 80 : 140, borderRadius: 100, elevation: 2 }}></View>
+      <View style = {{ flex: 1, backgroundColor: '#E0E0E0' }}>
+        <View style = {{ backgroundColor: '#90A4AE', flex: 1, elevation: 4, justifyContent: 'center', alignItems: 'center' }}>
+          <View style = {{ backgroundColor: '#FFC107', height: this.state.horizontal ? 80 : 140, width: this.state.horizontal ? 80 : 140, borderRadius: 100, elevation: 2 }}></View>
         </View>
-        <View style={{ flex: this.state.horizontal ? 3 : 2, paddingTop: 20, justifyContent: 'space-between'   }}>
+        <View style = {{ flex: this.state.horizontal ? 3 : 2, paddingTop: 20, justifyContent: 'space-between'   }}>
           <MenuLateral/>
-          <View style={{ borderTopColor: '#78909C', borderTopWidth: 0.5, height: 62, justifyContent: 'center', paddingLeft: 10 }}>
-            <Text style={{ fontSize: 18, color: '#90A4AE' }}>{ "Desarrollado por F4Lab" }</Text>
-            <Text style={{ fontSize: 14, color: '#B0BEC5' }}>{ "Versión: 1.x.xx" }</Text>
+          <View style = {{ borderTopColor: '#78909C', borderTopWidth: 0.5, height: 62, justifyContent: 'center', paddingLeft: 10 }}>
+            <Text style = {{ fontSize: 18, color: '#90A4AE' }}>{ "Desarrollado por F4Lab" }</Text>
+            <Text style = {{ fontSize: 14, color: '#B0BEC5' }}>{ "Versión: 1.x.xx" }</Text>
           </View>
         </View>
       </View>
     );
 
     return (
-      <View style={{ flex: 1 }} onLayout={ this.onLayout }>
+      <View style = {{ flex: 1 }} onLayout = { this.onLayout }>
         <StatusBar hidden/>
 
         <DrawerLayoutAndroid
@@ -74,8 +74,8 @@ class Drawer extends Component {
           drawerPosition = { DrawerLayoutAndroid.positions.left }
           renderNavigationView = { () => menu }
         >
-          <View style={ estilo.barra }>
-            <TouchableOpacity onPress = { this.openDrawer.bind(this) } style={ estilo.icono }>
+          <View style = { estilo.barra }>
+            <TouchableOpacity onPress = { this.openDrawer.bind(this) } style = { estilo.icono }>
               <Icon name = "menu" size = { 28 } color = "#FFFFFF"/>
             </TouchableOpacity>
             <Text style = { estilo.titulo }>Bienvenido</Text>

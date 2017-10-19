@@ -10,10 +10,10 @@ class Perfil extends Component {
     const { imagen, nombre, fecha, sexo, correo } = this.props;
 
     return(
-      <View style = {{ backgroundColor: '#FFFFFF' }}>
-        <Barra_nav/>
+      <View style = {{ flex: 1, backgroundColor: '#FFFFFF' }}>
+        <Barra_nav titulo = "Mi cuenta" boton/>
         <Image
-          style = {{ width : 50, height : 50 }}
+          style = {{ width: 50, height: 50 }}
           source = {{ uri: imagen }}
         />
         <View style = { estilo.vista }>
@@ -36,7 +36,7 @@ class Perfil extends Component {
           <Text style = { estilo.texto1 }>
             Sexo:
           </Text>
-          <Text style = { estilo.texto2}>
+          <Text style = { estilo.texto2 }>
             { sexo }
           </Text>
         </View>
@@ -68,10 +68,10 @@ const estilo = StyleSheet.create({
 });
 
 Barra_nav.defaultProps = {
-  imagen : 'https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg',
-  nombre : 'nombre',
-  fecha : 'fecha',
-  sexo : 'sexo',
-  correo : 'correo'
+  imagen: 'https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg',
+  nombre: 'nombre',
+  fecha: 'fecha',
+  sexo: 'sexo',
+  correo: 'correo'
 }
 export default Perfil;

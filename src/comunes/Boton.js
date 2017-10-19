@@ -36,7 +36,7 @@ class Boton extends Component {
 Boton.defaultProps = {
   etiqueta: 'Aceptar',
   fondo: '#000000',
-  accion: ()=>{},
+  accion: () => {},
   color: '#FFFFFF',
   height: 50,
   width: 280

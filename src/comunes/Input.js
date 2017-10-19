@@ -17,7 +17,7 @@ class Input extends Component {
   }
 
   render() {
-    const { etiqueta, onFocus, color, width, fontSize, placeholder, editable, underlineColorAndroid, value, password, tipo } = this.props;
+    const { etiqueta, onFocus, color, width, placeholder, editable, underlineColorAndroid, value, password, tipo } = this.props;
 
     return(
       <View style = {{ width: width, margin: 5, backgroundColor: 'white', justifyContent: 'center'}} >
@@ -45,7 +45,6 @@ Input.defaultProps = {
   etiqueta: 'Aceptar',
   color: '#607D8B',
   width: 280,
-  fontSize: 20,
   placeholder: 'Ingresa valor',
   editable : true,
   maxlenght : 12,

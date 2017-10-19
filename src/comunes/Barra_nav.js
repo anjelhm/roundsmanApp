@@ -1,47 +1,45 @@
 import React, { Component } from 'react';
-import { DrawerLayoutAndroid, StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 class Barra_nav extends Component {
 
   render() {
 
-    const { onPress, retroceder, lenght, titulo, fondo, etiqueta, width, fontSize, texto } = this.props;
+    const { accion, retroceder, titulo, boton } = this.props;
 
-    return(
-      <DrawerLayoutAndroid
-        drawerWidth = { 300 }
-        drawerPosition = { DrawerLayoutAndroid.positions.Left }
-        renderNavigationView = { retroceder }>
-      <View style = {{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', backgroundColor: '#000000' }}>
-        <TouchableOpacity style = {{ elevation:4 }}>
+    return (
+      <View style = {{ height: 50, justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', backgroundColor: '#000000', elevation: 4, marginBottom: 10 }}>
+        <TouchableOpacity onPress = { retroceder }>
           <Icon
             name = "chevron-left"
-            size = { 30 }
+            size = { 40 }
             color = "#FFFFFF"
           />
         </TouchableOpacity>
-        <Text style = {{ color: '#FFFFFF', margin: 10, fontSize: 30, textAlign: 'center' }}>{ titulo }</Text>
-        <View style = {{ height: 30, width: 40 , justifyContent: 'center', alignItems: 'center'}}>
-          <TouchableOpacity style = {{ justifyContent: 'center', backgroundColor: '#FFFFFF', borderRadius: 5, margin: 4, elevation: 4 }} onPress = { onPress }>
-            <Text style = {{ fontSize: 20 }}>
-              OK
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <Text style = {{ color: '#FFFFFF', margin: 10, fontSize: 28 }}>{ titulo }</Text>
+        {
+          boton
+          ? <TouchableOpacity
+              style = {{ height: 36, width: 62, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFFFFF', borderRadius: 5, elevation: 4 }}
+              onPress = { accion }
+            >
+              <Text style = {{ color: '#455A64', fontSize: 20 }}>
+                OK
+              </Text>
+            </TouchableOpacity>
+          : null
+        }
       </View>
-    </DrawerLayoutAndroid>
     );
   }
 }
+
 Barra_nav.defaultProps = {
+  titulo: 'titulo',
+  boton: true,
   retroceder: () => {},
-  onPress: () => {},
-  titulo: 'Titulo',
-  etiqueta: 'Ok',
-  fondo: '#607D8B',
-  lenght: 50,
-  width: '100%',
-  fontSize: 20
+  accion: () => {}
 };
+
 export default Barra_nav;

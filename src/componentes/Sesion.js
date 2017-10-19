@@ -14,12 +14,13 @@ class Sesion extends Component {
             width: 200,
             borderRadius: 100,
             justifyContent: 'center',
-            elevation: 4 }}>
+            elevation: 4 }}
+          >
           </View >
           <View style = {{ marginTop: 20 }}>
             <Boton etiqueta = 'Ingresar' accion = { iniciar } />
             <Boton etiqueta = 'Registrar'
-             color= { '#000000' }
+             color = { '#000000' }
              fondo = { '#FFFFFF' }
              accion = { registrar }
              />

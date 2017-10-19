@@ -36,7 +36,7 @@ class Registro extends Component {
     }
 
     return (
-      <View >
+      <View>
         <Input
           etiqueta = "Nombre"
           placeholder = "Ingresa aquí tu nombre"
@@ -46,45 +46,45 @@ class Registro extends Component {
           placeholder = "Ingresa tu sexo"
         />
         <Picker
-            style = { styles.picker }
-            selectedValue = { this.state.selected1 }>
-            <Picker.Item label = "Mujer" value = "key0" />
-            <Picker.Item label = "Hombre" value = "key1" />
-          </Picker>
-              <Input
-                etiqueta = "Correo Electrónico"
-                placeholder = "Ingresa aquí tu correo"
-                tipo = "email-address"
-              />
-
-              <DatePicker
-                    style = {{ width: 200 }}
-                    date = { this.state.date }
-                    mode = "date"
-                    format = "YYYY-MM-DD"
-                    minDate = "1980-05-01"
-                    maxDate = "2500-06-01"
-                    confirmBtnText = "Confirm"
-                    cancelBtnText = "Cancel"
-                    customStyles = {{
-                      dateIcon: {
-                        position: 'absolute',
-                        left: 0,
-                        top: 4,
-                        marginLeft: 0
-                      },
-                      dateInput: {
-                        marginLeft: 36
-                      }
-                      }}
-                    minuteInterval = { 10 }
-                    onDateChange = { (date) => { this.setState({ date: date }); } }
+          style = { styles.picker }
+          selectedValue = { this.state.selected1 }
+        >
+          <Picker.Item label = "Mujer" value = "key0" />
+          <Picker.Item label = "Hombre" value = "key1" />
+        </Picker>
+        <Input
+          etiqueta = "Correo Electrónico"
+          placeholder = "Ingresa aquí tu correo"
+          tipo = "email-address"
         />
-        <View style={{ marginTop: 10 }}>
-            <Boton
-               etiqueta = "Aceptar"
-               width = { 280 }
-             />
+
+        <DatePicker
+          style = {{ width: 200 }}
+          date = { this.state.date }
+          mode = "date"
+          format = "YYYY-MM-DD"
+          minDate = "1980-05-01"
+          maxDate = "2500-06-01"
+          confirmBtnText = "Confirm"
+          cancelBtnText = "Cancel"
+          customStyles = {{
+            dateIcon: {
+              position: 'absolute',
+              left: 0,
+              top: 4,
+              marginLeft: 0
+            },
+            dateInput: {
+              marginLeft: 36
+            }
+            }}
+          minuteInterval = { 10 }
+          onDateChange = { (date) => { this.setState({ date: date }); } }
+        />
+        <View style = {{ marginTop: 10 }}>
+          <Boton
+             etiqueta = "Aceptar"
+           />
         </View>
       </View>
     );

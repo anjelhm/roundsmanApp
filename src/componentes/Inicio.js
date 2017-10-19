@@ -21,7 +21,7 @@ class Inicio extends Component {
     super();
 
     this.state = {
-      pagina : 0
+      pagina: 0
     };
 
   }
@@ -36,7 +36,7 @@ class Inicio extends Component {
   }
 
   /**
-  * función que obtiene la pagina actual del ViewPagerAndroid y la asigna al state pagina
+  * función que obtiene la pagina actual del ViewPagerAndroid y la añade al state pagina
   * @param { obj } event
   */
   cambiapagina(event){
@@ -55,24 +55,25 @@ class Inicio extends Component {
       <Drawer>
         <View style = {{ flex: 1 }}>
           <ViewPagerAndroid
-              style = {{ height: altura }}
-              ref = { vp => this.ViewPager = vp }
-              onPageSelected = { this.cambiapagina.bind(this) }
-                initialPage = { 0 }>
-                  <View style = {{ paddingTop:50, backgroundColor: "red" }}>
-                    <ListaActual/>
-                  </View>
-                <View style = {{ paddingTop:200, backgroundColor: "blue" }}>
-                  <Text>Second page</Text>
-                </View>
-                <View style = {{ paddingTop:200, backgroundColor: "green" }}>
-                  <Text>Second page</Text>
-                </View>
+            style = {{ height: altura }}
+            ref = { vp => this.ViewPager = vp }
+            onPageSelected = { this.cambiapagina.bind(this) }
+            initialPage = { 0 }
+          >
+            <View style = {{ paddingTop:50, backgroundColor: "red" }}>
+              <ListaActual/>
+            </View>
+            <View style = {{ paddingTop:200, backgroundColor: "blue" }}>
+              <Text>Second page</Text>
+            </View>
+            <View style = {{ paddingTop:200, backgroundColor: "green" }}>
+              <Text>Second page</Text>
+            </View>
           </ViewPagerAndroid>
-          <Menubar activo={ this.state.pagina }>
-              <Boton accion = { () => this.ir(0) } etiqueta = { "Pedido Actual" } icono = { "shopping-basket" } />
-              <Boton accion = { () => this.ir(1) } etiqueta = { "Estado" } icono = { "view-list" } />
-              <Boton accion = { () => this.ir(2) } etiqueta = { "Pedidos" } icono = { "history" } />
+          <Menubar activo = { this.state.pagina }>
+            <Boton accion = { () => this.ir(0) } etiqueta = { "Pedido Actual" } icono = { "shopping-basket" } />
+            <Boton accion = { () => this.ir(1) } etiqueta = { "Estado" } icono = { "view-list" } />
+            <Boton accion = { () => this.ir(2) } etiqueta = { "Pedidos" } icono = { "history" } />
           </Menubar>
         </View>
 

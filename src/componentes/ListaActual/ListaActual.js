@@ -8,7 +8,7 @@ class ListaActual extends Component {
 constructor() {
   super();
 
-  const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1!==r2});
+  const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2});
 
   this.state = {
     dataSource: ds.cloneWithRows(data)
@@ -18,11 +18,11 @@ constructor() {
 
   render() {
     return (
-      <View style={{flex:1,backgroundColor: '#F5F5F5'}}>
-      <ListView
-        dataSource={ this.state.dataSource }
-        renderRow={ (rowData) => <Item cantidad={ rowData.cantidad } nombre={rowData.nombre } descripcion={rowData.descripcion }   />}
-      />
+      <View style = {{ flex: 1, backgroundColor: '#F5F5F5' }}>
+        <ListView
+          dataSource = { this.state.dataSource }
+          renderRow = { (rowData) => <Item cantidad = { rowData.cantidad } nombre = { rowData.nombre } descripcion = { rowData.descripcion }   />}
+        />
       </View>
     );
   }

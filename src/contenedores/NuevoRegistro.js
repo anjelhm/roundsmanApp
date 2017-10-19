@@ -11,7 +11,7 @@ class NuevoRegistro extends Component {
 
   render() {
     return (
-      <View style={ estilo.contenedor }>
+      <View style = { estilo.contenedor }>
         <Registro/>
       </View>
     );
