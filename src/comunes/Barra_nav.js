@@ -9,7 +9,7 @@ class Barra_nav extends Component {
     const { accion, retroceder, titulo, boton } = this.props;
 
     return (
-      <View style = {{ height: 50, justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', backgroundColor: '#000000', elevation: 4, marginBottom: 10 }}>
+      <View style = {{ height: 50, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center', backgroundColor: '#000000', elevation: 4, marginBottom: 10 }}>
         <TouchableOpacity onPress = { retroceder }>
           <Icon
             name = "chevron-left"
@@ -17,7 +17,7 @@ class Barra_nav extends Component {
             color = "#FFFFFF"
           />
         </TouchableOpacity>
-        <Text style = {{ color: '#FFFFFF', margin: 10, fontSize: 28 }}>{ titulo }</Text>
+        <Text style = {{ color: '#FFFFFF', fontSize: 28 }}>{ titulo }</Text>
         {
           boton
           ? <TouchableOpacity

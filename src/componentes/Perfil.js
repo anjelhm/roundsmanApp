@@ -11,7 +11,7 @@ class Perfil extends Component {
 
     return(
       <View style = {{ flex: 1, backgroundColor: '#FFFFFF' }}>
-        <Barra_nav titulo = "Mi cuenta" boton/>
+        <Barra_nav titulo = "Mi cuenta"/>
         <Image
           style = {{ width: 50, height: 50 }}
           source = {{ uri: imagen }}
@@ -67,7 +67,7 @@ const estilo = StyleSheet.create({
   }
 });
 
-Barra_nav.defaultProps = {
+Perfil.defaultProps = {
   imagen: 'https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg',
   nombre: 'nombre',
   fecha: 'fecha',
