@@ -1,6 +1,7 @@
 import React, { Component } from  'react';
 import { Text, View, StyleSheet, Modal } from 'react-native';
 
+//importar la clase Boton
 import Boton from '../../comunes/Boton';
 
 class TarjetaPedido extends Component {
@@ -12,6 +13,10 @@ class TarjetaPedido extends Component {
     };
   }
 
+  /**
+  * función que da el boolean 
+  * @param { bool } visible
+  */
   setModalVisible(visible) {
     this.setState({ modalVisible: visible });
   }
