@@ -30,7 +30,6 @@ class ItemPedido extends Component {
 
       <View style={{ width: 50 }}>
       <Picker
-        style = { styles.picker }
         mode="dropdown"
         selectedValue = {this.state.opcion}
         onValueChange = { this.onChange.bind(this, 'opcion') }>
