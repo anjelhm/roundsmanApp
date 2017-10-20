@@ -14,7 +14,7 @@ class TarjetaPedido extends Component {
   }
 
   /**
-  * función que da el boolean 
+  * función que recibe el boolean del modal
   * @param { bool } visible
   */
   setModalVisible(visible) {
@@ -47,7 +47,7 @@ class TarjetaPedido extends Component {
             etiqueta = "Ver Mapa"
             color = "#000000"
             fondo = "#FFFFFF"
-            onPress = { () => { this.setModalVisible(true) }}
+            accion = { () => { this.setModalVisible(true) }}
           />
         </View>
         <Modal
