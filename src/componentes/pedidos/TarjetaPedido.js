@@ -1,5 +1,5 @@
 import React, { Component } from  'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Modal } from 'react-native';
 
 import Boton from '../../comunes/Boton';
 
@@ -10,7 +10,6 @@ class TarjetaPedido extends Component {
     this.state = {
       modalVisible: false,
     };
-
   }
 
   setModalVisible(visible) {
@@ -43,8 +42,8 @@ class TarjetaPedido extends Component {
             etiqueta = "Ver Mapa"
             color = "#000000"
             fondo = "#FFFFFF"
-            onPress = { () => { this.setModalVisible(true) }
-          }/>
+            onPress = { () => { this.setModalVisible(true) }}
+          />
         </View>
         <Modal
           animationType = "slide"
@@ -57,9 +56,7 @@ class TarjetaPedido extends Component {
               <Boton
                 etiqueta = "Cerrar Mapa"
                 width = { 100 }
-                accion = {() => {
-                  this.setModalVisible(false)
-                }}
+                accion = { () => { this.setModalVisible(false) }}
                 color = "#000000"
                 fondo = "#FFFFFF"
               />
@@ -93,7 +90,7 @@ const estilo = StyleSheet.create({
 
 TarjetaPedido.defaultProps = {
   nombre : 'Nombre ejemplo',
-  ubicacion :'Calle Morelos'
+  ubicacion : 'Calle Morelos'
 };
 
 export default TarjetaPedido;
