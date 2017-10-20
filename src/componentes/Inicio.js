@@ -63,7 +63,6 @@ class Inicio extends Component {
             initialPage = { 0 }
           >
             <View style = {{ paddingTop:50, backgroundColor: "red" }}>
-              <ListaActual/>
               <Pedidos/>
             </View>
             <View style = {{ paddingTop:200, backgroundColor: "blue" }}>
