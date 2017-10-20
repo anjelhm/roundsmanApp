@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 
 import ListaActual from '../componentes/pedidosActuales/ListaActual';
+import ItemPedido from './ItemPedido';
 
 class PedidosActuales from Component {
   render() {
@@ -9,9 +10,11 @@ class PedidosActuales from Component {
       <View>
         <FlatList
           data = {[ {key: 'a'}, {key: 'b'} ]}
-          renderItem={({item}) => <Text>{item.key}</Text>}
+          renderItem={({ItemPedido}) => <Text>{ item.key }</Text>}
         />
       </View>
     );
   }
 }
+
+export default PedidosActuales;
