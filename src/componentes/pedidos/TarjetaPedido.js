@@ -77,10 +77,12 @@ class TarjetaPedido extends Component {
 
 const estilo = StyleSheet.create({
   nombre: {
-    color: '#697D8B'
+    color: '#697D8B',
+    elevation: 4
   },
   ubicacion: {
     color: '#C8D8DC'
+    elevation: 4
   },
   contenedor: {
     flex: 1,
