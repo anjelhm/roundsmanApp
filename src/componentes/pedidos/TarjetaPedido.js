@@ -14,11 +14,7 @@ class TarjetaPedido extends Component {
   }
 
   /**
-<<<<<<< HEAD
-  * función que recibe el boolean del modal
-=======
   * función que da el boolean
->>>>>>> c1f97f7ae6c30a4bce2d364eaa5d829eab13057a
   * @param { bool } visible
   */
   setModalVisible(visible) {
@@ -41,14 +37,16 @@ class TarjetaPedido extends Component {
             </Text>
           </View>
         </View>
-        <View style = {{ flexDirection: 'row', justifyContent: 'space-around' }}>
+        <View style = {{ flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
           <Boton
             etiqueta = "Tomar pedido"
+            width = { 140 }
             color = "#FFFFFF"
             fondo = "#000000"
           />
           <Boton
             etiqueta = "Ver Mapa"
+            width = { 140 }
             color = "#000000"
             fondo = "#FFFFFF"
             accion = { () => { this.setModalVisible(true) }}
@@ -88,12 +86,12 @@ const estilo = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#FFFFFF',
     elevation: 4,
     height: 200,
-    width: '100%',
-    paddingLeft: 20,
-    paddingRight: 20
+    marginBottom: 10,
+    marginLeft: 10,
+    marginRight: 10,
   }
 });
 

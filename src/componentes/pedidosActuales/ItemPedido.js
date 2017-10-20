@@ -13,13 +13,18 @@ class ItemPedido extends Component {
           opcion: ''
     };
   }
+  onChange(NombreInput, value) {
+    this.setState({
+      [NombreInput]: value
+    });
+  }
   render() {
     const { nombre, estado } = this.props;
     return(
-      <View>
-      <View style={{ flexDirection: 'row' }}>
-      <Text>nombre</Text>
-      <Text>estado</Text>
+      <View style={{ marginTop: 5 , backgroundColor: '#FFFFFF', elevation: 4, flexDirection: 'row' }}>
+      <View style={{ flexDirection: 'column' }}>
+      <Text>Nombre:{ nombre }</Text>
+      <Text>Estado:{ estado }</Text>
       </View>
       <View style={{ flex: 1 }}>
       <Picker
@@ -38,7 +43,6 @@ class ItemPedido extends Component {
 }
 const styles = StyleSheet.create({
   picker: {
-    width: 300,
   },
   text: {
      },
