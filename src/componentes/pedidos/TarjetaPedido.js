@@ -14,7 +14,7 @@ class TarjetaPedido extends Component {
   }
 
   /**
-  * función que da el boolean 
+  * función que da el boolean
   * @param { bool } visible
   */
   setModalVisible(visible) {
@@ -75,10 +75,10 @@ class TarjetaPedido extends Component {
 
 const estilo = StyleSheet.create({
   nombre: {
-    color: '#607D8B'
+    color: '#697D8B'
   },
   ubicacion: {
-    color: '#CFD8DC'
+    color: '#C8D8DC'
   },
   contenedor: {
     flex: 1,
