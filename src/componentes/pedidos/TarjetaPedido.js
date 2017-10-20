@@ -1,7 +1,7 @@
 import React, { Component } from  'react';
 import { Text, View, StyleSheet } from 'react-native';
 
-import Boton from '../comunes/Boton';
+import Boton from '../../comunes/Boton';
 
 class TarjetaPedido extends Component {
   constructor() {
@@ -43,7 +43,7 @@ class TarjetaPedido extends Component {
             etiqueta = "Ver Mapa"
             color = "#000000"
             fondo = "#FFFFFF"
-            onPress = { () => { this.setModalVisible(true) }
+            onPress = { () => { this.setModalVisible(true) }}
           />
         </View>
         <Modal
@@ -92,8 +92,8 @@ const estilo = StyleSheet.create({
 });
 
 TarjetaPedido.defaultProps = {
-  nombre = 'Nombre ejemplo',
-  ubicacion = 'Calle Morelos'
+  nombre : 'Nombre ejemplo',
+  ubicacion : 'Calle Morelos'
 };
 
 export default TarjetaPedido;
