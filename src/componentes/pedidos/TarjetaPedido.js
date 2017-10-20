@@ -81,7 +81,7 @@ const estilo = StyleSheet.create({
     elevation: 4
   },
   ubicacion: {
-    color: '#C8D8DC'
+    color: '#C8D8DC',
     elevation: 4
   },
   contenedor: {
