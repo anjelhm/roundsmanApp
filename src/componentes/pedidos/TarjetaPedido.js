@@ -28,11 +28,11 @@ class TarjetaPedido extends Component {
         </View>
         <View>
           <Boton
-            etiqueta = "Tomar pedido",
+            etiqueta = "Tomar pedido"
             color = "#FFFFFF"
           />
           <Boton
-            etiqueta = "Ver Mapa",
+            etiqueta = "Ver Mapa"
             color = "#000000"
           />
         </View>
@@ -58,4 +58,4 @@ TarjetaPedido.defaultProps = {
   ubicacion = 'Calle Morelos'
 };
 
-export default TarjetaPedido<
+export default TarjetaPedido;
