@@ -55,7 +55,7 @@ class Inicio extends Component {
     return (
       <Drawer>
         <View style = {{ flex: 1 }}>
-          <Pedidos/>
+
           <ViewPagerAndroid
             style = {{ height: altura }}
             ref = { vp => this.ViewPager = vp }
@@ -64,6 +64,7 @@ class Inicio extends Component {
           >
             <View style = {{ paddingTop:50, backgroundColor: "red" }}>
               <ListaActual/>
+              <Pedidos/>
             </View>
             <View style = {{ paddingTop:200, backgroundColor: "blue" }}>
               <Text>Second page</Text>
