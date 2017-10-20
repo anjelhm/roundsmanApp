@@ -88,7 +88,7 @@ const estilo = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000000',
+    backgroundColor: 'blue',
     elevation: 4,
     height: 200,
     width: '100%',
