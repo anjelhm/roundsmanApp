@@ -11,6 +11,7 @@ import Boton from './Menu/Boton';
 import Menubar from './Menu/Menubar';
 import ListaActual from './ListaActual/ListaActual';
 import Pedidos from '../contenedores/Pedidos'
+import PedidosActuales from '../contenedores/PedidosActuales';
 
 class Inicio extends Component {
 
@@ -65,8 +66,8 @@ class Inicio extends Component {
             <View style = {{ paddingTop:50}}>
               <Pedidos/>
             </View>
-            <View style = {{ paddingTop:200, backgroundColor: "blue" }}>
-              <Text>Second page</Text>
+            <View style = {{ paddingTop:200 }}>
+              <PedidosActuales/>
             </View>
             <View style = {{ paddingTop:200, backgroundColor: "green" }}>
               <Text>Second page</Text>

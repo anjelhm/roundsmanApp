@@ -14,11 +14,7 @@ class TarjetaPedido extends Component {
   }
 
   /**
-<<<<<<< HEAD
-  * función que recibe el boolean del modal
-=======
   * función que da el boolean
->>>>>>> c1f97f7ae6c30a4bce2d364eaa5d829eab13057a
   * @param { bool } visible
   */
   setModalVisible(visible) {
