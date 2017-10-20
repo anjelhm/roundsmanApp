@@ -10,6 +10,7 @@ import Drawer from './drawer/Drawer';
 import Boton from './Menu/Boton';
 import Menubar from './Menu/Menubar';
 import ListaActual from './ListaActual/ListaActual';
+import Pedidos from '../Contenedores/Pedidos'
 
 class Inicio extends Component {
 
@@ -54,6 +55,7 @@ class Inicio extends Component {
     return (
       <Drawer>
         <View style = {{ flex: 1 }}>
+          <Pedidos/>
           <ViewPagerAndroid
             style = {{ height: altura }}
             ref = { vp => this.ViewPager = vp }
