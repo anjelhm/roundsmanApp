@@ -8,11 +8,13 @@ class NuevoRegistro extends Component {
   static navigationOptions = {
     header: null
   };
-
+  recibeDatos( nombre, apellidom, apellidop, date, sexo, correo,  clave1 ){
+      alert(nombre + apellidom + apellidop + date + sexo + correo + clave1);
+  }
   render() {
     return (
       <View style = { estilo.contenedor }>
-        <Registro/>
+        <Registro enviaDatos={ this.recibeDatos.bind(this) }/>
       </View>
     );
   }
@@ -20,8 +22,6 @@ class NuevoRegistro extends Component {
 const estilo = StyleSheet.create({
   contenedor: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#FFFFFF'
   }
 });
