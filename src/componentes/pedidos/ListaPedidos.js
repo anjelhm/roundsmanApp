@@ -4,7 +4,9 @@ import { View, ListView } from 'react-native';
 import TarjetaPedido from './TarjetaPedido';
 
 class ListaPedidos extends Component {
-
+  /**
+   * Cargar el componente TarjetaPedido y asignacion de propiedades por medio de props
+  */
 constructor() {
   super();
 
