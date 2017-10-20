@@ -73,9 +73,9 @@ class Inicio extends Component {
             </View>
           </ViewPagerAndroid>
           <Menubar activo = { this.state.pagina }>
-            <Boton accion = { () => this.ir(0) } etiqueta = { "Pedido Actual" } icono = { "shopping-basket" } />
-            <Boton accion = { () => this.ir(1) } etiqueta = { "Estado" } icono = { "view-list" } />
-            <Boton accion = { () => this.ir(2) } etiqueta = { "Pedidos" } icono = { "history" } />
+            <Boton accion = { () => this.ir(0) } etiqueta = { "Pedidos" } icono = { "shopping-basket" } />
+            <Boton accion = { () => this.ir(1) } etiqueta = { "Pedidos Aceptados" } icono = { "Local Mall" } />
+            <Boton accion = { () => this.ir(2) } etiqueta = { "Historial" } icono = { "history" } />
           </Menubar>
         </View>
 
