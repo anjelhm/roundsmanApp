@@ -21,7 +21,7 @@ constructor() {
       <View style = {{ flex: 1, backgroundColor: '#FFFFFF' }}>
         <ListView
           dataSource = { this.state.dataSource }
-          renderRow = { (rowData) => <TarjetaPedido cantidad = { rowData.nombre } nombre = { rowData.edad }/>}
+          renderRow = { (rowData) => <TarjetaPedido nombre = { rowData.nombre } ubicacion = { rowData.ubicacion }/>}
         />
       </View>
     );
@@ -29,11 +29,11 @@ constructor() {
 }  const data = [
     {
       nombre:"Oscar",
-      Edad:"20"
+      ubicacion:"tlaxiaco"
     },
     {
       nombre:"Pheter",
-      edad:"30"
+      ubicacion:"tlaxiaco"
     }
   ]
 export default ListaPedidos;
