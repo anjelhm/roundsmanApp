@@ -10,6 +10,8 @@ import Drawer from './drawer/Drawer';
 import Boton from './Menu/Boton';
 import Menubar from './Menu/Menubar';
 import ListaActual from './ListaActual/ListaActual';
+import Pedidos from '../contenedores/Pedidos'
+import PedidosActuales from '../contenedores/PedidosActuales';
 
 class Inicio extends Component {
 
@@ -54,26 +56,27 @@ class Inicio extends Component {
     return (
       <Drawer>
         <View style = {{ flex: 1 }}>
+
           <ViewPagerAndroid
             style = {{ height: altura }}
             ref = { vp => this.ViewPager = vp }
             onPageSelected = { this.cambiapagina.bind(this) }
             initialPage = { 0 }
           >
-            <View style = {{ paddingTop:50, backgroundColor: "red" }}>
-              <ListaActual/>
+            <View style = {{ paddingTop: 50}}>
+              <Pedidos/>
             </View>
-            <View style = {{ paddingTop:200, backgroundColor: "blue" }}>
-              <Text>Second page</Text>
+            <View style = {{ paddingTop: 50 }}>
+              <PedidosActuales/>
             </View>
             <View style = {{ paddingTop:200, backgroundColor: "green" }}>
               <Text>Second page</Text>
             </View>
           </ViewPagerAndroid>
           <Menubar activo = { this.state.pagina }>
-            <Boton accion = { () => this.ir(0) } etiqueta = { "Pedido Actual" } icono = { "shopping-basket" } />
-            <Boton accion = { () => this.ir(1) } etiqueta = { "Estado" } icono = { "view-list" } />
-            <Boton accion = { () => this.ir(2) } etiqueta = { "Pedidos" } icono = { "history" } />
+            <Boton accion = { () => this.ir(0) } etiqueta = { "Pedidos" } icono = { "shopping-basket" } />
+            <Boton accion = { () => this.ir(1) } etiqueta = { "Pedidos Aceptados" } icono = { "local-mall" } />
+            <Boton accion = { () => this.ir(2) } etiqueta = { "Historial" } icono = { "history" } />
           </Menubar>
         </View>
 
