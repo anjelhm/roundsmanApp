@@ -62,11 +62,19 @@ class Inicio extends Component {
             onPageSelected = { this.cambiapagina.bind(this) }
             initialPage = { 0 }
           >
+<<<<<<< HEAD
             <View style = {{ paddingTop:50 }}>
               <Pedidos/>
             </View>
             <View style = {{ paddingTop:200, backgroundColor: "blue" }}>
               <Text>Second page</Text>
+=======
+            <View style = {{ paddingTop: 50}}>
+              <Pedidos/>
+            </View>
+            <View style = {{ paddingTop: 50 }}>
+              <PedidosActuales/>
+>>>>>>> aad6f6280025667d9cb3da138a3b9fedf9541b88
             </View>
             <View style = {{ paddingTop:200, backgroundColor: "green" }}>
               <Text>Second page</Text>
