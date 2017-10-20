@@ -10,7 +10,7 @@ import Drawer from './drawer/Drawer';
 import Boton from './Menu/Boton';
 import Menubar from './Menu/Menubar';
 import ListaActual from './ListaActual/ListaActual';
-import Pedidos from '../Contenedores/Pedidos'
+import Pedidos from '../contenedores/Pedidos'
 
 class Inicio extends Component {
 
