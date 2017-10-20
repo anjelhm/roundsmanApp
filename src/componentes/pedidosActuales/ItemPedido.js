@@ -21,18 +21,19 @@ class ItemPedido extends Component {
   render() {
     const { nombre, estado } = this.props;
     return(
-      <View style={{ marginTop: 5 , backgroundColor: '#FFFFFF', elevation: 4, flexDirection: 'row' }}>
-      <View style={{ flexDirection: 'column' }}>
+      <View style={{ flex: 1, justifyContent: 'space-between', marginTop: 5 , backgroundColor: '#FFFFFF', elevation: 4, flexDirection: 'row' }}>
+
+      <View style={{ justifyContent: 'center', flexDirection: 'column' }}>
       <Text>Nombre:{ nombre }</Text>
       <Text>Estado:{ estado }</Text>
       </View>
-      <View style={{ flex: 1 }}>
+
+      <View style={{ width: 50 }}>
       <Picker
         style = { styles.picker }
         mode="dropdown"
         selectedValue = {this.state.opcion}
         onValueChange = { this.onChange.bind(this, 'opcion') }>
-           <Picker.Item label = "..." />
            <Picker.Item label = "Ver Detalles" value = "detalles" />
            <Picker.Item label = "Cambiar Estado" value = "estado" />
       </Picker>
@@ -41,18 +42,10 @@ class ItemPedido extends Component {
      );
   }
 }
-const styles = StyleSheet.create({
-  picker: {
-  },
-  text: {
-     },
- contenido: {
-     }
-
-});
 
 ItemPedido.defaultProps = {
-
+ estado: "Desconocido",
+ nombre: "Desconocido"
 };
 
 export default ItemPedido;
