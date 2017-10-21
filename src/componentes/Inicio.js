@@ -12,6 +12,7 @@ import Menubar from './Menu/Menubar';
 import ListaActual from './ListaActual/ListaActual';
 import Pedidos from '../contenedores/Pedidos'
 import PedidosActuales from '../contenedores/PedidosActuales';
+import Historial from '../contenedores/Historial';
 
 class Inicio extends Component {
 
