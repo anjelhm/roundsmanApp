@@ -14,17 +14,18 @@ class ItemHistorial extends Component {
 
     return(
       <View style = { estilo.contenedor } >
-          <TouchableOpacity>
-              <Text style = {{ color: '#000000' }}>
+          <TouchableOpacity style={{ marginLeft: 5, justifyContent: 'center' }}>
+              <Text style = {{ fontSize: 18, color: '#607D8B',color: '#000000' }}>
                 { nombre }
               </Text>
-              <Text style = {{ color: '#607D8B' }}>
+              <Text style = {{ fontSize: 18, color: '#607D8B', color: '#607D8B' }}>
                 { precio }
               </Text>
-              <Text style = {{ color: '#607D8B' }}>
+              <Text style = {{ fontSize: 18, color: '#607D8B',color: '#607D8B' }}>
                 { ubicacion }
               </Text>
           </TouchableOpacity>
+
           <TouchableOpacity Style = { estilo.estilo }>
           </TouchableOpacity>
           <Boton
@@ -38,9 +39,16 @@ class ItemHistorial extends Component {
 const estilo = StyleSheet.create({
   contenedor: {
     height: 80,
+    marginTop: 5,
+    marginBottom: 5,
+    marginLeft: 5,
+    marginRight: 5,
+
+
+
     flexDirection:'row',
     justifyContent: 'space-between',
-    backgroundColor: '#CFD8DC',
+    backgroundColor: '#FFFFFF',
     elevation: 4
   },
   estilo: {
@@ -50,5 +58,10 @@ const estilo = StyleSheet.create({
      alignItems:'center'
   }
 });
+ItemHistorial.defaultProps = {
+  nombre: 'Desconocido',
+  precio: 'Desconocido',
+  ubicacion: 'Desconocido'
+}
 
 export default ItemHistorial;
