@@ -10,8 +10,9 @@ import Drawer from './drawer/Drawer';
 import Boton from './Menu/Boton';
 import Menubar from './Menu/Menubar';
 import ListaActual from './ListaActual/ListaActual';
-import Pedidos from '../contenedores/Pedidos';
+import Pedidos from '../contenedores/Pedidos'
 import PedidosActuales from '../contenedores/PedidosActuales';
+import Historial from '../contenedores/Historial';
 
 class Inicio extends Component {
 
@@ -69,8 +70,8 @@ class Inicio extends Component {
             <View style = {{ paddingTop: 50 }}>
               <PedidosActuales/>
             </View>
-            <View style = {{ paddingTop:200, backgroundColor: "green" }}>
-              <Text>Second page</Text>
+            <View style = {{ paddingTop: 50 }}>
+              <Historial/>
             </View>
           </ViewPagerAndroid>
           <Menubar activo = { this.state.pagina }>
