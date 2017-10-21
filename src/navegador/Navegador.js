@@ -8,12 +8,15 @@ import IniciaSesion from '../contenedores/IniciaSesion';
 import MiSesion from '../contenedores/MiSesion';
 import NuevoRegistro from '../contenedores/NuevoRegistro';
 
+import Mapa from '../componentes/Mapa/Mapa';
+
 const rutas = {
   Inicio: { screen: Inicio },
   MiCuenta: { screen: MiCuenta },
   IniciaSesion: { screen: IniciaSesion },
   Sesion: { screen: MiSesion },
-  Registro: { screen: NuevoRegistro }
+  Registro: { screen: NuevoRegistro },
+  Mapa: { screen: Mapa }
 };
 
 export const Navegador = StackNavigator(rutas);
