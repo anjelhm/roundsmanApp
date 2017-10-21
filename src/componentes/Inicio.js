@@ -64,13 +64,13 @@ class Inicio extends Component {
             onPageSelected = { this.cambiapagina.bind(this) }
             initialPage = { 0 }
           >
-            <View style = {{ paddingTop: 50}}>
+            <View style = {{ paddingTop: 60}}>
               <Pedidos/>
             </View>
-            <View style = {{ paddingTop: 50 }}>
+            <View style = {{ paddingTop: 60 }}>
               <PedidosActuales/>
             </View>
-            <View style = {{ paddingTop: 50 }}>
+            <View style = {{ paddingTop: 60 }}>
               <Historial/>
             </View>
           </ViewPagerAndroid>
