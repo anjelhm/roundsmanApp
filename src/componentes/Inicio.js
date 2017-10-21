@@ -56,20 +56,19 @@ class Inicio extends Component {
     return (
       <Drawer>
         <View style = {{ flex: 1 }}>
-
           <ViewPagerAndroid
             style = {{ height: altura }}
             ref = { vp => this.ViewPager = vp }
             onPageSelected = { this.cambiapagina.bind(this) }
             initialPage = { 0 }
           >
-            <View style = {{ paddingTop: 50}}>
+            <View style = {{ paddingTop: 60}}>
               <Pedidos/>
             </View>
-            <View style = {{ paddingTop: 50 }}>
+            <View style = {{ paddingTop: 60 }}>
               <PedidosActuales/>
             </View>
-            <View style = {{ paddingTop:200, backgroundColor: "green" }}>
+            <View style = {{ paddingTop:60}}>
               <Text>Second page</Text>
             </View>
           </ViewPagerAndroid>

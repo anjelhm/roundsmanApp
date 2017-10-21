@@ -1,8 +1,9 @@
 import React, { Component } from  'react';
-import { Text, View, StyleSheet, Modal } from 'react-native';
+import { Text, View, StyleSheet, Modal, StatusBar } from 'react-native';
 
 //importar la clase Boton
 import Boton from '../../comunes/Boton';
+import MapaPedidos from '../../contenedores/MapaPedidos';
 
 class TarjetaPedido extends Component {
   constructor() {
@@ -58,14 +59,21 @@ class TarjetaPedido extends Component {
           visible = { this.state.modalVisible }
           onRequestClose = { () => {} }
           >
-          <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingLeft: 20, paddingRight: 20 }}>
-            <View style = {{ width: '100%', flexDirection: 'row', justifyContent: 'space-around', marginTop: 20 }}>
+          <View style = {{ flex: 1 }}>
+            <StatusBar hidden/>
+            <View style= {{ flex: 1, backgroundColor: '#607D8B', elevation: 4, alignItems: 'center', justifyContent: 'center' }}>
+              <Text style = {{ color: '#FFFFFF', fontSize: 22 }}>Ubicación de entrega del pedido</Text>
+            </View>
+            <View style= {{ flex: 5 }}>
+              <MapaPedidos/>
+            </View>
+            <View style = {{ flex:1, width: '100%', elevation: 4, flexDirection: 'row', justifyContent: 'space-around', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFFFFF' }}>
               <Boton
-                etiqueta = "Cerrar Mapa"
-                width = { 100 }
+                etiqueta = "Cerrar"
+                width = { 320 }
                 accion = { () => { this.setModalVisible(false) }}
-                color = "#000000"
-                fondo = "#FFFFFF"
+                color = "#FFFFFF"
+                fondo = "#000000"
               />
             </View>
           </View>

@@ -30,6 +30,9 @@ class Mapa extends Component {
   }
 
   render() {
+
+    const { marcador } = this.props;
+
     return (
       <View style = {{ position: 'absolute',
         top: 0,
@@ -38,7 +41,7 @@ class Mapa extends Component {
         bottom: 0,
         justifyContent: 'flex-end',
         alignItems: 'center',
-        borderColor: '#607D8B',
+        borderColor: '#CFD8DC',
         borderWidth: 5 }}
       >
         <StatusBar hidden/>
@@ -55,11 +58,18 @@ class Mapa extends Component {
             right: 0,
             bottom: 0 }}
         >
-          <MapView.Marker
-            coordinate={this.state.markers[0].coordinate}
-            title="Centro"
-            description="Centro de Tlaxiaco"
-          />
+          {
+            marcador.map( (marker, key) => (
+              <View key = { key }>
+                <MapView.Marker
+                  coordinate = {marker.coordenadas}
+                  title = { marker.nombre }
+                  description = { marker.descripcion }
+                  pinColor = { marker.color }
+                />
+              </View>
+            ) )
+          }
         </MapView>
       </View>
     );
