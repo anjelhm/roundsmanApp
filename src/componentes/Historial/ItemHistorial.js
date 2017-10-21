@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import {
   View,
    TouchableOpacity,
-   Text } from 'react-native';
+   Text,
+   StyleSheet } from 'react-native';
+
+   import Boton from '../Menu/Boton'
 
 class ItemHistorial extends Component {
 
@@ -12,19 +15,22 @@ class ItemHistorial extends Component {
     return(
       <View style = { estilo.contenedor } >
           <TouchableOpacity>
-              <Text>
+              <Text style = {{ color: '#000000' }}>
                 { nombre }
               </Text>
-              <Text>
+              <Text style = {{ color: '#607D8B' }}>
                 { precio }
               </Text>
-              <Text>
+              <Text style = {{ color: '#607D8B' }}>
                 { ubicacion }
               </Text>
           </TouchableOpacity>
-          <TouchableOpacity>
-              <Text Style = { estilo.estilo } > </Text>
+          <TouchableOpacity Style = { estilo.estilo }>
           </TouchableOpacity>
+          <Boton
+          accion = { () => this.ir(0) }
+          icono = { "delete-forever" }
+          style = {{ color: '#607D8B' }} />
       </View>
     );
 
@@ -34,7 +40,7 @@ const estilo = StyleSheet.create({
   contenedor: {
     height: 80,
     flexDirection:'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between',ss
     backgroundColor: '#CFD8DC',
     elevation: 4
   },
