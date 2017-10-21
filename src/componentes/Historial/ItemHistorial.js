@@ -40,7 +40,7 @@ const estilo = StyleSheet.create({
   contenedor: {
     height: 80,
     flexDirection:'row',
-    justifyContent: 'space-between',ss
+    justifyContent: 'space-between',
     backgroundColor: '#CFD8DC',
     elevation: 4
   },
