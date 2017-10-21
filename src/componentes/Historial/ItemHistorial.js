@@ -28,7 +28,6 @@ class ItemHistorial extends Component {
           <TouchableOpacity Style = { estilo.estilo }>
           </TouchableOpacity>
           <Boton
-          accion = { () => this.ir(0) }
           icono = { "delete-forever" }
           style = {{ color: '#607D8B' }} />
       </View>
