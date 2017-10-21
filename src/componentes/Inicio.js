@@ -57,20 +57,21 @@ class Inicio extends Component {
     return (
       <Drawer>
         <View style = {{ flex: 1 }}>
+
           <ViewPagerAndroid
             style = {{ height: altura }}
             ref = { vp => this.ViewPager = vp }
             onPageSelected = { this.cambiapagina.bind(this) }
             initialPage = { 0 }
           >
-            <View style = {{ paddingTop: 60}}>
+            <View style = {{ paddingTop: 50}}>
               <Pedidos/>
             </View>
-            <View style = {{ paddingTop: 60 }}>
+            <View style = {{ paddingTop: 50 }}>
               <PedidosActuales/>
             </View>
-            <View style = {{ paddingTop:60}}>
-              <Text>Second page</Text>
+            <View style = {{ paddingTop: 50 }}>
+              <Historial/>
             </View>
           </ViewPagerAndroid>
           <Menubar activo = { this.state.pagina }>
@@ -79,7 +80,6 @@ class Inicio extends Component {
             <Boton accion = { () => this.ir(2) } etiqueta = { "Historial" } icono = { "history" } />
           </Menubar>
         </View>
-
       </Drawer>
 
     );
