@@ -10,7 +10,8 @@ import Drawer from './drawer/Drawer';
 import Boton from './Menu/Boton';
 import Menubar from './Menu/Menubar';
 import ListaActual from './ListaActual/ListaActual';
-import Pedidos from '../contenedores/Pedidos'
+import Pedidos from '../contenedores/Pedidos';
+import PedidosActuales from '../contenedores/PedidosActuales';
 
 class Inicio extends Component {
 
@@ -62,12 +63,6 @@ class Inicio extends Component {
             onPageSelected = { this.cambiapagina.bind(this) }
             initialPage = { 0 }
           >
-            <View style = {{ paddingTop:50 }}>
-              <Pedidos/>
-            </View>
-            <View style = {{ paddingTop:200, backgroundColor: "blue" }}>
-              <Text>Second page</Text>
-
             <View style = {{ paddingTop: 50}}>
               <Pedidos/>
             </View>
