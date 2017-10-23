@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {
   View,
-   TouchableOpacity,
-   Text,
-   StyleSheet } from 'react-native';
+  TouchableOpacity,
+  Text,
+  StyleSheet } from 'react-native';
 
-   import Boton from '../Menu/Boton'
+import Boton from '../Menu/Boton'
 
 class ItemHistorial extends Component {
 
@@ -14,7 +14,7 @@ class ItemHistorial extends Component {
 
     return(
       <View style = { estilo.contenedor } >
-          <TouchableOpacity style={{ marginLeft: 5, justifyContent: 'center' }}>
+          <TouchableOpacity style = {{ marginLeft: 5, justifyContent: 'center' }}>
               <Text style = {{ fontSize: 18, color: '#607D8B',color: '#000000' }}>
                 { nombre }
               </Text>
@@ -29,8 +29,8 @@ class ItemHistorial extends Component {
           <TouchableOpacity Style = { estilo.estilo }>
           </TouchableOpacity>
           <Boton
-          icono = { "delete-forever" }
-          style = {{ color: '#607D8B' }} />
+            icono = { "delete-forever" }
+            style = {{ color: '#607D8B' }} />
       </View>
     );
 
@@ -43,9 +43,6 @@ const estilo = StyleSheet.create({
     marginBottom: 5,
     marginLeft: 5,
     marginRight: 5,
-
-
-
     flexDirection:'row',
     justifyContent: 'space-between',
     backgroundColor: '#FFFFFF',
@@ -58,6 +55,7 @@ const estilo = StyleSheet.create({
      alignItems:'center'
   }
 });
+
 ItemHistorial.defaultProps = {
   nombre: 'Desconocido',
   precio: 'Desconocido',

@@ -5,8 +5,6 @@ import ItemPedido from './ItemPedido';
 
 class ListaActual extends Component {
 
-  
-
   render() {
     return(
       <View style = {{ flex: 1 }}>

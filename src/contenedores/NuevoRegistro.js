@@ -8,9 +8,11 @@ class NuevoRegistro extends Component {
   static navigationOptions = {
     header: null
   };
-  recibeDatos( nombre, apellidom, apellidop, date, sexo, correo,  clave1 ){
+
+  recibeDatos( nombre, apellidom, apellidop, date, sexo, correo,  clave1 ) {
       alert(nombre + apellidom + apellidop + date + sexo + correo + clave1);
   }
+
   render() {
     return (
       <View style = { estilo.contenedor }>
@@ -25,6 +27,5 @@ const estilo = StyleSheet.create({
     backgroundColor: '#FFFFFF'
   }
 });
-
 
 export default NuevoRegistro;
