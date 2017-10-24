@@ -11,42 +11,54 @@ class Perfil extends Component {
 
     return(
       <View style = {{ flex: 1, backgroundColor: '#FFFFFF' }}>
-        <Barra_nav titulo = "Mi cuenta"/>
-        <Image
-          style = {{ width: 50, height: 50 }}
-          source = {{ uri: imagen }}
-        />
-        <View style = { estilo.vista }>
-          <Text style = { estilo.texto1 }>
-            Nombre:
-          </Text>
-          <Text style = { estilo.texto2 }>
-            { nombre }
-          </Text>
-        </View>
-        <View style = { estilo.vista }>
-          <Text style = { estilo.texto1 }>
-            Fecha de nacimiento:
-          </Text>
-          <Text style = { estilo.texto2 }>
-            { fecha }
-          </Text>
-        </View>
-        <View style = { estilo.vista }>
-          <Text style = { estilo.texto1 }>
-            Sexo:
-          </Text>
-          <Text style = { estilo.texto2 }>
-            { sexo }
-          </Text>
-        </View>
-        <View style = { estilo.vista }>
-          <Text style = { estilo.texto1 }>
-            Correo:
-          </Text>
-          <Text style = { estilo.texto2 }>
-            { correo }
-          </Text>
+        <Barra_nav titulo = "Mi Perfil"/>
+        <View  style = { estilo.contenedor }>
+          <View style = {{ alignItems: 'center'}}>
+            <Image
+              style = {{ width: 150, height: 150, borderRadius: 100 }}
+              source = {{ uri: imagen }}
+            />
+          </View>
+          <View style = { estilo.vista }>
+            <Text style = { estilo.texto1 }>
+              Nombre:
+            </Text>
+            <View style = {{ alignItems: 'center' }}>
+              <Text style = { estilo.texto2 }>
+                { nombre }
+              </Text>
+            </View>
+          </View>
+          <View style = { estilo.vista }>
+            <Text style = { estilo.texto1 }>
+              Fecha de nacimiento:
+            </Text>
+            <View style = {{ alignItems: 'center' }}>
+              <Text style = { estilo.texto2 }>
+                { fecha }
+              </Text>
+            </View>
+          </View>
+          <View style = { estilo.vista }>
+            <Text style = { estilo.texto1 }>
+              Sexo:
+            </Text>
+            <View style = {{ alignItems: 'center' }}>
+              <Text style = { estilo.texto2 }>
+                { sexo }
+              </Text>
+            </View>
+          </View>
+          <View style = { estilo.vista }>
+            <Text style = { estilo.texto1 }>
+              Correo electrónico:
+            </Text>
+            <View style = {{ alignItems: 'center' }}>
+              <Text style = { estilo.texto2 }>
+                { correo }
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
     );
@@ -54,13 +66,20 @@ class Perfil extends Component {
 }
 
 const estilo = StyleSheet.create({
+  contenedor: {
+    justifyContent: 'center',
+    marginTop: 60,
+    marginLeft: 20,
+    marginRight: 20
+  },
   texto1:{
-    color: '#455A64',
+    color: '#607D8B',
     fontSize: 14
   },
   texto2:{
-    color: '#90A4AE',
-    fontSize: 18
+    color: '#000000',
+    fontSize: 18,
+    alignItems: 'center'
   },
   vista:{
     justifyContent: 'space-between'
@@ -70,8 +89,8 @@ const estilo = StyleSheet.create({
 Perfil.defaultProps = {
   imagen: 'https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg',
   nombre: 'nombre',
-  fecha: 'fecha',
-  sexo: 'sexo',
-  correo: 'correo'
+  fecha: 'DD-MM-AAAA',
+  sexo: 'Hombre',
+  correo: 'correo@correo.com'
 }
 export default Perfil;
