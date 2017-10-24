@@ -1,36 +1,25 @@
 import React, { Component } from 'react';
-import { View, ListView } from 'react-native';
+import { View, FlatList } from 'react-native';;
 
 //importar la clase TarjetaPedido
 import TarjetaPedido from './TarjetaPedido';
 
 class ListaPedidos extends Component {
-
-constructor() {
-  super();
-
-  const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2});
-
-  this.state = {
-    dataSource: ds.cloneWithRows(data)
-  };
-
-}
-
-/**
- * enviar nombre y ubicacion al TarjetaPedido
-*/
   render() {
-    return (
+    return(
       <View>
-        <ListView
-          dataSource = { this.state.dataSource }
-          renderRow = { (rowData) => <TarjetaPedido nombre = { rowData.nombre } ubicacion = { rowData.ubicacion } /> }
-        />
-      </View>
-    );
-  }
-}
+        <FlatList
+          data = { data }
+          renderItem = { ({ item }) => <TarjetaPedido
+                    nombre = { item.nombre }
+                    ubicacion = { item.ubicacion }
+                        /> }
+                    keyExtractor = { item => item.nombre }
+                    />
+                </View>
+              );
+            }
+          }
 
   const data = [
     {

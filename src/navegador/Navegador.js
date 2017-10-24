@@ -9,6 +9,7 @@ import MiSesion from '../contenedores/MiSesion';
 import NuevoRegistro from '../contenedores/NuevoRegistro';
 
 import Mapa from '../componentes/Mapa/Mapa';
+import ListaActual from '../componentes/ListaActual/ListaActual';
 
 const rutas = {
   Inicio: { screen: Inicio },
@@ -16,7 +17,8 @@ const rutas = {
   IniciaSesion: { screen: IniciaSesion },
   Sesion: { screen: MiSesion },
   Registro: { screen: NuevoRegistro },
-  Mapa: { screen: Mapa }
+  Mapa: { screen: Mapa },
+  ListaActual: { screen: ListaActual }
 };
 
 export const Navegador = StackNavigator(rutas);
