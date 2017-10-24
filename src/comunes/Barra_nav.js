@@ -37,7 +37,7 @@ class Barra_nav extends Component {
 
 Barra_nav.defaultProps = {
   titulo: 'titulo',
-  boton: true,
+  boton: false,
   retroceder: () => {},
   accion: () => {}
 };
