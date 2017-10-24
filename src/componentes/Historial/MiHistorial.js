@@ -8,12 +8,15 @@ class MiHistorial extends Component {
     return(
       <View style = {{ flex: 1 }}>
         <FlatList
+          keyExtractor = { item => item.nombre }
           data = { ListData }
-          renderItem = { ({ item }) => <ItemHistorial
-                    nombre = { item.nombre }
-                    precio = { item.precio }
-                    ubicacion = { item.ubicacion }
-                  /> }
+          renderItem = {
+            ({ item }) => <ItemHistorial
+                            nombre = { item.nombre }
+                            precio = { item.precio }
+                            ubicacion = { item.ubicacion }
+                          /> 
+          }
         />
       </View>
     );

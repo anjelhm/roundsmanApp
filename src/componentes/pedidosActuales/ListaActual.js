@@ -9,11 +9,14 @@ class ListaActual extends Component {
     return(
       <View style = {{ flex: 1 }}>
         <FlatList
+          keyExtractor = { item => item.nombre }
           data = { ListData }
-          renderItem = { ({ item }) => <ItemPedido
-                    nombre = { item.nombre }
-                    estado = { item.estado }
-                  /> }
+          renderItem = {
+            ({ item }) => <ItemPedido
+                            nombre = { item.nombre }
+                            estado = { item.estado }
+                          />
+          }
         />
       </View>
     );
