@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 
 import Registro from '../componentes/Registro';
+import Barra_nav from '../comunes/Barra_nav';
 
 class NuevoRegistro extends Component {
 
@@ -16,6 +17,7 @@ class NuevoRegistro extends Component {
   render() {
     return (
       <View style = { estilo.contenedor }>
+      <Barra_nav titulo = "Nuevo Registro"/>
         <Registro enviaDatos={ this.recibeDatos.bind(this) }/>
       </View>
     );
