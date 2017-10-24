@@ -19,44 +19,46 @@ class Perfil extends Component {
               source = {{ uri: imagen }}
             />
           </View>
-          <View style = { estilo.vista }>
-            <Text style = { estilo.texto1 }>
-              Nombre:
-            </Text>
-            <View style = {{ alignItems: 'center' }}>
-              <Text style = { estilo.texto2 }>
-                { nombre }
+          <View style = {{ marginTop: 20 }}>
+            <View style = { estilo.vista }>
+              <Text style = { estilo.texto1 }>
+                Nombre:
               </Text>
+              <View style = {{ alignItems: 'center' }}>
+                <Text style = { estilo.texto2 }>
+                  { nombre }
+                </Text>
+              </View>
             </View>
-          </View>
-          <View style = { estilo.vista }>
-            <Text style = { estilo.texto1 }>
-              Fecha de nacimiento:
-            </Text>
-            <View style = {{ alignItems: 'center' }}>
-              <Text style = { estilo.texto2 }>
-                { fecha }
+            <View style = { estilo.vista }>
+              <Text style = { estilo.texto1 }>
+                Fecha de nacimiento:
               </Text>
+              <View style = {{ alignItems: 'center' }}>
+                <Text style = { estilo.texto2 }>
+                  { fecha }
+                </Text>
+              </View>
             </View>
-          </View>
-          <View style = { estilo.vista }>
-            <Text style = { estilo.texto1 }>
-              Sexo:
-            </Text>
-            <View style = {{ alignItems: 'center' }}>
-              <Text style = { estilo.texto2 }>
-                { sexo }
+            <View style = { estilo.vista }>
+              <Text style = { estilo.texto1 }>
+                Sexo:
               </Text>
+              <View style = {{ alignItems: 'center' }}>
+                <Text style = { estilo.texto2 }>
+                  { sexo }
+                </Text>
+              </View>
             </View>
-          </View>
-          <View style = { estilo.vista }>
-            <Text style = { estilo.texto1 }>
-              Correo electrónico:
-            </Text>
-            <View style = {{ alignItems: 'center' }}>
-              <Text style = { estilo.texto2 }>
-                { correo }
+            <View style = { estilo.vista }>
+              <Text style = { estilo.texto1 }>
+                Correo electrónico:
               </Text>
+              <View style = {{ alignItems: 'center' }}>
+                <Text style = { estilo.texto2 }>
+                  { correo }
+                </Text>
+              </View>
             </View>
           </View>
         </View>
@@ -68,8 +70,8 @@ class Perfil extends Component {
 const estilo = StyleSheet.create({
   contenedor: {
     justifyContent: 'center',
-    marginTop: 60,
-    marginLeft: 20,
+    marginTop: 50,
+    marginLeft: 30,
     marginRight: 20
   },
   texto1:{
