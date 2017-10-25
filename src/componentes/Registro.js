@@ -28,7 +28,7 @@ class Registro extends Component {
           estado: ''
     };
   }
-  
+
   /**
   * función que obtiene el valor de la tecla presionada y la asigna al value del input correspondiente
   * @param { string } NombreInput
@@ -85,11 +85,9 @@ class Registro extends Component {
  }
  }
   render() {
-
-    const highestTimeoutId = setTimeout(() => ';');
-            for (let i = 0; i < highestTimeoutId; i++) {
-            clearTimeout(i);
-    }
+    var x = setTimeout('alert("x");',100000); //It is very low probability that after 100 seconds x timeout will not be cleared
+      for (var i = 0; i <= x; i++)
+    clearTimeout(i);
 
     return (
       <View >
