@@ -18,7 +18,7 @@ class contenedorNuevoRegistro extends Component {
       nombre: nombre,
       paterno: apellidop,
       materno: apellidom,
-      fecha: date.getTime(),
+      fecha: date,
       sexo: sexo,
       correo: correo,
       clave: clave1
