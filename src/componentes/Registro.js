@@ -84,10 +84,9 @@ class Registro extends Component {
    });
  }
  }
+
   render() {
-    var x = setTimeout('alert("x");',100000); //It is very low probability that after 100 seconds x timeout will not be cleared
-      for (var i = 0; i <= x; i++)
-    clearTimeout(i);
+
 
     return (
       <View style = {{ flex: 1 }}>

@@ -14,6 +14,7 @@ class contenedorNuevoRegistro extends Component {
 
   recibeDatos( nombre, apellidom, apellidop, date, sexo, correo,  clave1 ) {
 
+
     const data = {
       nombre: nombre,
       paterno: apellidop,

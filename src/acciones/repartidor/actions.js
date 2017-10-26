@@ -21,6 +21,7 @@ export const iniciaGuardarRepartidor = data => {
   return dispatch => {
      dispatch(guardarRepartidorInicia());
 
+
      /**
      * funcion crear ususario en firebase
      * @param { Object } data
@@ -28,12 +29,12 @@ export const iniciaGuardarRepartidor = data => {
      firebaseAuth.createUserWithEmailAndPassword( data.correo, data.clave )
      .then( snapshot => {
        const repartidor = {
-         nombre: nombre,
-         paterno: apellidop,
-         materno: apellidom,
-         fecha: date.getTime(),
-         sexo: sexo,
-         correo: correo,
+         nombre: data.nombre,
+         paterno: data.paterno,
+         materno: data.materno,
+         fecha: data.fecha,
+         sexo: data.sexo,
+         correo: data.correo,
          id: snapshot.uid
        };
        /**
