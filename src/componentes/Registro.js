@@ -90,7 +90,7 @@ class Registro extends Component {
     clearTimeout(i);
 
     return (
-      <View >
+      <View style = {{ flex: 1 }}>
         <ScrollView>
           <View style = {styles.contenido} >
             <Input
@@ -179,7 +179,7 @@ class Registro extends Component {
               password
               width = { 300 }
             />
-            <View style = {{ width: "100%", alignItems: 'center', justifyContent: 'center', marginTop: 10 }}>
+            <View style = {{ width: "100%", alignItems: 'center', justifyContent: 'center' }}>
               <Boton
                  etiqueta = "Aceptar"
                  accion = { this.enviaDatos.bind(this) }
