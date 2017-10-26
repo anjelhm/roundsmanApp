@@ -19,7 +19,7 @@ export const guardarRepartidorError = error =>
 * funcion para recibir el objeto de repartidor y crear usuario en firebase
 * @param { Object } data
 **/
-export cpnst iniciaGuardarRepartidor = data => {
+export const iniciaGuardarRepartidor = data => {
   return dispatch => {
      dispatch(guardarRepartidorInicia());
 
@@ -40,7 +40,7 @@ export cpnst iniciaGuardarRepartidor = data => {
        };
        /**
        * funcion para obtener direccion de repartidor y guarda
-       * @param { Objec } repartidor
+       * @param { Object } repartidor
        **/
        firebaseRef.child('repartidor').push(repartidor)
        .then( () => guardarRepartidorOk, "Almacenado con exito" )
