@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Registro from '../componentes/Registro';
 import Barra_nav from '../comunes/Barra_nav';
-import actions fro m '../acciones/repartidor/actions'
+import actions from '../acciones/repartidor/actions'
 
 class contenedorNuevoRegistro extends Component {
 
