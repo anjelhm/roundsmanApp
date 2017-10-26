@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {
   View,
-  TouchableOpacity,
-  Text,
-  StyleSheet } from 'react-native';
+   TouchableOpacity,
+   Text,
+   StyleSheet } from 'react-native';
+   import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Boton from '../Menu/Boton'
 
@@ -14,6 +15,7 @@ class ItemHistorial extends Component {
 
     return(
       <View style = { estilo.contenedor } >
+      <View>
           <TouchableOpacity style = {{ marginLeft: 5, justifyContent: 'center' }}>
               <Text style = {{ fontSize: 18, color: '#607D8B',color: '#000000' }}>
                 { nombre }
@@ -25,12 +27,14 @@ class ItemHistorial extends Component {
                 { ubicacion }
               </Text>
           </TouchableOpacity>
+          </View>
+          <View style={{ width: 50,  justifyContent:'center',alignItems: 'center'}}>
 
-          <TouchableOpacity Style = { estilo.estilo }>
+          <TouchableOpacity>
+          <Icon name = { 'delete-forever' } size= { 40 } color= { '#607D8B' } />
           </TouchableOpacity>
-          <Boton
-            icono = { "delete-forever" }
-            style = {{ color: '#607D8B' }} />
+          </View>
+
       </View>
     );
 
@@ -47,13 +51,7 @@ const estilo = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#FFFFFF',
     elevation: 4
-  },
-  estilo: {
-    height: '60',
-    width: '60',
-    justifyContent: 'center',
-     alignItems:'center'
-  }
+    }
 });
 
 ItemHistorial.defaultProps = {

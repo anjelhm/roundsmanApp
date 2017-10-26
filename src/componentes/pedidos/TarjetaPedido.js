@@ -38,7 +38,7 @@ class TarjetaPedido extends Component {
             </Text>
           </View>
         </View>
-        <View style = {{ flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
+        <View style = { estilo.boton }>
           <Boton
             etiqueta = "Tomar pedido"
             width = { 140 }
@@ -50,7 +50,7 @@ class TarjetaPedido extends Component {
             width = { 140 }
             color = "#000000"
             fondo = "#FFFFFF"
-            accion = { () => { this.setModalVisible(true) }}
+            accion = { () => { this.setModalVisible( true ) }}
           />
         </View>
         <Modal
@@ -61,17 +61,33 @@ class TarjetaPedido extends Component {
           >
           <View style = {{ flex: 1 }}>
             <StatusBar hidden/>
-            <View style= {{ flex: 1, backgroundColor: '#607D8B', elevation: 4, alignItems: 'center', justifyContent: 'center' }}>
-              <Text style = {{ color: '#FFFFFF', fontSize: 22 }}>Ubicación de entrega del pedido</Text>
+
+            <View style= {{
+              flex: 1,
+              backgroundColor: '#607D8B',
+              elevation: 4,
+              alignItems: 'center',
+              justifyContent: 'center' }}>
+
+              <Text style = {{ color: '#FFFFFF', fontSize: 22 }}> Ubicación de entrega del pedido </Text>
+
             </View>
             <View style= {{ flex: 5 }}>
               <MapaPedidos/>
             </View>
-            <View style = {{ flex:1, width: '100%', elevation: 4, flexDirection: 'row', justifyContent: 'space-around', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFFFFF' }}>
+
+            <View style = {{
+              flex:1, width: '100%',
+              elevation: 4,
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#FFFFFF', }}>
               <Boton
                 etiqueta = "Cerrar"
                 width = { 320 }
-                accion = { () => { this.setModalVisible(false) }}
+                accion = { () => { this.setModalVisible( false ) }}
                 color = "#FFFFFF"
                 fondo = "#000000"
               />
@@ -86,22 +102,33 @@ class TarjetaPedido extends Component {
 const estilo = StyleSheet.create({
   nombre: {
     color: '#697D8B',
-    elevation: 4
+    elevation: 4,
+    alignItems: 'flex-start',
+    fontSize:18,
+    marginLeft: 15,
+    marginTop: 20
   },
   ubicacion: {
     color: '#C8D8DC',
-    elevation: 4
+    elevation: 4,
+    alignItems: 'flex-start',
+    fontSize: 14,
+    marginLeft: 15
   },
   contenedor: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#FFFFFF',
     elevation: 4,
-    height: 200,
+    height: 150,
     marginBottom: 10,
     marginLeft: 10,
     marginRight: 10,
+  },
+  boton: {
+     flexDirection: 'row',
+     justifyContent: 'space-around',
+     width: '100%',
+     marginTop: 15
   }
 });
 
