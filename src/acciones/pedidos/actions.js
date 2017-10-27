@@ -40,8 +40,9 @@ export const iniciaObtenerPedido = () => {
 * funcion tomar pedido
 * @param { id, nombre } (repartidor)
 * @param { idSolicitud, uid } (solicitud)
+* @param { idPedido } (pedido)
 **/
-export const iniciaTomarPedido = ( id, nombre, idSolicitud, uid ) => {
+export const iniciaTomarPedido = ( id, nombre, idSolicitud, uid, idPedido ) => {
   return dispatch => {
     dispatch(tomarPedidoInicia());
 
