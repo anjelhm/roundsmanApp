@@ -11,7 +11,7 @@ import {
 
 import { Navegador } from '../navegador/Navegador';
 
-const rutaInicial = Navegador.router.getStateForAction(Navegador.router.getActionForPathAndParams('Sesion'));
+const rutaInicial = Navegador.router.getStateForAction(Navegador.router.getActionForPathAndParams('VerificaSesion'));
 
 const nav = (state = rutaInicial, action) => {
 
@@ -20,7 +20,7 @@ const nav = (state = rutaInicial, action) => {
   switch(action.type) {
     case INICIO :
       nextState = Navegador.router.getStateForAction(
-        NavigationActions.navigate({ routeName: 'Inicio' }),
+        NavigationActions.navigate({ routeName: 'Inicio', params: { id: action.id } }),
         state
       );
       break;

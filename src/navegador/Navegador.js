@@ -5,6 +5,7 @@ import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 import Inicio from '../componentes/Inicio';
 import MiCuenta from '../contenedores/MiCuenta';
 import IniciaSesion from '../contenedores/IniciaSesion';
+import VerificaSesion from '../contenedores/VerificaSesion';
 import MiSesion from '../contenedores/MiSesion';
 import NuevoRegistro from '../contenedores/NuevoRegistro';
 
@@ -15,6 +16,7 @@ const rutas = {
   Inicio: { screen: Inicio },
   MiCuenta: { screen: MiCuenta },
   IniciaSesion: { screen: IniciaSesion },
+  VerificaSesion: { screen: VerificaSesion },
   Sesion: { screen: MiSesion },
   Registro: { screen: NuevoRegistro },
   Mapa: { screen: Mapa },

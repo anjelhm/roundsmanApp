@@ -15,8 +15,8 @@ export const autentificacionCorrecta = () =>
 export const autentificacionError = error =>
   ({ type: AUTENTIFICACION_ERROR, error });
 
-export const pantallaInicio = () =>
-  ({ type: INICIO });
+export const pantallaInicio = id =>
+  ({ type: INICIO, id });
 export const pantallaSesion = () =>
   ({ type: SESION });
 
@@ -42,10 +42,11 @@ export const iniciaAutentificacion = (correo, clave) => {
       dispatch(autentificacionIniciar());
 
       firebaseAuth.signInWithEmailAndPassword(correo, clave)
-        .then( () => {
+        .then( user => {
+          console.log(user);
           registraAcceso(correo);
           dispatch(autentificacionCorrecta());
-          dispatch(pantallaInicio());
+          dispatch(pantallaInicio(user.uid));
         })
         .catch(() => dispatch(autentificacionError('Ha ocurrido un error!')));
   };
@@ -68,15 +69,19 @@ export const desautentificar = () => {
   };
 };
 
-export const verificaSesion = () => (
-  firebaseAuth.onAuthStateChanged(
-    user => {
-      console.warn(user)
-      if (user) {
+export const verificaSesion = () => {
 
-      }else{
-
+  return dispatch => {
+    firebaseAuth.onAuthStateChanged(
+      user => {
+        if (user) {
+          dispatch(autentificacionCorrecta());
+          dispatch(pantallaInicio(user.uid));
+        }else{
+          dispatch(pantallaSesion());
+        }
       }
-    }
-  )
-);
+    );
+  };
+
+};
