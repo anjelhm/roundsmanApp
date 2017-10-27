@@ -15,3 +15,7 @@ export const GUARDAR_REPARTIDOR_ERROR = "@@GUARDAR_REPARTIDOR_ERROR";
 export const OBTENER_PEDIDOS_INICIA = "@@navegador/OBTENER_PEDIDOS_INICIA";
 export const OBTENER_PEDIDOS_OK = "@@navegador/OBTENER_PEDIDOS_OK";
 export const OBTENER_PEDIDOS_ERROR = "@@navegador/OBTENER_PEDIDOS_ERROR";
+
+export const TOMAR_PEDIDO_INICIA = "@@navegador/TOMAR_PEDIDO_INICIA";
+export const TOMAR_PEDIDO_OK = "@@navegador/TOMAR_PEDIDO_OK";
+export const TOMAR_PEDIDO_ERROR = "@@navegador/TOMAR_PEDIDO_ERROR";
