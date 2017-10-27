@@ -6,11 +6,18 @@ import {
 } from '../../constantes/ActionTypes';
 
 export const obtenerPedidosInicia = () => ({
-  type: OBTENER_PEDIDOS_INICIA })
+  type: OBTENER_PEDIDOS_INICIA });
 export const obtenerPedidosOk = pedido => ({
-  type: OBTENER_PEDIDOS_OK, pedido })
+  type: OBTENER_PEDIDOS_OK, pedido });
 export const obtenerPedidosError = error =>
   ({ type: OBTENER_PEDIDOS_ERROR, error });
+
+export const tomarPedidoInicia = () => ({
+  type: TOMAR_PEDIDO_INICIA });
+export const tomarPedidoOk = payload => ({
+  type: TOMAR_PEDIDO_OK, payload });
+export const tomarPedidoError = error => ({
+  type: TOMAR_PEDIDO_ERROR, error });
 
 /**
 * funcion para obtener pedido
@@ -28,3 +35,30 @@ export const iniciaObtenerPedido = () => {
 
   };
 };
+
+/**
+* funcion tomar pedido
+* @param { id, nombre } (repartidor)
+* @param { idSolicitud, uid } (solicitud)
+**/
+export const iniciaTomarPedido = ( id, nombre, idSolicitud, uid ) => {
+  return dispatch => {
+    dispatch(tomarPedidoInicia());
+
+    firebaseRef.child(`repartidor/${id}/data`).once( 'value' )
+    .then( snapshot => {
+      const nombre = snapshot.val().nombre;
+
+      firebaseRef.child(`repartidor/${id}/pedidos`).push({ nombre: nombre, estado: 'aceptado', solicitud: idSolicitud })
+      .then( () => {
+
+        let actualiza = {};
+        actualiza[`usuarios/${uid}/pedidos/${idPedido}/estado`] = 'aceptado';
+        actualiza[`usuarios/${uid}/pedidos/${idPedido}/repartidor`] = nombre;
+        firebaseRef.update(actualiza)
+        .then( () => tomarPedidoOk, "aceptado")
+        .catch( () => tomarPedidoError,"Error" );
+      });
+     });
+  }
+}
