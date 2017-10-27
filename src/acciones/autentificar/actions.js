@@ -67,3 +67,16 @@ export const desautentificar = () => {
     dispatch(pantallaSesion());
   };
 };
+
+expot const verificaSesion = () => (
+  firebaseAuth.onAuthStateChanged(
+    user => {
+      console.warn(user)
+      if (user) {
+
+      }else{
+        
+      }
+    }
+  );
+);
