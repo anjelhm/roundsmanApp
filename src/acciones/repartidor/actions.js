@@ -37,12 +37,23 @@ export const iniciaGuardarRepartidor = data => {
          correo: data.correo,
          id: snapshot.uid
        };
+       const usuario = snapshot.uid;
        /**
        * funcion para obtener direccion de repartidor y guarda
        * @param { Object } repartidor
        **/
-       firebaseRef.child('repartidor').push(repartidor)
-       .then( () => guardarRepartidorOk, "Almacenado con exito" )
+       const nuevo = firebaseRef.child('repartidor').push();
+       const nuevaKey = nuevo.key;
+
+       let actualiza = {};
+
+       actualiza[`repartidor/${nuevaKey}/data/nombre`] = data.nombre + ' ' + data.paterno + ' ' + data.materno;
+       actualiza[`repartidor/${nuevaKey}/data/fecha`] =  data.fecha;
+       actualiza[`repartidor/${nuevaKey}/data/sexo`] =  data.sexo;
+       actualiza[`repartidor/${nuevaKey}/data/correo`] =  data.correo;
+       actualiza[`repartidor/${nuevaKey}/data/id`] =  usuario;
+
+       firebaseRef.update(actualiza).then( () => guardarRepartidorOk, "Almacenado con exito" )
        .catch( () => guardarRepartidorError, "Error" );
     })
   };
