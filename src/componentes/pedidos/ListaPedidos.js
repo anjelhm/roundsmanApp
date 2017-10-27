@@ -25,8 +25,13 @@ class ListaPedidos extends Component {
       });
 
     } else {
+
+      const lista = [];
+
+      lista.push(this.props.pedidos);
+
       this.setState({
-        datos: this.props.pedidos,
+        datos: lista,
         vacio: false
       });
     }
@@ -42,16 +47,28 @@ class ListaPedidos extends Component {
     }
   }
 
+  itera(item){
+    Object.keys(item).map(x => item[x]);
+  }
+
   renderLista() {
+
     return(
-      <FlatList
-        data = { this.state.datos }
-        renderItem = { ({ item }) => <TarjetaPedido
-                  nombre = { item.nombre }
-                  ubicacion = { item.ubicacion }
-                      /> }
-                  keyExtractor = { item => item.nombre }
-                  />
+      <View style = {{ flex: 1 }}>
+        <FlatList
+          data = { this.state.datos }
+          keyExtractor = { () => Object.keys(this.state.datos).map(item => this.state.datos[item].solicitud) }
+          renderItem = {
+            ( item ) => {
+              Object.keys(item).map(x => <TarjetaPedido
+                    nombre = { item[x].nombre }
+                    ubicacion = { item[x].ubicacion }
+                  /> );
+
+            }
+           }
+        />
+      </View>
     );
   }
 
@@ -70,38 +87,5 @@ class ListaPedidos extends Component {
   }
 }
 
-  const data = [
-    {
-      nombre:"User 1",
-      ubicacion:"tlaxiaco"
-    },
-    {
-      nombre:"User 2",
-      ubicacion:"tlaxiaco"
-    },
-    {
-      nombre:"User 3",
-      ubicacion:"tlaxiaco"
-    },
-    {
-      nombre:"User 4",
-      ubicacion:"tlaxiaco"
-    },
-    {
-      nombre:"User 5",
-      ubicacion:"tlaxiaco"
-    },
-    {
-      nombre:"User 6",
-      ubicacion:"tlaxiaco"
-    },
-    {
-      nombre:"User 7",
-      ubicacion:"tlaxiaco"
-    },
-    {
-      nombre:"User 8",
-      ubicacion:"tlaxiaco"
-    }
-  ]
+
 export default ListaPedidos;

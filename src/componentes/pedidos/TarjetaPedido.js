@@ -24,6 +24,7 @@ class TarjetaPedido extends Component {
 
   render() {
     const { nombre, ubicacion } = this.props;
+    console.warn('NOMBRE: ', nombre);
     return(
       <View style = { estilo.contenedor }>
         <View>
@@ -34,7 +35,7 @@ class TarjetaPedido extends Component {
           </View>
           <View>
             <Text style = { estilo.ubicacion }>
-              { ubicacion }
+              { ubicacion.lat }
             </Text>
           </View>
         </View>
