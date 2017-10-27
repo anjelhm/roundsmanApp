@@ -2,7 +2,10 @@ import firebase, { firebaseRef } from '../../firebase';
 import {
   OBTENER_PEDIDOS_INICIA,
   OBTENER_PEDIDOS_OK,
-  OBTENER_PEDIDOS_ERROR
+  OBTENER_PEDIDOS_ERROR,
+  TOMAR_PEDIDO_INICIA,
+  TOMAR_PEDIDO_OK,
+  TOMAR_PEDIDO_ERROR
 } from '../../constantes/ActionTypes';
 
 export const obtenerPedidosInicia = () => ({
