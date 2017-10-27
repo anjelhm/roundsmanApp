@@ -24,7 +24,7 @@ class TarjetaPedido extends Component {
 
   render() {
     const { nombre, ubicacion } = this.props;
-    console.warn('NOMBRE: ', nombre);
+
     return(
       <View style = { estilo.contenedor }>
         <View>

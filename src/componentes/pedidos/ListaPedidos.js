@@ -26,12 +26,8 @@ class ListaPedidos extends Component {
 
     } else {
 
-      const lista = [];
-
-      lista.push(this.props.pedidos);
-
       this.setState({
-        datos: lista,
+        datos: Object.keys(this.props.pedidos).map(x => this.props.pedidos[x]),
         vacio: false
       });
     }
@@ -47,24 +43,20 @@ class ListaPedidos extends Component {
     }
   }
 
-  itera(item){
-    Object.keys(item).map(x => item[x]);
-  }
-
   renderLista() {
-
     return(
       <View style = {{ flex: 1 }}>
         <FlatList
           data = { this.state.datos }
           keyExtractor = { () => Object.keys(this.state.datos).map(item => this.state.datos[item].solicitud) }
           renderItem = {
-            ( item ) => {
-              Object.keys(item).map(x => <TarjetaPedido
-                    nombre = { item[x].nombre }
-                    ubicacion = { item[x].ubicacion }
-                  /> );
-
+            ( { item } ) => {
+              return(
+                <TarjetaPedido
+                      nombre = { item.nombre }
+                      ubicacion = { item.ubicacion }
+                    />
+              )
             }
            }
         />

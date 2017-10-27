@@ -23,7 +23,7 @@ export const iniciaObtenerPedido = () => {
       * @param { Object } pedidos
       **/
       firebaseRef.child('pedidos').on('value', snapshot => {
-        dispatch(obtenerPedidosOk(snapshot.val()));
+        dispatch(obtenerPedidosOk( snapshot.val() ) );
       });
 
   };
