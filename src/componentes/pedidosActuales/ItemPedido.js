@@ -66,6 +66,7 @@ class ItemPedido extends Component {
 
           <TouchableOpacity >
             <Boton etiqueta = { 'Cambiar estado' } width = {150}  />
+
           </TouchableOpacity>
         </View>
 
