@@ -27,8 +27,8 @@ export const tomarPedidoError = error => ({
 
 export const obtenerPedidosAceptadosInicia = () => ({
   type: OBTENER_PEDIDOS_ACEPTADOS_INICIA });
-export const obtenerPedidosAceptadosOk = payload => ({
-  type: OBTENER_PEDIDOS_ACEPTADOS_OK, payload });
+export const obtenerPedidosAceptadosOk = aceptados => ({
+  type: OBTENER_PEDIDOS_ACEPTADOS_OK, aceptados });
 export const obtenerPedidosAceptadosError = error => ({
   type: OBTENER_PEDIDOS_ACEPTADOS_ERROR, error });
 

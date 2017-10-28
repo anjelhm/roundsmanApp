@@ -24,7 +24,6 @@ class ListaActual extends Component {
       });
 
     } else {
-
       this.setState({
         datos: this.props.aceptado,
         vacio: false
@@ -43,10 +42,11 @@ class ListaActual extends Component {
   }
 
   renderLista() {
+
     return(
       <View style = {{ flex: 1 }}>
         <FlatList
-          data = { this.state.aceptado }
+          data = { this.state.datos }
           keyExtractor = {  item => item.idPedido  }
           renderItem = {
             ( { item } ) => {

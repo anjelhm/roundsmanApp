@@ -9,7 +9,7 @@ import { iniciaObtenerPedidosAceptados } from '../acciones/pedidos/actions';
 class ContenedorPedidosActuales extends Component {
 
   componentDidMount() {
-    this.props.iniciaObtenerPedidosAceptados();
+    this.props.iniciaObtenerPedidosAceptados(this.props.idRepartidor);
   }
 
   render() {
