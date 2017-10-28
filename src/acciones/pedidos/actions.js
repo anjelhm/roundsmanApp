@@ -58,11 +58,11 @@ export const iniciaTomarPedido = ( datos ) => {
 
       let actualizaRepartidor = {};
 
-      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/idRepartidor`] = datos.idRepartidor;
-      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/nombre`] = datos.nombre;
-      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/solicitud`] = datos.solicitud;
-      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/uid`] = datos.uid;
-      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/idPedido`] = datos.idPedido;
+      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/${keyPedido}/idRepartidor`] = datos.idRepartidor;
+      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/${keyPedido}/nombre`] = datos.nombre;
+      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/${keyPedido}/solicitud`] = datos.solicitud;
+      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/${keyPedido}/uid`] = datos.uid;
+      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/${keyPedido}/idPedido`] = datos.idPedido;
       actualizaRepartidor[`usuarios/${datos.uid}/pedidos/${datos.idPedido}/estado`] = 'aceptado';
       actualizaRepartidor[`usuarios/${datos.uid}/pedidos/${datos.idPedido}/repartidor`] = nombreRepartidor;
       actualizaRepartidor[`pedidos/${datos.idPedidos}`] = null;
