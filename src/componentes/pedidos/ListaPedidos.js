@@ -39,7 +39,7 @@ class ListaPedidos extends Component {
 
   componentDidUpdate(prevProps) {
     if( prevProps.pedidos !== this.props.pedidos ) {
-      cargarDatos();
+      this.cargarDatos();
     }
   }
 
