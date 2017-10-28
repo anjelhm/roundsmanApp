@@ -45,24 +45,33 @@ export const iniciaObtenerPedido = () => {
 * @param { idSolicitud, uid } (solicitud)
 * @param { idPedido } (pedido)
 **/
-export const iniciaTomarPedido = ( id, nombre, idSolicitud, uid, idPedido ) => {
+export const iniciaTomarPedido = ( datos ) => {
   return dispatch => {
     dispatch(tomarPedidoInicia());
 
-    firebaseRef.child(`repartidor/${id}/data`).once( 'value' )
+    firebaseRef.child(`repartidor/${datos.idRepartidor}/data`).once( 'value' )
     .then( snapshot => {
-      const nombre = snapshot.val().nombre;
+      const nombreRepartidor = snapshot.val().nombre;
 
-      firebaseRef.child(`repartidor/${id}/pedidos`).push({ nombre: nombre, estado: 'aceptado', solicitud: idSolicitud })
-      .then( () => {
+      const pedidosRepartidor = firebaseRef.child(`repartidor/${datos.idRepartidor}/pedidos`).push();
+      const keyPedido = pedidosRepartidor.key;
 
-        let actualiza = {};
-        actualiza[`usuarios/${uid}/pedidos/${idPedido}/estado`] = 'aceptado';
-        actualiza[`usuarios/${uid}/pedidos/${idPedido}/repartidor`] = nombre;
-        firebaseRef.update(actualiza)
-        .then( () => tomarPedidoOk, "aceptado")
-        .catch( () => tomarPedidoError,"Error" );
-      });
+      let actualizaRepartidor = {};
+
+      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/idRepartidor`] = datos.idRepartidor;
+      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/nombre`] = datos.nombre;
+      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/solicitud`] = datos.solicitud;
+      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/uid`] = datos.uid;
+      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/idPedido`] = datos.idPedido;
+      actualizaRepartidor[`usuarios/${datos.uid}/pedidos/${datos.idPedido}/estado`] = 'aceptado';
+      actualizaRepartidor[`usuarios/${datos.uid}/pedidos/${datos.idPedido}/repartidor`] = nombreRepartidor;
+      actualizaRepartidor[`pedidos/${datos.idPedidos}`] = null;
+
+      firebaseRef.update(actualizaRepartidor)
+      .then( () => tomarPedidoOk("aceptado") )
+      .catch( () => tomarPedidoError("Error") );
+
+
      });
   }
 }

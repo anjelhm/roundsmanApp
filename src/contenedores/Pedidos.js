@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 
 import ListaPedidos from '../componentes/pedidos/ListaPedidos';
-import { iniciaObtenerPedido } from '../acciones/pedidos/actions'
+import { iniciaTomarPedido,iniciaObtenerPedido } from '../acciones/pedidos/actions'
 
 /**
  * cargando componente ListaPedidos
@@ -13,6 +13,19 @@ class contenedorObtenerRegistro extends Component {
 
   componentDidMount() {
     this.props.iniciaObtenerPedido();
+  }
+
+  aceptarPedido(idPedido, nombre ,solicitud ,uid, idPedidos){
+    const datos = {
+      idRepartidor: this.props.idRepartidor,
+      nombre,
+      solicitud,
+      uid,
+      idPedido,
+      idPedidos
+    };
+
+    this.props.iniciaTomarPedido(datos);
   }
 
 
@@ -31,7 +44,7 @@ class contenedorObtenerRegistro extends Component {
                   <Text>Descargando pedidos</Text>
                 </View>
                 : <View style = {{ flex: 1 }}>
-                   <ListaPedidos pedidos = { pedidos.data }/>
+                   <ListaPedidos pedidos = { pedidos.data } aceptarPedido = {this.aceptarPedido.bind(this)} />
                 </View>
               }
             </View>
@@ -50,7 +63,7 @@ mapStateToProps = ({ pedidos: { pedidos } }) => ({
 
  const ObtenerRegistro = connect (
    mapStateToProps,
-   { iniciaObtenerPedido }
+   { iniciaObtenerPedido, iniciaTomarPedido }
  )( contenedorObtenerRegistro );
 
 export default ObtenerRegistro;

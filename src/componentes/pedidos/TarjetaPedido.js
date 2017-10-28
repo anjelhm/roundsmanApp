@@ -22,8 +22,13 @@ class TarjetaPedido extends Component {
     this.setState({ modalVisible: visible });
   }
 
+  tomarPedido(){
+      const {idPedido, nombre ,solicitud ,uid, idPedidos} = this.props;
+      this.props.tomarPedido(idPedido, nombre ,solicitud ,uid, idPedidos);
+  }
+
   render() {
-    const { nombre, ubicacion } = this.props;
+    const { ubicacion, nombre} = this.props;
 
     return(
       <View style = { estilo.contenedor }>
@@ -45,6 +50,7 @@ class TarjetaPedido extends Component {
             width = { 140 }
             color = "#FFFFFF"
             fondo = "#000000"
+            accion = {this.tomarPedido.bind(this)}
           />
           <Boton
             etiqueta = "Ver Mapa"

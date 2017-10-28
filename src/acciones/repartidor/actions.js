@@ -42,19 +42,18 @@ export const iniciaGuardarRepartidor = data => {
        * funcion para obtener direccion de repartidor y guarda
        * @param { Object } repartidor
        **/
-       const nuevo = firebaseRef.child('repartidor').push();
-       const nuevaKey = nuevo.key;
 
-       let actualiza = {};
+       const userRef = firebaseRef.child(`repartidor/${usuario}`);
 
-       actualiza[`repartidor/${nuevaKey}/data/nombre`] = data.nombre + ' ' + data.paterno + ' ' + data.materno;
-       actualiza[`repartidor/${nuevaKey}/data/fecha`] =  data.fecha;
-       actualiza[`repartidor/${nuevaKey}/data/sexo`] =  data.sexo;
-       actualiza[`repartidor/${nuevaKey}/data/correo`] =  data.correo;
-       actualiza[`repartidor/${nuevaKey}/data/id`] =  usuario;
-
-       firebaseRef.update(actualiza).then( () => guardarRepartidorOk, "Almacenado con exito" )
-       .catch( () => guardarRepartidorError, "Error" );
+      return userRef.set({
+        'data': {
+          'nombre':  data.nombre + ' ' + data.paterno + ' ' + data.materno,
+          'fecha': data.fecha,
+          'sexo': data.sexo,
+          'correo': data.correo,
+          'id': usuario
+        }
+      });
     })
   };
 };

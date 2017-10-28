@@ -15,7 +15,9 @@ class ListaPedidos extends Component {
     };
 
   }
-
+ tomarPedido( idPedido, nombre ,solicitud ,uid, idPedidos){
+   this.props.aceptarPedido(idPedido, nombre ,solicitud ,uid, idPedidos);
+ }
   cargarDatos() {
     if( typeof this.props.pedidos === 'undefined' ) {
 
@@ -55,6 +57,11 @@ class ListaPedidos extends Component {
                 <TarjetaPedido
                       nombre = { item.nombre }
                       ubicacion = { item.ubicacion }
+                      idPedido = { item.idPedido }
+                      solicitud = { item.solicitud }
+                      uid ={ item.uid }
+                      idPedidos = { item.idPedidos }
+                      tomarPedido = { this.tomarPedido.bind(this) }
                     />
               )
             }

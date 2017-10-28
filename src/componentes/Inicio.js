@@ -67,7 +67,7 @@ class Inicio extends Component {
             initialPage = { 0 }
           >
             <View style = {{ paddingTop: 60}}>
-              <Pedidos/>
+              <Pedidos idRepartidor  = { this.props.navigation.state.params.id } />
             </View>
             <View style = {{ paddingTop: 60 }}>
               <PedidosActuales/>
