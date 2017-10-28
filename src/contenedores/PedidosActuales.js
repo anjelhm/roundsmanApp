@@ -28,7 +28,7 @@ const { aceptado } = this.props;
                 </View>
                 : <View style = {{ flex: 1 }}>
                    {
-                     typeof aceptado.data === 'undefined'
+                     aceptado.data === null
                      ? <View style = {{ flex: 1 }}>
                         <Text>No hay datos</Text>
                      </View>

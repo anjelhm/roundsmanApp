@@ -43,7 +43,7 @@ export const iniciaObtenerPedido = () => {
       * @param { Object } pedidos
       **/
       firebaseRef.child('pedidos').on('value', snapshot => {
-        dispatch(obtenerPedidosOk( Object.keys(snapshot.val()).map( x => snapshot.val()[x] ) ) );
+        dispatch(obtenerPedidosOk( snapshot.val() ) );
       });
 
   };
@@ -87,15 +87,15 @@ export const iniciaTomarPedido = ( datos ) => {
   }
 }
 
+/**
+* funcion para obtener pedidos que han sido aceptados aceptados
+* @param { string } id
+*/
 export const iniciaObtenerPedidosAceptados = ( id ) => {
   return dispatch => {
      dispatch(obtenerPedidosAceptadosInicia());
-      /**
-      * funcion para obtener pedidosAceptados y envia
-      * @param { Object } pedidos
-      **/
+
       firebaseRef.child(`repartidor/${id}/pedidos/`).on('value', snapshot => {
-        console.log('DATA: ', snapshot.val());
         dispatch(obtenerPedidosAceptadosOk( snapshot.val() ) );
       });
 

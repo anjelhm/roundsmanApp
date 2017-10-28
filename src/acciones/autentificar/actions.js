@@ -69,6 +69,10 @@ export const desautentificar = () => {
   };
 };
 
+
+/**
+ * Acción que verifica la sesión del usuario
+*/
 export const verificaSesion = () => {
 
   return dispatch => {

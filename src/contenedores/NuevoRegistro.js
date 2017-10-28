@@ -12,6 +12,9 @@ class contenedorNuevoRegistro extends Component {
     header: null
   };
 
+/**
+* Función que recibe los datos para nuevo registro y los pasa a la acción para ingresarlos a la base de datos
+*/
   recibeDatos( nombre, apellidom, apellidop, date, sexo, correo,  clave1 ) {
 
 

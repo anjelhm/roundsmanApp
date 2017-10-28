@@ -14,18 +14,13 @@ export const guardarRepartidorError = error =>
   ({ type: GUARDAR_REPARTIDOR_ERROR, error });
 
 /**
-* funcion para recibir el objeto de repartidor y crear usuario en firebase
+* acción que registra un nuevo repartidor y crea su respectivo usuario en firebase
 * @param { Object } data
 **/
 export const iniciaGuardarRepartidor = data => {
   return dispatch => {
      dispatch(guardarRepartidorInicia());
 
-
-     /**
-     * funcion crear ususario en firebase
-     * @param { Object } data
-    **/
      firebaseAuth.createUserWithEmailAndPassword( data.correo, data.clave )
      .then( snapshot => {
        const repartidor = {
@@ -38,10 +33,6 @@ export const iniciaGuardarRepartidor = data => {
          id: snapshot.uid
        };
        const usuario = snapshot.uid;
-       /**
-       * funcion para obtener direccion de repartidor y guarda
-       * @param { Object } repartidor
-       **/
 
        const userRef = firebaseRef.child(`repartidor/${usuario}`);
 

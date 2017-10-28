@@ -65,6 +65,7 @@ class Registro extends Component {
        });
    }
  }
+
  /**
  * función que envía el correo y la clave al contenedor IniciaSesion para verificar al usuario, y limpia los input
  */

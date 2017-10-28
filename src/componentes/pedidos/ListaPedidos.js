@@ -15,9 +15,22 @@ class ListaPedidos extends Component {
     };
 
   }
+
+/**
+* Función que envía los datos del pedido que será aceptado
+* @param { string } idPedido
+* @param { string } nombre
+* @param { string } solicitud
+* @param { string } uid
+* @param { string } idPedidos
+*/
  tomarPedido( idPedido, nombre ,solicitud ,uid, idPedidos){
    this.props.aceptarPedido(idPedido, nombre ,solicitud ,uid, idPedidos);
  }
+
+ /**
+ * Función que carga la lista de datos en el state
+ */
   cargarDatos() {
     if( typeof this.props.pedidos === 'undefined' ) {
 
@@ -45,6 +58,9 @@ class ListaPedidos extends Component {
     }
   }
 
+/**
+* Función que renderiza la lista con los datos
+*/
   renderLista() {
     return(
       <View style = {{ flex: 1 }}>

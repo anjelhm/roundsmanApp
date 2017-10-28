@@ -34,7 +34,7 @@ class MapaPedidos extends Component {
   }
 
   render() {
-
+ const { ubicacion } = this.props;
     return (
       <View style = {{ flex: 1 }}>
         {
@@ -42,8 +42,8 @@ class MapaPedidos extends Component {
           ? <Mapa marcador = { [
             {
                 coordenadas: {
-                  latitude: 17.270077,
-                  longitude: -97.678553,
+                  latitude: ubicacion.lat,
+                  longitude: ubicacion.long,
                 },
                 nombre : 'Nombre',
                 descripcion: 'Direccion',

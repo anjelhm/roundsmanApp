@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import ListaPedidos from '../componentes/pedidos/ListaPedidos';
 import { iniciaTomarPedido,iniciaObtenerPedido } from '../acciones/pedidos/actions'
 
-/**
- * cargando componente ListaPedidos
-*/
 
 class contenedorObtenerRegistro extends Component {
 
@@ -15,6 +12,9 @@ class contenedorObtenerRegistro extends Component {
     this.props.iniciaObtenerPedido();
   }
 
+/**
+* Función que toma los datos del pedido seleccionado y los pasa a la acción para aceptar el pedido
+*/
   aceptarPedido(idPedido, nombre ,solicitud ,uid, idPedidos){
     const datos = {
       idRepartidor: this.props.idRepartidor,
@@ -44,7 +44,13 @@ class contenedorObtenerRegistro extends Component {
                   <Text>Descargando pedidos</Text>
                 </View>
                 : <View style = {{ flex: 1 }}>
-                   <ListaPedidos pedidos = { pedidos.data } aceptarPedido = {this.aceptarPedido.bind(this)} />
+                    {
+                      pedidos.data === null
+                      ? <View style = {{ flex: 1 }}>
+                         <Text>No hay datos</Text>
+                      </View>
+                      : <ListaPedidos pedidos = { Object.keys(pedidos.data).map( x => pedidos.data[x] )  } aceptarPedido = {this.aceptarPedido.bind(this)} />
+                    }
                 </View>
               }
             </View>

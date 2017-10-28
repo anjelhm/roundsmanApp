@@ -15,20 +15,23 @@ class TarjetaPedido extends Component {
   }
 
   /**
-  * función que da el boolean
+  * función que muestra/oculta el modal
   * @param { bool } visible
   */
   setModalVisible(visible) {
     this.setState({ modalVisible: visible });
   }
 
+  /**
+  * Función que devuelve los datos del pedido seleccionado
+  */
   tomarPedido(){
       const {idPedido, nombre ,solicitud ,uid, idPedidos} = this.props;
       this.props.tomarPedido(idPedido, nombre ,solicitud ,uid, idPedidos);
   }
 
   render() {
-    const { ubicacion, nombre} = this.props;
+    const { ubicacion, nombre } = this.props;
 
     return(
       <View style = { estilo.contenedor }>
@@ -80,7 +83,7 @@ class TarjetaPedido extends Component {
 
             </View>
             <View style= {{ flex: 5 }}>
-              <MapaPedidos/>
+              <MapaPedidos ubicacion = { ubicacion }/>
             </View>
 
             <View style = {{

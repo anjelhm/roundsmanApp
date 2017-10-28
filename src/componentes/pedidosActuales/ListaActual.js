@@ -15,6 +15,9 @@ class ListaActual extends Component {
 
   }
 
+  /**
+  * Función que carga la lista de datos en el state
+  */
   cargarDatos() {
     if( typeof this.props.aceptado === 'undefined' ) {
 
@@ -41,6 +44,9 @@ class ListaActual extends Component {
     }
   }
 
+  /**
+  * Función que renderiza la lista con los datos
+  */
   renderLista() {
 
     return(
