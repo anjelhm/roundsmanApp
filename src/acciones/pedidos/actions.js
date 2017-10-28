@@ -63,6 +63,7 @@ export const iniciaTomarPedido = ( datos ) => {
       actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/${keyPedido}/solicitud`] = datos.solicitud;
       actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/${keyPedido}/uid`] = datos.uid;
       actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/${keyPedido}/idPedido`] = datos.idPedido;
+      actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/${keyPedido}/estado`] = 'aceptado';
       actualizaRepartidor[`usuarios/${datos.uid}/pedidos/${datos.idPedido}/estado`] = 'aceptado';
       actualizaRepartidor[`usuarios/${datos.uid}/pedidos/${datos.idPedido}/repartidor`] = nombreRepartidor;
       actualizaRepartidor[`pedidos/${datos.idPedidos}`] = null;
