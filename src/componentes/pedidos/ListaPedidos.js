@@ -27,7 +27,7 @@ class ListaPedidos extends Component {
     } else {
 
       this.setState({
-        datos: Object.keys(this.props.pedidos).map(x => this.props.pedidos[x]),
+        datos: this.props.pedidos,
         vacio: false
       });
     }
@@ -48,7 +48,7 @@ class ListaPedidos extends Component {
       <View style = {{ flex: 1 }}>
         <FlatList
           data = { this.state.datos }
-          keyExtractor = { () => Object.keys(this.state.datos).map(item => this.state.datos[item].solicitud) }
+          keyExtractor = {  item => item.solicitud  }
           renderItem = {
             ( { item } ) => {
               return(

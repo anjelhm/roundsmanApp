@@ -35,7 +35,7 @@ class TarjetaPedido extends Component {
           </View>
           <View>
             <Text style = { estilo.ubicacion }>
-              { ubicacion.lat }
+              { 'latitud: ' + ubicacion.lat + ' longitud: ' + ubicacion.long }
             </Text>
           </View>
         </View>
