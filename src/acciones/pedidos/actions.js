@@ -95,7 +95,8 @@ export const iniciaObtenerPedidosAceptados = ( id ) => {
       * @param { Object } pedidos
       **/
       firebaseRef.child(`repartidor/${id}/pedidos/`).on('value', snapshot => {
-        dispatch(obtenerPedidosAceptadosOk( Object.keys(snapshot.val()).map( x => snapshot.val()[x] ) ) );
+        console.log('DATA: ', snapshot.val());
+        dispatch(obtenerPedidosAceptadosOk( snapshot.val() ) );
       });
 
   };

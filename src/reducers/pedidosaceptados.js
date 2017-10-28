@@ -23,7 +23,7 @@ const  aceptado= (state = estadoInicial.aceptado, action) => {
       return {
         ...state,
         obteniendo: false,
-        mensaje: action.aceptados
+        data: action.aceptados
 
       };
     case OBTENER_PEDIDOS_ACEPTADOS_ERROR:

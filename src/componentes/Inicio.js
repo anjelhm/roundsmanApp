@@ -70,7 +70,7 @@ class Inicio extends Component {
               <Pedidos idRepartidor  = { this.props.navigation.state.params.id } />
             </View>
             <View style = {{ paddingTop: 60 }}>
-              <PedidosActuales/>
+              <PedidosActuales idRepartidor  = { this.props.navigation.state.params.id }/>
             </View>
             <View style = {{ paddingTop: 60 }}>
               <Historial/>
