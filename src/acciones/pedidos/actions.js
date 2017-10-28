@@ -5,7 +5,10 @@ import {
   OBTENER_PEDIDOS_ERROR,
   TOMAR_PEDIDO_INICIA,
   TOMAR_PEDIDO_OK,
-  TOMAR_PEDIDO_ERROR
+  TOMAR_PEDIDO_ERROR,
+  OBTENER_PEDIDOS_ACEPTADOS_INICIA,
+  OBTENER_PEDIDOS_ACEPTADOS_OK,
+  OBTENER_PEDIDOS_ACEPTADOS_ERROR
 } from '../../constantes/ActionTypes';
 
 export const obtenerPedidosInicia = () => ({
@@ -21,6 +24,13 @@ export const tomarPedidoOk = payload => ({
   type: TOMAR_PEDIDO_OK, payload });
 export const tomarPedidoError = error => ({
   type: TOMAR_PEDIDO_ERROR, error });
+
+export const obtenerPedidosAceptadosInicia = () => ({
+  type: OBTENER_PEDIDOS_ACEPTADOS_INICIA });
+export const obtenerPedidosAceptadosOk = payload => ({
+  type: OBTENER_PEDIDOS_ACEPTADOS_OK, payload });
+export const obtenerPedidosAceptadosError = error => ({
+  type: OBTENER_PEDIDOS_ACEPTADOS_ERROR, error });
 
 /**
 * funcion para obtener pedido
@@ -76,3 +86,17 @@ export const iniciaTomarPedido = ( datos ) => {
      });
   }
 }
+
+export const iniciaObtenerPedidosAceptados = ( id ) => {
+  return dispatch => {
+     dispatch(obtenerPedidosAceptadosInicia());
+      /**
+      * funcion para obtener pedidosAceptados y envia
+      * @param { Object } pedidos
+      **/
+      firebaseRef.child(`repartidor/${id}/pedidos/`).on('value', snapshot => {
+        dispatch(obtenerPedidosAceptadosOk( Object.keys(snapshot.val()).map( x => snapshot.val()[x] ) ) );
+      });
+
+  };
+};
