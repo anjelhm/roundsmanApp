@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-
-import EstadosPedidos from '../componentes/EstadosPedidos';
 import { connect } from 'react-redux';
 
+import EstadoPedidos from '../componentes/EstadosPedidos';
 import { iniciaObtenerEstado, iniciaCambiarEstado  } from '../acciones/estado/actions';
 
 
  class ContenedorEstadoPedidos extends Component {
 
    render() {
-
      return (
-       <View style = {{ flex: 1 }}>
-         <EstadosPedidos />
+       <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+         <EstadoPedidos />
        </View>
      );
    }
  }
+
 
 
  const mapStateToProps = ({ estados: estadoPedido }) => ({
@@ -29,4 +28,4 @@ import { iniciaObtenerEstado, iniciaCambiarEstado  } from '../acciones/estado/ac
    { iniciaObtenerEstado, iniciaCambiarEstado }
  )(ContenedorEstadoPedidos);
 
- export default IniciaSesion;
+ export default ContenedorEstadoPedidos;

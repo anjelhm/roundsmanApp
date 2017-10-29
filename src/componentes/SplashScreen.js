@@ -30,9 +30,12 @@ class SplashScreen extends Component {
 
           </View>
 
-          <View>
+          <View style = {{
+              marginBottom: 15,
+               alignItems: 'center'
+             }}>
             <Text  style = {{ color: '#607D8B' }} >
-              F4-Lab
+              F4Lab
             </Text>
           </View>
         </View>

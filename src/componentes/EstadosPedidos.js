@@ -8,25 +8,23 @@ class EstadoPedidos extends Component {
   render() {
     return (
       <View style = {{
-        flexDirection: 'row',
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        backgroundColor: '#FFFFFF',
+        justifyContent: 'center'
       }}>
-      <View style = {{
-        justifyContent: 'center',
-        alignItems: 'center'}}>
+      <View>
 
         <View >
           <View style = {{
+            flexDirection: 'row',
             alignItems: 'flex-start',
-            marginTop: 5,
-            marginLeft:20
+            marginTop: 15,
             }}>
 
               <Text style = {{
                 color: '#607D8B',
-                fontSize: 14
+                fontSize: 14,
+                marginLeft: 40
               }}>De compras</Text>
 
           </View>
@@ -43,13 +41,13 @@ class EstadoPedidos extends Component {
             <View style = {{
             alignItems: 'flex-start',
             marginTop: 5,
-            marginLeft:10,
             fontSize: 14
           }}>
 
               <Text style = {{
                 color: '#607D8B',
-                fontSize: 14
+                fontSize: 14,
+                marginLeft: 40
               }}>Compra hecha</Text>
 
             </View>
@@ -64,23 +62,13 @@ class EstadoPedidos extends Component {
       <View>
           <View >
             <View style = {{
-            alignItems: 'flex-start',
-            marginTop: 5,
-            marginLeft:20,
-            fontSize: 14
-          }}>
-
-              <Text style = {{
-                color: '#607D8B',
-                fontSize: 14
-              }}>Precio total</Text>
-
-            </View>
-              <View style = {{
-              alignItems: 'flex-end',
-              marginRight: 20
+              flex: 1
               }}>
-              <Input/>
+          </View>
+              <View style = {{
+              marginLeft: 40
+              }}>
+              <Input etiqueta = { 'Precio Total' }/>
             </View>
           </View>
       </View>
@@ -89,11 +77,11 @@ class EstadoPedidos extends Component {
             <View style = {{
             alignItems: 'flex-start',
             marginTop: 5,
-            marginLeft:20
           }}>
 
               <Text style = {{
                 color: '#607D8B',
+                marginLeft: 40,
                 fontSize: 14
               }}>De Camino a la entrega</Text>
 
@@ -110,12 +98,12 @@ class EstadoPedidos extends Component {
             <View style = {{
             alignItems: 'flex-start',
             marginTop: 5,
-            marginLeft:20,
             fontSize: 14
           }}>
 
               <Text style = {{
                 color: '#607D8B',
+                marginLeft: 40,
                 fontSize: 14
               }}>Compra entregada</Text>
 
@@ -131,6 +119,5 @@ class EstadoPedidos extends Component {
       </View>
     ) ;
   }
-}
-
-export default EstadoPedidos;
+  }
+export default estadoPedido;
