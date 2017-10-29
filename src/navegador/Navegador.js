@@ -11,6 +11,7 @@ import NuevoRegistro from '../contenedores/NuevoRegistro';
 
 import Mapa from '../componentes/Mapa/Mapa';
 import ListaActual from '../componentes/ListaActual/ListaActual';
+import ScannerQR from '../componentes/ScannerQR';
 
 const rutas = {
   Inicio: { screen: Inicio },
@@ -20,7 +21,8 @@ const rutas = {
   Sesion: { screen: MiSesion },
   Registro: { screen: NuevoRegistro },
   Mapa: { screen: Mapa },
-  ListaActual: { screen: ListaActual }
+  ListaActual: { screen: ListaActual },
+  ScannerQR: { screen: ScannerQR }
 };
 
 export const Navegador = StackNavigator(rutas);

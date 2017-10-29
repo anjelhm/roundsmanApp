@@ -11,7 +11,7 @@ import {
 
 import { Navegador } from '../navegador/Navegador';
 
-const rutaInicial = Navegador.router.getStateForAction(Navegador.router.getActionForPathAndParams('VerificaSesion'));
+const rutaInicial = Navegador.router.getStateForAction(Navegador.router.getActionForPathAndParams('Sesion'));
 
 const nav = (state = rutaInicial, action) => {
 
