@@ -6,6 +6,7 @@ import repartidor from './repartidor';
 import pedidos from './pedidos';
 import mispedidos from './mispedidos';
 import pedidosaceptados from './pedidosaceptados';
+import estados from './estados';
 
 const rootReducer = combineReducers({
   navegador,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   repartidor,
   pedidos,
   mispedidos,
-  pedidosaceptados
+  pedidosaceptados,
+  estados
 });
 
 export default rootReducer;
