@@ -10,13 +10,12 @@ import {
 } from '../constantes/ActionTypes';
 
 const estadoInicial = {
-    estado : null,
+    estadoPedido : null,
     cambiaEstado : null
 };
 
 
-const estadoPedido = (state = estadoInicial.estado , action) => {
-
+const estadoPedido = (state = estadoInicial.estadoPedido , action) => {
   switch(action.type) {
     case OBTENER_ESTADO_INICIA:
       return {
@@ -27,8 +26,7 @@ const estadoPedido = (state = estadoInicial.estado , action) => {
       return {
         ...state,
         obteniendo: false,
-        data: action.estados
-
+        estado: action.estados
       };
     case OBTENER_ESTADO_ERROR:
       return {

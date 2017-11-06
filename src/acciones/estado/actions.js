@@ -10,8 +10,8 @@ import {
 
 export const obtenerEstadoInicia = () => ({
   type: OBTENER_ESTADO_INICIA });
-export const obtenerEstadoOk = estados => ({
-  type: OBTENER_ESTADO_OK, estados });
+export const obtenerEstadoOk = estados => 
+({ type: OBTENER_ESTADO_OK, estados });
 export const obtenerEstadoError = error =>
   ({ type: OBTENER_ESTADO_ERROR, error });
 
@@ -23,11 +23,11 @@ export const obtenerEstadoError = error =>
     ({ type: MODIFICAR_ESTADO_ERROR, error });
 
 
-  export const iniciaObtenerEstado = (idUsario,idPedido) => {
+  export const iniciaObtenerEstado = (idUsuario,idPedido) => {
     return dispatch => {
        dispatch(obtenerEstadoInicia());
-       firebaseRef.child(`usuarios/${idUsario}/pedidos/${idPedido}/estado`).on('value', snapshot => {
-         dispatch(obtenerEstadoOk( snapshot.val() ) );
+       firebaseRef.child(`usuarios/${idUsuario}/pedidos/${idPedido}/estado`).on('value', snapshot => {
+         dispatch(obtenerEstadoOk(snapshot.val()));
        });
     };
   };

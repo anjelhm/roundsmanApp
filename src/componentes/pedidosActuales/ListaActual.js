@@ -44,6 +44,10 @@ class ListaActual extends Component {
     }
   }
 
+  verEstado(idPedido, idUsuario){
+    this.props.irAEstado(idPedido, idUsuario);
+  }
+
   /**
   * Función que renderiza la lista con los datos
   */
@@ -61,6 +65,8 @@ class ListaActual extends Component {
                   nombre = { item.nombre }
                   estado = { item.estado }
                   idPedido = { item.idPedido }
+                  idUsuario = { item.uid }
+                  verEstado = { this.verEstado.bind(this) }
                 />
               )
             }

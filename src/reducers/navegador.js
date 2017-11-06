@@ -6,7 +6,8 @@ import {
   CUENTA,
   INICIASESION,
   REGISTRO,
-  SESION
+  SESION,
+  ESTADOS
 } from '../constantes/ActionTypes';
 
 import { Navegador } from '../navegador/Navegador';
@@ -45,6 +46,12 @@ const nav = (state = rutaInicial, action) => {
     case REGISTRO :
       nextState = Navegador.router.getStateForAction(
         NavigationActions.navigate({ routeName: 'Registro' }),
+        state
+      );
+      break;
+    case ESTADOS :
+      nextState = Navegador.router.getStateForAction(
+        NavigationActions.navigate({ routeName: 'Estados', params: { idPedido: action.idPedido, idUsuario: action.idUsuario } }),
         state
       );
       break;

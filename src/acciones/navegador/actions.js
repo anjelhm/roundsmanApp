@@ -3,7 +3,8 @@ import {
   CUENTA,
   SESION,
   REGISTRO,
-  INICIASESION
+  INICIASESION,
+  ESTADOS
 } from '../../constantes/ActionTypes';
 
 export const pantallaCuenta = () =>
@@ -17,6 +18,18 @@ export const pantallaRegistro = () =>
 
 export const pantallaIniciaSesion = () =>
   ({ type: INICIASESION });
+
+export const pantallaEstados = (idPedido, idUsuario) =>
+  ({ type: ESTADOS, idPedido, idUsuario });
+
+/**
+ * accion para cambiar a pantalla de Estados
+*/
+export const lanzarEstados = (idPedido, idUsuario) => {
+  return dispatch => {
+    dispatch(pantallaEstados(idPedido, idUsuario));
+  };
+};
 
 /**
  * accion para cambiar a pantalla de IniciaSesion

@@ -8,6 +8,7 @@ import IniciaSesion from '../contenedores/IniciaSesion';
 import VerificaSesion from '../contenedores/VerificaSesion';
 import MiSesion from '../contenedores/MiSesion';
 import NuevoRegistro from '../contenedores/NuevoRegistro';
+import EstadosPedidos from '../contenedores/EstadosPedidos';
 
 import Mapa from '../componentes/Mapa/Mapa';
 import ListaActual from '../componentes/ListaActual/ListaActual';
@@ -22,7 +23,8 @@ const rutas = {
   Registro: { screen: NuevoRegistro },
   Mapa: { screen: Mapa },
   ListaActual: { screen: ListaActual },
-  ScannerQR: { screen: ScannerQR }
+  ScannerQR: { screen: ScannerQR },
+  Estados: { screen: EstadosPedidos }
 };
 
 export const Navegador = StackNavigator(rutas);

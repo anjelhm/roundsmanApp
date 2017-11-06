@@ -3,11 +3,11 @@ import { StyleSheet, Switch, Text, View } from 'react-native';
 
 class Interruptor extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      encendido: false
+      encendido: props.activo
     };
 
   }
@@ -18,7 +18,11 @@ class Interruptor extends Component {
   cambia() {
     this.setState({
       encendido: !this.state.encendido
-    });
+    }, console.warn(this.state.encendido));
+  }
+
+  enviaDato(bandera) {
+    console.warn('BANDERA: ', bandera);
   }
 
   render() {
@@ -54,7 +58,8 @@ Interruptor.defaultProps = {
   nombre: "Texto",
   circulo: '#607D8B',
   fondoa: '#CFD8DC',
-  fondoe: '#212121'
+  fondoe: '#212121',
+  activo: false
 }
 
 export default Interruptor;
