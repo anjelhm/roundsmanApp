@@ -4,7 +4,8 @@ import {
   SESION,
   REGISTRO,
   INICIASESION,
-  ESTADOS
+  ESTADOS,
+  ESCANNER
 } from '../../constantes/ActionTypes';
 
 export const pantallaCuenta = () =>
@@ -19,15 +20,27 @@ export const pantallaRegistro = () =>
 export const pantallaIniciaSesion = () =>
   ({ type: INICIASESION });
 
-export const pantallaEstados = (idPedido, idUsuario) =>
-  ({ type: ESTADOS, idPedido, idUsuario });
+export const pantallaEstados = (idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud) =>
+  ({ type: ESTADOS, idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud });
+
+export const pantallaEscanner = (idRepartidor, idPedidoAceptado, solicitud) =>
+  ({ type: ESCANNER, idRepartidor, idPedidoAceptado, solicitud });
+
+/**
+ * accion para cambiar a pantalla de Escanner
+*/
+export const lanzarEscanner = (idRepartidor, idPedidoAceptado, solicitud) => {
+  return dispatch => {
+    dispatch(pantallaEscanner(idRepartidor, idPedidoAceptado, solicitud));
+  };
+};
 
 /**
  * accion para cambiar a pantalla de Estados
 */
-export const lanzarEstados = (idPedido, idUsuario) => {
+export const lanzarEstados = (idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud) => {
   return dispatch => {
-    dispatch(pantallaEstados(idPedido, idUsuario));
+    dispatch(pantallaEstados(idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud));
   };
 };
 

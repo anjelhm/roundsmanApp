@@ -13,8 +13,8 @@ class ContenedorPedidosActuales extends Component {
     this.props.iniciaObtenerPedidosAceptados(this.props.idRepartidor);
   }
 
-  irAEstado(idPedido, idUsuario) {
-    this.props.lanzarEstados(idPedido, idUsuario);
+  irAEstado(idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud) {
+    this.props.lanzarEstados(idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud);
   }
 
   render() {

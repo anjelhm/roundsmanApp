@@ -18,21 +18,22 @@ class Interruptor extends Component {
   cambia() {
     this.setState({
       encendido: !this.state.encendido
-    }, console.warn(this.state.encendido));
+    }, this.props.enviaEstado(this.props.nombre));
   }
 
-  enviaDato(bandera) {
-    console.warn('BANDERA: ', bandera);
+  enviaDato(nombre) {
+    console.warn('BANDERA: ', nombre);
+    this.props.enviaEstado(nombre);
   }
 
   render() {
-    const { nombre, circulo, fondoa, fondoe } = this.props;
+    const { nombre, circulo, fondoa, fondoe, deshabilitado } = this.props;
     return (
         <View style = { estilo.contenido }>
         <Text>{ nombre }</Text>
           <View >
           <Switch style = {{ margin:5 }}
-            disabled = { false }
+            disabled = { deshabilitado }
             onTintColor = { fondoe }
             tintColor = { fondoa }
             thumbTintColor = { circulo }
@@ -59,7 +60,8 @@ Interruptor.defaultProps = {
   circulo: '#607D8B',
   fondoa: '#CFD8DC',
   fondoe: '#212121',
-  activo: false
+  activo: false,
+  deshabilitado: false
 }
 
 export default Interruptor;

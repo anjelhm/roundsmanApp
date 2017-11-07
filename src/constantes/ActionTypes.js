@@ -4,6 +4,7 @@ export const INICIASESION = "@@navegador/INICIASESION";
 export const REGISTRO = "@@navegador/REGISTRO";
 export const SESION = "@@navegador/SESION";
 export const ESTADOS = "@@navegador/ESTADOS";
+export const ESCANNER = "@@navegador/ESCANNER";
 
 export const AUTENTIFICACION_INICIAR = "@@autentificacion/INICIAR"
 export const AUTENTIFICACION_CORRECTA = "@@autentificacion/CORRECTA";
@@ -32,3 +33,7 @@ export const OBTENER_ESTADO_ERROR = "@@navegador/OBTENER_ESTADO_ERROR";
 export const MODIFICAR_ESTADO_INICIA = "@@navegador/MODIFICAR_ESTADO_INICIA";
 export const MODIFICAR_ESTADO_OK = "@@navegador/MODIFICAR_ESTADO_OK";
 export const MODIFICAR_ESTADO_ERROR = "@@navegador/MODIFICAR_ESTADO_ERROR";
+
+export const CERRAR_PEDIDO_INICIA = "@@cerrarPedido/INICIA";
+export const CERRAR_PEDIDO_OK = "@@cerrarPedido/OK";
+export const CERRAR_PEDIDO_ERROR = "@@cerrarPedido/ERROR";

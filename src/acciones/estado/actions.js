@@ -10,7 +10,7 @@ import {
 
 export const obtenerEstadoInicia = () => ({
   type: OBTENER_ESTADO_INICIA });
-export const obtenerEstadoOk = estados => 
+export const obtenerEstadoOk = estados =>
 ({ type: OBTENER_ESTADO_OK, estados });
 export const obtenerEstadoError = error =>
   ({ type: OBTENER_ESTADO_ERROR, error });
@@ -32,12 +32,19 @@ export const obtenerEstadoError = error =>
     };
   };
 
-  export const iniciaCambiarEstado = (idUsario,idPedido,idRepartidor,idPedidoAceptado,estado) => {
+  export const iniciaCambiarEstado = (idUsuario,idPedido,idRepartidor,idPedidoAceptado,estado,precio) => {
     return dispatch => {
        dispatch(modificarEstadoInicia());
        let modificarEstado = {};
-       modificarEstado[`usuarios/${idUsario}/pedidos/${idPedido}/estado`] = estado;
-       modificarEstado[`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}/estado`] = estado;
+
+       if(precio === '') {
+         modificarEstado[`usuarios/${idUsuario}/pedidos/${idPedido}/estado`] = estado;
+         modificarEstado[`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}/estado`] = estado;
+       } else {
+         modificarEstado[`usuarios/${idUsuario}/pedidos/${idPedido}/estado`] = estado;
+         modificarEstado[`usuarios/${idUsuario}/pedidos/${idPedido}/precio`] = precio;
+         modificarEstado[`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}/estado`] = estado;
+       }
        firebaseRef.update(modificarEstado)
        .then( () => modificarEstadoOk("aceptado") )
     };

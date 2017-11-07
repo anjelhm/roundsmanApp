@@ -23,9 +23,9 @@ class ItemPedido extends Component {
   }
 
   verEstado() {
-    const { idPedido, idUsuario } = this.props;
+    const { idPedido, idUsuario, idPedidoAceptado, idRepartidor, solicitud } = this.props;
 
-    this.props.verEstado(idPedido, idUsuario);
+    this.props.verEstado(idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud);
 
   }
 
