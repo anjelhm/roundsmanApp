@@ -7,7 +7,8 @@ import {
   INICIASESION,
   REGISTRO,
   SESION,
-  ESTADOS
+  ESTADOS,
+  ESCANNER
 } from '../constantes/ActionTypes';
 
 import { Navegador } from '../navegador/Navegador';
@@ -51,7 +52,13 @@ const nav = (state = rutaInicial, action) => {
       break;
     case ESTADOS :
       nextState = Navegador.router.getStateForAction(
-        NavigationActions.navigate({ routeName: 'Estados', params: { idPedido: action.idPedido, idUsuario: action.idUsuario } }),
+        NavigationActions.navigate({ routeName: 'Estados', params: { idPedido: action.idPedido, idUsuario: action.idUsuario, idRepartidor: action.idRepartidor, idPedidoAceptado: action.idPedidoAceptado, solicitud: action.solicitud } }),
+        state
+      );
+      break;
+    case ESCANNER :
+      nextState = Navegador.router.getStateForAction(
+        NavigationActions.navigate({ routeName: 'ScannerQR', params: { idPedido: action.idPedido, idUsuario: action.idUsuario, idRepartidor: action.idRepartidor, idPedidoAceptado: action.idPedidoAceptado, solicitud: action.solicitud } }),
         state
       );
       break;

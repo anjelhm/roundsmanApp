@@ -8,7 +8,11 @@ import {
   TOMAR_PEDIDO_ERROR,
   OBTENER_PEDIDOS_ACEPTADOS_INICIA,
   OBTENER_PEDIDOS_ACEPTADOS_OK,
-  OBTENER_PEDIDOS_ACEPTADOS_ERROR
+  OBTENER_PEDIDOS_ACEPTADOS_ERROR,
+  CERRAR_PEDIDO_INICIA,
+  CERRAR_PEDIDO_OK,
+  CERRAR_PEDIDO_ERROR,
+  INICIO
 } from '../../constantes/ActionTypes';
 
 export const obtenerPedidosInicia = () => ({
@@ -31,6 +35,16 @@ export const obtenerPedidosAceptadosOk = aceptados => ({
   type: OBTENER_PEDIDOS_ACEPTADOS_OK, aceptados });
 export const obtenerPedidosAceptadosError = error => ({
   type: OBTENER_PEDIDOS_ACEPTADOS_ERROR, error });
+
+export const cerrarPedidoInicia = () =>
+  ({ type: CERRAR_PEDIDO_INICIA });
+export const cerrarPedidoOk = payload =>
+  ({ type: CERRAR_PEDIDO_OK, payload });
+export const cerrarPedidoError = error =>
+  ({ type: CERRAR_PEDIDO_ERROR, error });
+
+export const pantallaInicio = id =>
+  ({ type: INICIO, id });
 
 /**
 * funcion para obtener pedido
@@ -99,6 +113,49 @@ export const iniciaObtenerPedidosAceptados = ( id ) => {
       firebaseRef.child(`repartidor/${id}/pedidos/`).on('value', snapshot => {
         dispatch(obtenerPedidosAceptadosOk( snapshot.val() ) );
       });
+
+  };
+};
+
+/**
+ * funcion que cierra el pedido
+ * elmina el pedido de misPedidos
+ * Agrega el pedido al historial
+*/
+export const iniciaCerrarPedido = (solicitud, idRepartidor, idPedidoAceptado) => {
+  return dispatch => {
+    dispatch(cerrarPedidoInicia());
+
+      firebaseRef.child(`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}/solicitud`).once('value')
+        .then(snapshot => {
+          if(solicitud === snapshot.val()){
+            firebaseRef.child(`solicitudes/lista/${solicitud}`).once('value')
+              .then(snapshot => {
+                const historial = firebaseRef.child(`repartidor/${idRepartidor}/historial`).push();
+                const claveHistorial = historial.key;
+
+                let actualiza = {};
+                actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/id`] = snapshot.val().id;
+                actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/lista`] = snapshot.val().lista;
+                actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/posicion`] = snapshot.val().posicion;
+                actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/timestamp`] = snapshot.val().timestamp;
+                actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/usuario`] = snapshot.val().usuario;
+                actualiza[`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}`] = null;
+                actualiza[`solicitudes/lista/${solicitud}`] = null;
+
+                firebaseRef.update(actualiza)
+                .then( () => {
+                  cerrarPedidoOk("aceptado");
+                  dispatch(pantallaInicio(idRepartidor));
+                })
+                .catch( () => cerrarPedidoError("Error") );
+
+              });
+
+          } else {
+            dispatch(cerrarPedidoError('No se encontraron coincidencias!'))
+          }
+        });
 
   };
 };

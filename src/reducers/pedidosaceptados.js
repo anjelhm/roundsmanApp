@@ -3,15 +3,19 @@ import { combineReducers } from 'redux';
 import {
   OBTENER_PEDIDOS_ACEPTADOS_INICIA,
   OBTENER_PEDIDOS_ACEPTADOS_OK,
-  OBTENER_PEDIDOS_ACEPTADOS_ERROR
+  OBTENER_PEDIDOS_ACEPTADOS_ERROR,
+  CERRAR_PEDIDO_INICIA,
+  CERRAR_PEDIDO_OK,
+  CERRAR_PEDIDO_ERROR
 } from '../constantes/ActionTypes';
 
 const estadoInicial = {
-    aceptado : null
+    aceptado : null,
+    cerrarPedido: null
 };
 
 
-const  aceptado= (state = estadoInicial.aceptado, action) => {
+const  aceptado = (state = estadoInicial.aceptado, action) => {
 
   switch(action.type) {
     case OBTENER_PEDIDOS_ACEPTADOS_INICIA:
@@ -36,6 +40,32 @@ const  aceptado= (state = estadoInicial.aceptado, action) => {
   };
 };
 
+const cerrarPedido = (state = estadoInicial.cerrarPedido, action) => {
+  switch(action.type) {
+    case CERRAR_PEDIDO_INICIA:
+      return {
+        ...state,
+        cerrando: true
+      };
+    case CERRAR_PEDIDO_OK:
+      return {
+        ...state,
+        cerrando: false,
+        mensaje: action.payload,
+        detalle: false
+      };
+    case CERRAR_PEDIDO_ERROR:
+      return {
+        ...state,
+        cerrando: false,
+        error: action.error,
+        detalle: true
+      };
+    default: return state;
+  };
+};
+
 export default combineReducers({
-  aceptado
+  aceptado,
+  cierra: cerrarPedido
 });

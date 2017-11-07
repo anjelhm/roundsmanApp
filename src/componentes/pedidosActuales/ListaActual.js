@@ -44,8 +44,8 @@ class ListaActual extends Component {
     }
   }
 
-  verEstado(idPedido, idUsuario){
-    this.props.irAEstado(idPedido, idUsuario);
+  verEstado(idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud){
+    this.props.irAEstado(idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud);
   }
 
   /**
@@ -66,6 +66,9 @@ class ListaActual extends Component {
                   estado = { item.estado }
                   idPedido = { item.idPedido }
                   idUsuario = { item.uid }
+                  idRepartidor = { item.idRepartidor }
+                  idPedidoAceptado = { item.pedidoRepartidor }
+                  solicitud = { item.solicitud }
                   verEstado = { this.verEstado.bind(this) }
                 />
               )
