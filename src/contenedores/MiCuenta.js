@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { connect } from 'react-redux';
 
 import Perfil from '../componentes/Perfil';
+import { iniciaObtenerRepartidor } from '../acciones/perfil/actions';
 
-class MiCuenta extends Component {
+class ContenedorMiCuenta extends Component {
 
   static navigationOptions = {
     header: null
@@ -18,4 +20,13 @@ class MiCuenta extends Component {
   }
 }
 
-export default MiCuenta;
+const mapStateToProps = ({ repartidor: perfil }) => ({
+  perfil
+});
+
+const IniciaSesion = connect(
+  mapStateToProps,
+  { iniciaObtenerRepartidor }
+)(ContenedorMiCuenta);
+
+export default ContenedorMiCuenta;
