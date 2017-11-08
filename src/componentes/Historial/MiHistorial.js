@@ -15,7 +15,7 @@ class MiHistorial extends Component {
                             nombre = { item.nombre }
                             precio = { item.precio }
                             ubicacion = { item.ubicacion }
-                          /> 
+                          />
           }
         />
       </View>
@@ -23,6 +23,6 @@ class MiHistorial extends Component {
   }
 }
 
-const ListData = [{ nombre: 'Gerard', precio: '$500', ubicacion: 'San Pedro'},{ nombre: 'Oscar', precio: '$1500', ubicacion: 'San Pablo'}];
+const ListData = [{ nombre: 'Módulo en desarrollo ...', precio: '????', ubicacion: '????'}];
 
 export default MiHistorial;
