@@ -57,7 +57,7 @@ class Inicio extends Component {
     //console.warn('UID: ', this.props.navigation.state.params.id);
 
     return (
-      <Drawer>
+      <Drawer id = { this.props.navigation.state.params.id }>
         <View style = {{ flex: 1 }}>
 
           <ViewPagerAndroid

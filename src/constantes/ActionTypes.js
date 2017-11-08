@@ -38,3 +38,7 @@ export const MODIFICAR_ESTADO_ERROR = "@@navegador/MODIFICAR_ESTADO_ERROR";
 export const CERRAR_PEDIDO_INICIA = "@@cerrarPedido/INICIA";
 export const CERRAR_PEDIDO_OK = "@@cerrarPedido/OK";
 export const CERRAR_PEDIDO_ERROR = "@@cerrarPedido/ERROR";
+
+export const OBTENER_REPARTIDOR_INICIA = "@@navegador/OBTENER_REPARTIDOR_INICIA";
+export const OBTENER_REPARTIDOR_OK = "@@navegador/OBTENER_REPARTIDOR_OK";
+export const OBTENER_REPARTIDOR_ERROR = "@@navegador/OBTENER_REPARTIDOR_ERROR";

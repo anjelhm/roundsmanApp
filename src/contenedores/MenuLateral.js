@@ -13,7 +13,7 @@ class MenuLateralContenedor extends Component {
   * función que ejecuta la acción para cambiar a pantala MiCuenta
   */
   iraMicuenta = () => {
-    this.props.lanzarMiCuenta();
+    this.props.lanzarMiCuenta(this.props.id);
   }
 
   /**

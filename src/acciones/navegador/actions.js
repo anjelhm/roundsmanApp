@@ -9,8 +9,8 @@ import {
   ATRAS
 } from '../../constantes/ActionTypes';
 
-export const pantallaCuenta = () =>
-  ({ type: CUENTA });
+export const pantallaCuenta = id =>
+  ({ type: CUENTA, id });
 
 export const pantallaSesion = () =>
   ({ type: SESION });
@@ -71,9 +71,9 @@ export const lanzarIniciaSesion = () => {
 /**
  * accion para cambiar a pantalla de mi cuenta
 */
-export const lanzarMiCuenta = () => {
+export const lanzarMiCuenta = id => {
   return dispatch => {
-    dispatch(pantallaCuenta());
+    dispatch(pantallaCuenta(id));
   };
 };
 
