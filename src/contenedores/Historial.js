@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 
 import MiHistorial from '../componentes/Historial/MiHistorial';
-import { historial } from '../acciones/historial/actions';
+import { iniciaObtenerHistorial } from '../acciones/historial/actions';
 
 class ContenedorHistorial extends Component {
   render() {
@@ -20,7 +20,7 @@ const mapStateToProps = ({ historial : {historial} }) => ({
 
 const miHistorial = connect(
   mapStateToProps,
-  { iniciaObtenerRepartidor }
+  { iniciaObtenerHistorial }
 )(ContenedorHistorial);
 
 export default miHistorial;
