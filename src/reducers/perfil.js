@@ -12,7 +12,6 @@ const estadoInicial = {
 
 
 const repartidor = (state = estadoInicial.repartidor, action) => {
-
   switch(action.type) {
     case OBTENER_REPARTIDOR_INICIA:
       return {

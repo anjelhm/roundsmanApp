@@ -12,8 +12,11 @@ export const obtenerRepartidorOk = payload => ({
 export const obtenerRepartidorError = error =>
   ({ type: OBTENER_REPARTIDOR_ERROR, error });
 
-export const iniciaObtenerRepartidor = () => {
+export const iniciaObtenerRepartidor = (idRepartidor) => {
   return dispatch => {
-
+    dispatch(obtenerRepartidorInicia());
+    firebaseRef.child(`repartidor/${idRepartidor}/data`).once('value').then(snapshot => {
+      dispatch(obtenerRepartidorOk(snapshot.val()));
+    });
   };
 };

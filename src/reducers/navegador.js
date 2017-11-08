@@ -28,7 +28,7 @@ const nav = (state = rutaInicial, action) => {
       break;
     case CUENTA :
       nextState = Navegador.router.getStateForAction(
-        NavigationActions.navigate({ routeName: 'MiCuenta' }),
+        NavigationActions.navigate({ routeName: 'MiCuenta', params: { id: action.id } }),
         state
       );
       break;
