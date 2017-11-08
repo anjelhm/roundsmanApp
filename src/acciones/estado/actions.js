@@ -32,7 +32,7 @@ export const obtenerEstadoError = error =>
     };
   };
 
-  export const iniciaCambiarEstado = (idUsuario,idPedido,idRepartidor,idPedidoAceptado,estado,precio) => {
+  export const iniciaCambiarEstado = (idUsuario,idPedido,idRepartidor,idPedidoAceptado, solicitud, estado,precio) => {
     return dispatch => {
        dispatch(modificarEstadoInicia());
        let modificarEstado = {};
@@ -43,6 +43,7 @@ export const obtenerEstadoError = error =>
        } else {
          modificarEstado[`usuarios/${idUsuario}/pedidos/${idPedido}/estado`] = estado;
          modificarEstado[`usuarios/${idUsuario}/pedidos/${idPedido}/precio`] = precio;
+         modificarEstado[`solicitudes/lista/${solicitud}/precio`] = precio;
          modificarEstado[`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}/estado`] = estado;
        }
        firebaseRef.update(modificarEstado)

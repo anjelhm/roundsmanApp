@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 
-import Barra_nav from '../comunes/Barra_nav';
-
 class Perfil extends Component {
 
   render() {
@@ -11,7 +9,6 @@ class Perfil extends Component {
 
     return(
       <View style = {{ flex: 1, backgroundColor: '#FFFFFF' }}>
-        <Barra_nav titulo = "Mi Perfil"/>
         <View  style = { estilo.contenedor }>
           <View style = {{ alignItems: 'center'}}>
             <Image

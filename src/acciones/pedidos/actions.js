@@ -140,6 +140,7 @@ export const iniciaCerrarPedido = (solicitud, idRepartidor, idPedidoAceptado) =>
                 actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/posicion`] = snapshot.val().posicion;
                 actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/timestamp`] = snapshot.val().timestamp;
                 actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/usuario`] = snapshot.val().usuario;
+                actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/precio`] = snapshot.val().precio;
                 actualiza[`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}`] = null;
                 actualiza[`solicitudes/lista/${solicitud}`] = null;
 

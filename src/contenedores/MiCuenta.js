@@ -3,7 +3,9 @@ import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 
 import Perfil from '../componentes/Perfil';
-import { iniciaObtenerRepartidor } from '../acciones/perfil/actions';
+import Barra_nav from '../comunes/Barra_nav';
+
+import { lanzarAnterior } from '../acciones/navegador/actions';
 
 class ContenedorMiCuenta extends Component {
 
@@ -11,9 +13,14 @@ class ContenedorMiCuenta extends Component {
     header: null
   };
 
+  retroceder(){
+    this.props.lanzarAnterior();
+  }
+
   render() {
     return (
       <View style={{ flex: 1 }}>
+        <Barra_nav titulo = "Mi Perfil" retroceder = { this.retroceder.bind(this) }/>
         <Perfil/>
       </View>
     );
@@ -26,7 +33,7 @@ const mapStateToProps = ({ repartidor: perfil }) => ({
 
 const IniciaSesion = connect(
   mapStateToProps,
-  { iniciaObtenerRepartidor }
+  {  lanzarAnterior }
 )(ContenedorMiCuenta);
 
-export default ContenedorMiCuenta;
+export default IniciaSesion;

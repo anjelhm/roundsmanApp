@@ -5,6 +5,7 @@ export const REGISTRO = "@@navegador/REGISTRO";
 export const SESION = "@@navegador/SESION";
 export const ESTADOS = "@@navegador/ESTADOS";
 export const ESCANNER = "@@navegador/ESCANNER";
+export const ATRAS = "@@navegador/ATRAS";
 
 export const AUTENTIFICACION_INICIAR = "@@autentificacion/INICIAR"
 export const AUTENTIFICACION_CORRECTA = "@@autentificacion/CORRECTA";

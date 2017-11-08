@@ -8,7 +8,8 @@ import {
   REGISTRO,
   SESION,
   ESTADOS,
-  ESCANNER
+  ESCANNER,
+  ATRAS
 } from '../constantes/ActionTypes';
 
 import { Navegador } from '../navegador/Navegador';
@@ -23,6 +24,12 @@ const nav = (state = rutaInicial, action) => {
     case INICIO :
       nextState = Navegador.router.getStateForAction(
         NavigationActions.navigate({ routeName: 'Inicio', params: { id: action.id } }),
+        state
+      );
+      break;
+    case ATRAS:
+      nextState = Navegador.router.getStateForAction(
+        NavigationActions.back(),
         state
       );
       break;

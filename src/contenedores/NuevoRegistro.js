@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 
 import Registro from '../componentes/Registro';
 import Barra_nav from '../comunes/Barra_nav';
+
 import { iniciaGuardarRepartidor } from '../acciones/repartidor/actions'
+import { lanzarAnterior } from '../acciones/navegador/actions';
 
 class contenedorNuevoRegistro extends Component {
 
@@ -32,10 +34,14 @@ class contenedorNuevoRegistro extends Component {
 
   }
 
+  retroceder(){
+    this.props.lanzarAnterior();
+  }
+
   render() {
     return (
       <View style = { estilo.contenedor }>
-      <Barra_nav titulo = "Nuevo Registro"/>
+      <Barra_nav titulo = "Nuevo Registro" retroceder = { this.retroceder.bind(this) }/>
         <Registro enviaDatos={ this.recibeDatos.bind(this) }/>
       </View>
     );
@@ -55,7 +61,7 @@ const mapStateToProps = ({ repartidor: guardar }) => ({
 
  const NuevoRegistro = connect (
    mapStateToProps,
-   { iniciaGuardarRepartidor }
+   { iniciaGuardarRepartidor, lanzarAnterior }
   )( contenedorNuevoRegistro );
 
 export default NuevoRegistro;

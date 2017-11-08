@@ -70,7 +70,6 @@ class EstadoPedidos extends Component {
             {
               estado === 'Compra finalizada' ? <Interruptor nombre = "Compra finalizada" activo deshabilitado/>
                : (estado === 'De compras') || (estado === 'aceptado') ? <View style = {{ width: '100%' }}>
-                   <Interruptor nombre = "Compra finalizada" enviaEstado = { this.realizaCompra.bind(this) }/>
                    <View style = {{ width: '100%', justifyContent: 'center', alignItems: 'center' }}>
                     <Input
                       etiqueta = { 'Precio Total' }
@@ -79,6 +78,7 @@ class EstadoPedidos extends Component {
                       value = { this.state.precio }
                     />
                   </View>
+                  <Interruptor nombre = "Compra finalizada" enviaEstado = { this.realizaCompra.bind(this) }/>
                 </View>
               : <Interruptor nombre = "Compra finalizada" activo deshabilitado/>
             }

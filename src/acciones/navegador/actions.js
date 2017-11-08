@@ -5,7 +5,8 @@ import {
   REGISTRO,
   INICIASESION,
   ESTADOS,
-  ESCANNER
+  ESCANNER,
+  ATRAS
 } from '../../constantes/ActionTypes';
 
 export const pantallaCuenta = () =>
@@ -20,11 +21,25 @@ export const pantallaRegistro = () =>
 export const pantallaIniciaSesion = () =>
   ({ type: INICIASESION });
 
+export const pantallaAnterior = () =>
+  ({ type: ATRAS });
+
 export const pantallaEstados = (idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud) =>
   ({ type: ESTADOS, idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud });
 
 export const pantallaEscanner = (idRepartidor, idPedidoAceptado, solicitud) =>
   ({ type: ESCANNER, idRepartidor, idPedidoAceptado, solicitud });
+
+
+/**
+* accion para cambiar a una pantalla anterior
+*/
+
+export const lanzarAnterior = () => {
+  return dispatch => {
+    dispatch(pantallaAnterior());
+  };
+};
 
 /**
  * accion para cambiar a pantalla de Escanner
