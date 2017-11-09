@@ -21,10 +21,10 @@ class ItemHistorial extends Component {
                 { nombre }
               </Text>
               <Text style = {{ fontSize: 18, color: '#607D8B', color: '#607D8B' }}>
-                { precio }
+                { "Precio: "+precio }
               </Text>
               <Text style = {{ fontSize: 18, color: '#607D8B',color: '#607D8B' }}>
-                { ubicacion }
+                { "Lat:"+ubicacion.lat + " Long:"+ubicacion.long }
               </Text>
           </TouchableOpacity>
           </View>

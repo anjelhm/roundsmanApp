@@ -98,7 +98,7 @@ class Inicio extends Component {
               <PedidosActuales idRepartidor  = { this.props.navigation.state.params.id }/>
             </View>
             <View style = {{ paddingTop: 60 }}>
-              <Historial/>
+              <Historial  idRepartidor  = { this.props.navigation.state.params.id } />
             </View>
           </ViewPagerAndroid>
           <Menubar activo = { this.state.pagina }>

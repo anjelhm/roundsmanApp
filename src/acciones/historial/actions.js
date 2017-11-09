@@ -17,7 +17,7 @@ export const obtenerHistorialError = error =>
        dispatch(obtenerHistorialInicia());
 
         firebaseRef.child(`repartidor/${idRepartidor}/historial/`).on('value', snapshot => {
-          dispatch(obtenerHistorialOk( snapshot.val() ) );
+            dispatch(obtenerHistorialOk(snapshot.val() ) );
         });
 
     };

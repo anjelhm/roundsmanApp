@@ -134,22 +134,32 @@ export const iniciaCerrarPedido = (solicitud, idRepartidor, idPedidoAceptado) =>
                 const historial = firebaseRef.child(`repartidor/${idRepartidor}/historial`).push();
                 const claveHistorial = historial.key;
 
-                let actualiza = {};
-                actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/id`] = snapshot.val().id;
-                actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/lista`] = snapshot.val().lista;
-                actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/posicion`] = snapshot.val().posicion;
-                actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/timestamp`] = snapshot.val().timestamp;
-                actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/usuario`] = snapshot.val().usuario;
-                actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/precio`] = snapshot.val().precio;
-                actualiza[`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}`] = null;
-                actualiza[`solicitudes/lista/${solicitud}`] = null;
+                const id = snapshot.val().id;
+                const lista = snapshot.val().lista;
+                const posicion = snapshot.val().posicion;
+                const timestamp = snapshot.val().timestamp;
+                const usuario = snapshot.val().usuario;
+                const precio = snapshot.val().precio;
 
-                firebaseRef.update(actualiza)
-                .then( () => {
-                  cerrarPedidoOk("aceptado");
-                  dispatch(pantallaInicio(idRepartidor));
+                firebaseRef.child(`usuarios/${snapshot.val().usuario}/datos/nombre`).once('value').then(snapshot =>{
+                  let actualiza = {};
+                  actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/id`] = id;
+                  actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/lista`] = lista;
+                  actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/posicion`] = posicion;
+                  actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/timestamp`] = timestamp;
+                  actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/usuario`] = usuario;
+                  actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/precio`] = precio;
+                  actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/nombre`] = snapshot.val();
+                  actualiza[`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}`] = null;
+                  actualiza[`solicitudes/lista/${solicitud}`] = null;
+
+                  firebaseRef.update(actualiza)
+                  .then( () => {
+                    cerrarPedidoOk("aceptado");
+                    dispatch(pantallaInicio(idRepartidor));
+                  })
+                  .catch( () => cerrarPedidoError("Error") );
                 })
-                .catch( () => cerrarPedidoError("Error") );
 
               });
 

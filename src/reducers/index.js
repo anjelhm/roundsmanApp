@@ -8,6 +8,7 @@ import mispedidos from './mispedidos';
 import pedidosaceptados from './pedidosaceptados';
 import estados from './estados';
 import perfil from './perfil';
+import historial from './historial';
 
 const rootReducer = combineReducers({
   navegador,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   mispedidos,
   pedidosaceptados,
   estados,
-  perfil
+  perfil,
+  historial
 });
 
 export default rootReducer;
