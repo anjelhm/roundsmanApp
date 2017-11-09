@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  ViewPagerAndroid
+  ViewPagerAndroid,
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
+import Drawer from 'react-native-drawer';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Dimensions from 'Dimensions';
-import Drawer from './drawer/Drawer';
+import MenuDrawer from './drawer/Drawer';
 import Boton from './Menu/Boton';
 import Menubar from './Menu/Menubar';
 import ListaActual from './ListaActual/ListaActual';
@@ -48,6 +52,10 @@ class Inicio extends Component {
     });
   }
 
+  verDrawer = () => {
+    this.drawer.open();
+  };
+
 
   render() {
 
@@ -57,7 +65,24 @@ class Inicio extends Component {
     //console.warn('UID: ', this.props.navigation.state.params.id);
 
     return (
-      <Drawer id = { this.props.navigation.state.params.id }>
+      <Drawer
+        ref = { ref => this.drawer = ref }
+        type = "overlay"
+        tapToClose
+        content = {  <MenuDrawer id = { this.props.navigation.state.params.id } /> }
+        openDrawerOffset = { 0.2 }
+        panCloseMask = { 0.2 }
+        closedDrawerOffset = { -3 }
+        style = {{ shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3 }}
+      >
+
+      <View style = { estilo.barra }>
+        <TouchableOpacity onPress = { this.verDrawer.bind(this) } style = { estilo.icono }>
+          <Icon name = "menu" size = { 28 } color = "#FFFFFF"/>
+        </TouchableOpacity>
+        <Text style = { estilo.titulo }>Bienvenido</Text>
+      </View>
+
         <View style = {{ flex: 1 }}>
 
           <ViewPagerAndroid
@@ -87,5 +112,33 @@ class Inicio extends Component {
     );
   }
 }
+
+const estilo = StyleSheet.create({
+  barra: {
+    backgroundColor: '#000000',
+    height: 50,
+    elevation: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    paddingLeft: 0,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 10
+  },
+  icono: {
+    width: 52,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  titulo: {
+    fontSize: 20,
+    color: '#FFFFFF',
+    marginLeft: 20
+  }
+});
 
 export default Inicio;

@@ -1,121 +1,35 @@
 import React, { Component } from 'react';
 import {
   View,
-  DrawerLayoutAndroid,
   Text,
   ScrollView,
   TouchableOpacity,
   StatusBar,
   StyleSheet
 } from 'react-native';
-import Dimensions from 'Dimensions';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import MenuLateral from '../../contenedores/MenuLateral';
 
-const height = Dimensions.get('window');
-const viewHeight = height - 50;
-
-class Drawer extends Component {
-
-  constructor() {
-    super();
-
-    this.state = {
-      horizontal: false
-    };
-
-  }
-
-  openDrawer() {
-    this.drawer.openDrawer();
-  }
-
-  /**
-  * función que obtiene el evento layout del View y lo pasa a la función cambiarPosicion
-  * @param { obj } event
-  */
-  onLayout = event => this.cambiarPosicion(event.nativeEvent.layout);
-
-  /**
-  * función que compara las medidas en pixeles de la pantalla y modifica el state horizontal si el dispositivo fue girado
-  * @param { obj } evento
-  */
-  cambiarPosicion(evento) {
-    (evento.width > evento.height) ? this.setState({ horizontal: true }) : this.setState({ horizontal: false });
-  }
+class MenuDrawer extends Component {
 
   render() {
 
-    const { children } = this.props;
-
-    var menu = (
-      <View style = {{ flex: 1, backgroundColor: '#E0E0E0' }}>
-        <View style = {{ backgroundColor: '#90A4AE', flex: 1, elevation: 4, justifyContent: 'center', alignItems: 'center' }}>
-          <View style = {{ backgroundColor: '#FFC107', height: this.state.horizontal ? 80 : 140, width: this.state.horizontal ? 80 : 140, borderRadius: 100, elevation: 2 }}></View>
-        </View>
-        <View style = {{ flex: this.state.horizontal ? 3 : 2, paddingTop: 20, justifyContent: 'space-between'   }}>
-          <MenuLateral id = { this.props.id }/>
-          <View style = {{ borderTopColor: '#78909C', borderTopWidth: 0.5, height: 62, justifyContent: 'center', paddingLeft: 10 }}>
-            <Text style = {{ fontSize: 18, color: '#90A4AE' }}>{ "Desarrollado por F4Lab" }</Text>
-            <Text style = {{ fontSize: 14, color: '#B0BEC5' }}>{ "Versión: 1.x.xx" }</Text>
-          </View>
-        </View>
-      </View>
-    );
-
     return (
-      <View style = {{ flex: 1 }} onLayout = { this.onLayout }>
-        <StatusBar hidden/>
-
-        <DrawerLayoutAndroid
-          drawerWidth = { 300 }
-          ref = { (drawer) => this.drawer = drawer }
-          drawerPosition = { DrawerLayoutAndroid.positions.left }
-          renderNavigationView = { () => menu }
-        >
-          <View style = { estilo.barra }>
-            <TouchableOpacity onPress = { this.openDrawer.bind(this) } style = { estilo.icono }>
-              <Icon name = "menu" size = { 28 } color = "#FFFFFF"/>
-            </TouchableOpacity>
-            <Text style = { estilo.titulo }>Bienvenido</Text>
+      <View style = {{ flex: 1, backgroundColor: '#FAFAFA' }}>
+          <View style = {{ flex: 1, backgroundColor: '#607D8B', elevation: 4, marginBottom: 20, justifyContent: 'center', alignItems: 'center' }}>
+            <View style = {{ height: 120, width: 120, borderRadius: 100, backgroundColor: '#FF5722', elevation: 2 }}></View>
           </View>
-          <View style = {{ flex: 1 }}>
-            { children }
+          <View style = {{ flex: 3 }}>
+            <View style = {{ flex: 1 }}>
+              <MenuLateral id = { this.props.id }/>
+            </View>
+            <View style = {{ flex: 4, alignItems: 'center', justifyContent: 'flex-end' }}>
+              <Text style = {{ fontSize: 14, color: '#607D8B', marginBottom: 10 }}>F4Lab</Text>
+            </View>
           </View>
-        </DrawerLayoutAndroid>
-
       </View>
     );
   }
 }
 
-const estilo = StyleSheet.create({
-  barra: {
-    backgroundColor: '#000000',
-    height: 50,
-    elevation: 5,
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10,
-    paddingLeft: 0,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 10
-  },
-  icono: {
-    width: 52,
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  titulo: {
-    fontSize: 20,
-    color: '#FFFFFF',
-    marginLeft: 20
-  }
-});
-
-export default Drawer;
+export default MenuDrawer;

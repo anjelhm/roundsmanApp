@@ -59,7 +59,7 @@ class ContenedorScannerQR extends Component {
                     {
                       cierra.cerrando
                        ? <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                          <ActivityIndicator color="#607D8B" size = { 62 }/>
+                          <ActivityIndicator color="#607D8B" size = { 180 }/>
                        </View>
                        : <View>
                           {
