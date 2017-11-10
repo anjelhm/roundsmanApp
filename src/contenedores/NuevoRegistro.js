@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
 
 import Registro from '../componentes/Registro';
@@ -39,6 +39,16 @@ class contenedorNuevoRegistro extends Component {
   }
 
   render() {
+
+    BackHandler.addEventListener("hardwareBackPress", () => {
+      if (this.props.navigation.state.routeName === "Inicio") {
+        return false // exit app
+      } else {
+        this.props.lanzarAnterior();
+        return true // do not exit app
+      }
+    })
+
     return (
       <View style = { estilo.contenedor }>
       <Barra_nav titulo = "Nuevo Registro" retroceder = { this.retroceder.bind(this) }/>

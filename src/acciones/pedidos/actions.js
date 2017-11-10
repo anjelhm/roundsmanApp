@@ -12,6 +12,9 @@ import {
   CERRAR_PEDIDO_INICIA,
   CERRAR_PEDIDO_OK,
   CERRAR_PEDIDO_ERROR,
+  OBTENER_LISTA_INICIA,
+  OBTENER_LISTA_OK,
+  OBTENER_LISTA_ERROR,
   INICIO
 } from '../../constantes/ActionTypes';
 
@@ -42,6 +45,13 @@ export const cerrarPedidoOk = payload =>
   ({ type: CERRAR_PEDIDO_OK, payload });
 export const cerrarPedidoError = error =>
   ({ type: CERRAR_PEDIDO_ERROR, error });
+
+export const obtenerListaInicia = () =>
+  ({ type: OBTENER_LISTA_INICIA });
+export const obtenerListaOk = (lista, nombre) =>
+  ({ type: OBTENER_LISTA_OK, lista, nombre });
+export const obtenerListaError = error =>
+  ({ type: OBTENER_LISTA_ERROR, error });
 
 export const pantallaInicio = id =>
   ({ type: INICIO, id });
@@ -126,10 +136,11 @@ export const iniciaCerrarPedido = (solicitud, idRepartidor, idPedidoAceptado) =>
   return dispatch => {
     dispatch(cerrarPedidoInicia());
 
-      firebaseRef.child(`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}/solicitud`).once('value')
+      firebaseRef.child(`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}/`).once('value')
         .then(snapshot => {
-          if(solicitud === snapshot.val()){
-            firebaseRef.child(`solicitudes/lista/${solicitud}`).once('value')
+          if(solicitud === snapshot.val().solicitud){
+
+            firebaseRef.child(`solicitudes/lista/${snapshot.val().uid}/${solicitud}`).once('value')
               .then(snapshot => {
                 const historial = firebaseRef.child(`repartidor/${idRepartidor}/historial`).push();
                 const claveHistorial = historial.key;
@@ -140,6 +151,7 @@ export const iniciaCerrarPedido = (solicitud, idRepartidor, idPedidoAceptado) =>
                 const timestamp = snapshot.val().timestamp;
                 const usuario = snapshot.val().usuario;
                 const precio = snapshot.val().precio;
+                const nombre = snapshot.val()
 
                 firebaseRef.child(`usuarios/${snapshot.val().usuario}/datos/nombre`).once('value').then(snapshot =>{
                   let actualiza = {};
@@ -168,5 +180,25 @@ export const iniciaCerrarPedido = (solicitud, idRepartidor, idPedidoAceptado) =>
           }
         });
 
+  };
+};
+
+/**
+* acción para obtener la lista del pedido
+* @param { string } solicitud
+* @param { string } idUsuario
+*/
+
+export const iniciaObtenerLista = (solicitud, idUsuario) => {
+  return dispatch => {
+    dispatch(obtenerListaInicia());
+    firebaseRef.child(`usuarios/${idUsuario}/datos`).once('value')
+      .then(snapshot => {
+        const nombre = snapshot.val().nombre;
+        firebaseRef.child(`solicitudes/lista/${idUsuario}/${solicitud}`).once('value')
+          .then(snapshot => {
+            dispatch(obtenerListaOk(snapshot.val(), nombre));
+          }).catch(() => dispatch(obtenerListaError('Ha ocurrido un error!!')))
+      });
   };
 };

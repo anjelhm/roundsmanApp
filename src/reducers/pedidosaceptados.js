@@ -6,12 +6,16 @@ import {
   OBTENER_PEDIDOS_ACEPTADOS_ERROR,
   CERRAR_PEDIDO_INICIA,
   CERRAR_PEDIDO_OK,
-  CERRAR_PEDIDO_ERROR
+  CERRAR_PEDIDO_ERROR,
+  OBTENER_LISTA_INICIA,
+  OBTENER_LISTA_OK,
+  OBTENER_LISTA_ERROR
 } from '../constantes/ActionTypes';
 
 const estadoInicial = {
     aceptado : null,
-    cerrarPedido: null
+    cerrarPedido: null,
+    lista: null
 };
 
 
@@ -65,7 +69,33 @@ const cerrarPedido = (state = estadoInicial.cerrarPedido, action) => {
   };
 };
 
+const lista = (state = estadoInicial.lista, action) => {
+  switch(action.type) {
+    case OBTENER_LISTA_INICIA:
+      return {
+        ...state,
+        descargando: true,
+        pedido: null
+      };
+    case OBTENER_LISTA_OK:
+      return {
+        ...state,
+        descargando: false,
+        pedido: action.lista,
+        nombre: action.nombre
+      };
+    case OBTENER_LISTA_ERROR:
+      return {
+        ...state,
+        descargando: false,
+        error: action.error
+      };
+    default: return state;
+  };
+};
+
 export default combineReducers({
   aceptado,
-  cierra: cerrarPedido
+  cierra: cerrarPedido,
+  lista
 });

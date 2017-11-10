@@ -48,6 +48,10 @@ class ListaActual extends Component {
     this.props.irAEstado(idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud);
   }
 
+  verLista(idUsuario, solicitud){
+    this.props.irALista(idUsuario, solicitud);
+  }
+
   /**
   * Función que renderiza la lista con los datos
   */
@@ -70,6 +74,7 @@ class ListaActual extends Component {
                   idPedidoAceptado = { item.pedidoRepartidor }
                   solicitud = { item.solicitud }
                   verEstado = { this.verEstado.bind(this) }
+                  verLista = { this.verLista.bind(this) }
                 />
               )
             }

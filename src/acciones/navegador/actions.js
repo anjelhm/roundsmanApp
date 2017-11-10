@@ -6,6 +6,7 @@ import {
   INICIASESION,
   ESTADOS,
   ESCANNER,
+  LISTA,
   ATRAS
 } from '../../constantes/ActionTypes';
 
@@ -23,6 +24,8 @@ export const pantallaIniciaSesion = () =>
 
 export const pantallaAnterior = () =>
   ({ type: ATRAS });
+export const pantallaLista = (idUsuario, solicitud) =>
+  ({ type: LISTA, idUsuario, solicitud });
 
 export const pantallaEstados = (idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud) =>
   ({ type: ESTADOS, idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud });
@@ -38,6 +41,12 @@ export const pantallaEscanner = (idRepartidor, idPedidoAceptado, solicitud) =>
 export const lanzarAnterior = () => {
   return dispatch => {
     dispatch(pantallaAnterior());
+  };
+};
+
+export const lanzarLista = (idUsuario, solicitud) => {
+  return dispatch => {
+    dispatch(pantallaLista(idUsuario, solicitud));
   };
 };
 

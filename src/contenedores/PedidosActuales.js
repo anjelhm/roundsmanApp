@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import ListaActual from '../componentes/pedidosActuales/ListaActual';
 
 import { iniciaObtenerPedidosAceptados } from '../acciones/pedidos/actions';
-import { lanzarEstados } from '../acciones/navegador/actions';
+import { lanzarEstados, lanzarLista } from '../acciones/navegador/actions';
 
 class ContenedorPedidosActuales extends Component {
 
@@ -15,6 +15,10 @@ class ContenedorPedidosActuales extends Component {
 
   irAEstado(idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud) {
     this.props.lanzarEstados(idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud);
+  }
+
+  irALista(idUsuario, solicitud) {
+    this.props.lanzarLista(idUsuario, solicitud);
   }
 
   render() {
@@ -37,7 +41,7 @@ const { aceptado } = this.props;
                      ? <View style = {{ flex: 1 }}>
                         <Text>No hay datos</Text>
                      </View>
-                     : <ListaActual aceptado = { Object.keys(aceptado.data).map( x => aceptado.data[x] ) } irAEstado = { this.irAEstado.bind(this) }/>
+                     : <ListaActual aceptado = { Object.keys(aceptado.data).map( x => aceptado.data[x] ) } irAEstado = { this.irAEstado.bind(this) } irALista = { this.irALista.bind(this) }/>
                    }
                 </View>
               }
@@ -59,7 +63,7 @@ mapStateToProps = ({ pedidosaceptados: { aceptado } }) => ({
 
  const PedidosActuales = connect (
    mapStateToProps,
-   { iniciaObtenerPedidosAceptados, lanzarEstados }
+   { iniciaObtenerPedidosAceptados, lanzarEstados, lanzarLista }
  )( ContenedorPedidosActuales );
 
 export default PedidosActuales;

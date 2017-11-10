@@ -9,6 +9,7 @@ import VerificaSesion from '../contenedores/VerificaSesion';
 import MiSesion from '../contenedores/MiSesion';
 import NuevoRegistro from '../contenedores/NuevoRegistro';
 import EstadosPedidos from '../contenedores/EstadosPedidos';
+import Lista from '../contenedores/Lista';
 
 import Mapa from '../componentes/Mapa/Mapa';
 import ListaActual from '../componentes/ListaActual/ListaActual';
@@ -24,7 +25,8 @@ const rutas = {
   Mapa: { screen: Mapa },
   ListaActual: { screen: ListaActual },
   ScannerQR: { screen: ScannerQR },
-  Estados: { screen: EstadosPedidos }
+  Estados: { screen: EstadosPedidos },
+  Lista: { screen: Lista }
 };
 
 export const Navegador = StackNavigator(rutas);

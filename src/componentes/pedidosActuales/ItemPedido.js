@@ -29,6 +29,13 @@ class ItemPedido extends Component {
 
   }
 
+  verLista() {
+    const { idUsuario, solicitud } = this.props;
+
+    this.props.verLista(idUsuario, solicitud);
+
+  }
+
   render() {
     const { nombre, estado } = this.props;
     return(
@@ -43,7 +50,7 @@ class ItemPedido extends Component {
         marginTop: 5 ,
         backgroundColor: '#FFFFFF',
         elevation: 4}}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress = { this.verLista.bind(this) }>
 
           <View>
 
@@ -70,10 +77,7 @@ class ItemPedido extends Component {
           width: 50,
           marginRight: 15,
           marginTop: 50}} >
-
-          <TouchableOpacity >
             <Boton etiqueta = { 'Cambiar estado' } width = {150} accion = { this.verEstado.bind(this) } />
-          </TouchableOpacity>
         </View>
 
      </View>

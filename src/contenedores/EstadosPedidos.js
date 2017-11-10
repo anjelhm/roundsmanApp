@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
 
 import EstadoPedidos from '../componentes/EstadosPedidos';
@@ -32,6 +32,15 @@ import { lanzarEscanner, lanzarAnterior } from '../acciones/navegador/actions';
    }
 
    render() {
+
+     BackHandler.addEventListener("hardwareBackPress", () => {
+       if (this.props.navigation.state.routeName === "Inicio") {
+         return false // exit app
+       } else {
+         this.props.lanzarAnterior();
+         return true // do not exit app
+       }
+     })
 
      const { estadoPedido } = this.props;
      return (

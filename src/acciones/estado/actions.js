@@ -43,7 +43,7 @@ export const obtenerEstadoError = error =>
        } else {
          modificarEstado[`usuarios/${idUsuario}/pedidos/${idPedido}/estado`] = estado;
          modificarEstado[`usuarios/${idUsuario}/pedidos/${idPedido}/precio`] = precio;
-         modificarEstado[`solicitudes/lista/${solicitud}/precio`] = precio;
+         modificarEstado[`solicitudes/lista/${idUsuario}/${solicitud}/precio`] = precio;
          modificarEstado[`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}/estado`] = estado;
        }
        firebaseRef.update(modificarEstado)

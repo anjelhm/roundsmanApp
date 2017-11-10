@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
 
 import Perfil from '../componentes/Perfil';
@@ -23,6 +23,16 @@ componentDidMount() {
   }
 
   render() {
+
+    BackHandler.addEventListener("hardwareBackPress", () => {
+      if (this.props.navigation.state.routeName === "Inicio") {
+        return false // exit app
+      } else {
+        this.props.lanzarAnterior();
+        return true // do not exit app
+      }
+    })
+
     const { repartidor } = this.props;
     return (
       <View style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
