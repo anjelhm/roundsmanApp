@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import ListaActual from '../componentes/pedidosActuales/ListaActual';
 
@@ -33,13 +34,14 @@ const { aceptado } = this.props;
               {
                 aceptado.obteniendo
                 ? <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                  <Text>Descargando pedidos</Text>
+                  <ActivityIndicator color = "#607D8B" size = { 140 }/>
                 </View>
                 : <View style = {{ flex: 1 }}>
                    {
                      aceptado.data === null
-                     ? <View style = {{ flex: 1 }}>
-                        <Text>No hay datos</Text>
+                     ? <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                       <Icon name = "local-mall" size = { 140 } color = "#CFD8DC"/>
+                       <Text style = {{ color: '#CFD8DC' }}>No hay datos</Text>
                      </View>
                      : <ListaActual aceptado = { Object.keys(aceptado.data).map( x => aceptado.data[x] ) } irAEstado = { this.irAEstado.bind(this) } irALista = { this.irALista.bind(this) }/>
                    }

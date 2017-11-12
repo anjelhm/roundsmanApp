@@ -14,7 +14,7 @@ class ListaActual extends Component {
 
       <View style = {{ flex: 1, backgroundColor: '#F5F5F5' }}>
           <View style={{ marginTop: 10, marginBottom: 10, alignItems:'center' }}>
-            <Text style = {{ color: '#607D8B', fontSize: 18 }}>{ nombre }</Text>
+            <Text style = {{ color: '#607D8B', fontSize: 18 }}>{ nombre + '    $' + datos.precio }</Text>
           </View>
                   <View style={{ height: 235 }}>
                     <FlatList

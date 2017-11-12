@@ -9,6 +9,14 @@ import {
 import Boton from '../Menu/Boton'
 
 class ItemHistorial extends Component {
+  
+  haciaListaHistorial() {
+    this.props.haciaListaHistorial(this.props.historial);
+  }
+  
+  eliminarItem(){
+    this.props.eliminarItem(this.props.historial, this.props.nombre);
+  }
 
   render() {
     const { nombre, precio, ubicacion } = this.props;
@@ -16,7 +24,7 @@ class ItemHistorial extends Component {
     return(
       <View style = { estilo.contenedor } >
       <View>
-          <TouchableOpacity style = {{ marginLeft: 5, justifyContent: 'center' }}>
+          <TouchableOpacity style = {{ marginLeft: 5, justifyContent: 'center' }} onPress = { this.haciaListaHistorial.bind(this) }>
               <Text style = {{ fontSize: 18, color: '#607D8B',color: '#000000' }}>
                 { nombre }
               </Text>
@@ -30,8 +38,8 @@ class ItemHistorial extends Component {
           </View>
           <View style={{ width: 50,  justifyContent:'center',alignItems: 'center'}}>
 
-          <TouchableOpacity>
-          <Icon name = { 'delete-forever' } size= { 40 } color= { '#607D8B' } />
+          <TouchableOpacity onPress = { this.eliminarItem.bind(this) }>
+            <Icon name = { 'delete-forever' } size= { 40 } color= { '#CFD8DC' } />
           </TouchableOpacity>
           </View>
 

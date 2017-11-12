@@ -7,6 +7,7 @@ export const ESTADOS = "@@navegador/ESTADOS";
 export const ESCANNER = "@@navegador/ESCANNER";
 export const ATRAS = "@@navegador/ATRAS";
 export const LISTA = "@@navegador/LISTA";
+export const LISTA_HISTORIAL = "@@navegador/LISTA_HISTORIAL"
 
 export const AUTENTIFICACION_INICIAR = "@@autentificacion/INICIAR"
 export const AUTENTIFICACION_CORRECTA = "@@autentificacion/CORRECTA";
@@ -51,3 +52,11 @@ export const OBTENER_HISTORIAL_ERROR = "@@obtenerHistorial/ERROR";
 export const OBTENER_LISTA_INICIA = "@@obtenerLista/INICIA";
 export const OBTENER_LISTA_OK = "@@obtenerLista/OK";
 export const OBTENER_LISTA_ERROR = "@@obtenerLista/ERROR";
+
+export const OBTENER_LISTA_HISTORIAL_INICIA = "@@obtenerListaHistorial/INICIA";
+export const OBTENER_LISTA_HISTORIAL_OK = "@@obtenerListaHistorial/OK";
+export const OBTENER_LISTA_HISTORIAL_ERROR = "@@obtenerListaHistorial/ERROR";
+
+export const ELIMINAR_ITEM_HISTORIAL_INICIA = "@@eliminarItemHistorial/INICIA";
+export const ELIMINAR_ITEM_HISTORIAL_OK = "@@eliminarItemHistorial/OK";
+export const ELIMINAR_ITEM_HISTORIAL_ERROR = "@@eliminarItemHistorial/ERROR";

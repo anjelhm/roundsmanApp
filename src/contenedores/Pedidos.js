@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import ListaPedidos from '../componentes/pedidos/ListaPedidos';
 import { iniciaTomarPedido,iniciaObtenerPedido } from '../acciones/pedidos/actions'
@@ -41,13 +42,14 @@ class contenedorObtenerRegistro extends Component {
               {
                 pedidos.obteniendo
                 ? <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                  <Text>Descargando pedidos</Text>
+                  <ActivityIndicator color = "#607D8B" size = { 140 }/>
                 </View>
                 : <View style = {{ flex: 1 }}>
                     {
                       pedidos.data === null
-                      ? <View style = {{ flex: 1 }}>
-                         <Text>No hay datos</Text>
+                      ? <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                         <Icon name = "shopping-basket" size = { 140 } color = "#CFD8DC"/>
+                         <Text style = {{ color: '#CFD8DC' }}>No hay datos</Text>
                       </View>
                       : <ListaPedidos pedidos = { Object.keys(pedidos.data).map( x => pedidos.data[x] )  } aceptarPedido = {this.aceptarPedido.bind(this)} />
                     }

@@ -10,6 +10,7 @@ import {
   ESTADOS,
   ESCANNER,
   LISTA,
+  LISTA_HISTORIAL,
   ATRAS
 } from '../constantes/ActionTypes';
 
@@ -74,6 +75,12 @@ const nav = (state = rutaInicial, action) => {
     case LISTA :
       nextState = Navegador.router.getStateForAction(
         NavigationActions.navigate({ routeName: 'Lista', params: { idUsuario: action.idUsuario, solicitud: action.solicitud } }),
+        state
+      );
+      break;
+    case LISTA_HISTORIAL :
+      nextState = Navegador.router.getStateForAction(
+        NavigationActions.navigate({ routeName: 'ListaHistorial', params: { idRepartidor: action.idRepartidor, idHistorial: action.idHistorial } }),
         state
       );
       break;

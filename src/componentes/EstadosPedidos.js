@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Interruptor from '../comunes/Switch';
 import Input from '../comunes/Input';
-import Boton from '../comunes/Boton';
 
 class EstadoPedidos extends Component {
 
@@ -103,16 +103,20 @@ class EstadoPedidos extends Component {
               {
                 estado === 'Pedido entregado' ? <View>
                   <Interruptor nombre = "Pedido entregado" activo deshabilitado/>
-                  <View  style = {{ justifyContent: 'center', alignItems: 'center' }}>
-                    <Boton etiqueta = "Escanear QR" accion = { this.irAScanner.bind(this) }/>
+                  <View  style = {{ justifyContent: 'center', alignItems: 'center', marginTop: 40 }}>
+                    <TouchableOpacity onPress = { this.irAScanner.bind(this) } style = {{ height: 100, width: 100, justifyContent: 'center', alignItems: 'center', elevation: 4 }}>
+                      <Icon name = "qrcode-scan" size = { 80 } color = "#607D8B"/>
+                    </TouchableOpacity>
                   </View>
                 </View>
                 : (estado === 'De compras') || (estado === 'aceptado') || (estado === 'Compra finalizada') || (estado === 'De camino a tu domicilio') || (estado === 'Ya en tu domicilio')
                 ? <Interruptor nombre = "Pedido entregado" enviaEstado = { this.enviaEstado.bind(this) }/>
                 : <View>
                     <Interruptor nombre = "Pedido entregado" activo deshabilitado/>
-                    <View style = {{ justifyContent: 'center', alignItems: 'center' }}>
-                      <Boton etiqueta = "Escanear QR" accion = { this.irAScanner.bind(this) }/>
+                    <View style = {{ justifyContent: 'center', alignItems: 'center', marginTop: 40 }}>
+                      <TouchableOpacity onPress = { this.irAScanner.bind(this) } style = {{ height: 100, width: 100, justifyContent: 'center', alignItems: 'center', elevation: 4 }}>
+                        <Icon name = "qrcode-scan" size = { 80 } color = "#607D8B"/>
+                      </TouchableOpacity>
                     </View>
                 </View>
               }

@@ -9,11 +9,11 @@ const Boton  = (
 Any=>{
 
 const estilotexto = active
-?{ color: "#000000", fontSize: 10 }
+?{ color: "#607D8B", fontSize: 10 }
 :{ color: "#CFD8DC", fontSize: 10 };
 
 const estiloicono = active
-? "#000000"
+? "#607D8B"
 : "#CFD8DC";
 
 return (

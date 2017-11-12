@@ -38,6 +38,14 @@ class MiHistorial extends Component {
       this.cargarDatos();
     }
   }
+  
+  haciaListaHistorial(historial) {
+    this.props.verListaHistorial(historial);
+  }
+  
+  eliminarItem(historial, nombre) {
+    this.props.eliminar(historial, nombre);
+  }
 
   renderLista() {
     return(
@@ -53,6 +61,9 @@ class MiHistorial extends Component {
                             nombre = { item.nombre }
                             precio = { item.precio }
                             ubicacion = { item.posicion }
+                            historial = { item.historial }
+                            haciaListaHistorial = { this.haciaListaHistorial.bind(this) }
+                            eliminarItem = { this.eliminarItem.bind(this) }
                           />
                         )
                       }

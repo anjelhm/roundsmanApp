@@ -156,6 +156,7 @@ export const iniciaCerrarPedido = (solicitud, idRepartidor, idPedidoAceptado) =>
                 firebaseRef.child(`usuarios/${snapshot.val().usuario}/datos/nombre`).once('value').then(snapshot =>{
                   let actualiza = {};
                   actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/id`] = id;
+                  actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/historial`] = claveHistorial;
                   actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/lista`] = lista;
                   actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/posicion`] = posicion;
                   actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/timestamp`] = timestamp;
@@ -163,7 +164,7 @@ export const iniciaCerrarPedido = (solicitud, idRepartidor, idPedidoAceptado) =>
                   actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/precio`] = precio;
                   actualiza[`repartidor/${idRepartidor}/historial/${claveHistorial}/nombre`] = snapshot.val();
                   actualiza[`repartidor/${idRepartidor}/pedidos/${idPedidoAceptado}`] = null;
-                  actualiza[`solicitudes/lista/${solicitud}`] = null;
+                  actualiza[`solicitudes/lista/${usuario}/${solicitud}`] = null;
 
                   firebaseRef.update(actualiza)
                   .then( () => {

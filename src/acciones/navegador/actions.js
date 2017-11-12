@@ -7,6 +7,7 @@ import {
   ESTADOS,
   ESCANNER,
   LISTA,
+  LISTA_HISTORIAL,
   ATRAS
 } from '../../constantes/ActionTypes';
 
@@ -24,8 +25,12 @@ export const pantallaIniciaSesion = () =>
 
 export const pantallaAnterior = () =>
   ({ type: ATRAS });
+
 export const pantallaLista = (idUsuario, solicitud) =>
   ({ type: LISTA, idUsuario, solicitud });
+
+export const pantallaListaHistorial = (idRepartidor, idHistorial) =>
+  ({ type: LISTA_HISTORIAL, idRepartidor, idHistorial });
 
 export const pantallaEstados = (idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud) =>
   ({ type: ESTADOS, idPedido, idUsuario, idRepartidor, idPedidoAceptado, solicitud });
@@ -47,6 +52,15 @@ export const lanzarAnterior = () => {
 export const lanzarLista = (idUsuario, solicitud) => {
   return dispatch => {
     dispatch(pantallaLista(idUsuario, solicitud));
+  };
+};
+
+/**
+* accion para cambiar a pantalla de ListaHistorial
+*/
+export const lanzarListaHistorial = (idRepartidor, idHistorial) => {
+  return dispatch => {
+    dispatch(pantallaListaHistorial(idRepartidor, idHistorial));
   };
 };
 

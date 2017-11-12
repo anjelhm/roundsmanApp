@@ -1,15 +1,34 @@
 import React, { Component } from 'react';
-import { View , Text } from 'react-native';
+import { View, Text, ActivityIndicator, Alert } from 'react-native';
 import { connect } from 'react-redux';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import MiHistorial from '../componentes/Historial/MiHistorial';
-import { iniciaObtenerHistorial } from '../acciones/historial/actions';
+import { iniciaObtenerHistorial, iniciaEliminarItemHistorial } from '../acciones/historial/actions';
+import { lanzarListaHistorial } from '../acciones/navegador/actions';
 
 class ContenedorHistorial extends Component {
 
   componentDidMount() {
     this.props.iniciaObtenerHistorial(this.props.idRepartidor);
   }
+  
+  verListaHistorial(historial) {
+    this.props.lanzarListaHistorial(this.props.idRepartidor, historial);
+  }
+  
+  eliminar(historial, nombre) {
+    Alert.alert(
+      'CUIDADO!',
+      '¿Estás seguro que deseas eliminar el pedido de ' + nombre + ' ?',
+      [
+        {text: 'Eliminar', onPress: () => this.props.iniciaEliminarItemHistorial(this.props.idRepartidor, historial)},
+        {text: 'cancelar', onPress: () => {}, style: 'cancel'}
+      ],
+      { cancelable: false }
+    )
+  }
+  
   render() {
     const { historial } = this.props;
     return(
@@ -20,15 +39,16 @@ class ContenedorHistorial extends Component {
             {
               historial.obteniendo
               ? <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Descargando Historial</Text>
+                <ActivityIndicator color = "#607D8B" size = { 140 }/>
               </View>
               : <View style = {{ flex: 1 }}>
               {
                 historial.data === null
-                ? <View style = {{ flex: 1 }}>
-                   <Text>No hay datos</Text>
+                ? <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                  <Icon name = "history" size = { 140 } color = "#CFD8DC"/>
+                  <Text style = {{ color: '#CFD8DC' }}>No hay datos</Text>
                 </View>
-                : <MiHistorial historial = { Object.keys(historial.data).map( x => historial.data[x] )}/>
+                : <MiHistorial historial = { Object.keys(historial.data).map( x => historial.data[x] )} verListaHistorial = { this.verListaHistorial.bind(this) } eliminar = { this.eliminar.bind(this) }/>
               }
               </View>
             }
@@ -45,7 +65,7 @@ const mapStateToProps = ({ historial : {historial} }) => ({
 
 const miHistorial = connect(
   mapStateToProps,
-  { iniciaObtenerHistorial }
+  { iniciaObtenerHistorial, lanzarListaHistorial, iniciaEliminarItemHistorial }
 )(ContenedorHistorial);
 
 export default miHistorial;
