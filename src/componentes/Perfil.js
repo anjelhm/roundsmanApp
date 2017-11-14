@@ -5,7 +5,7 @@ class Perfil extends Component {
 
   render() {
 
-    const { imagen, nombre, fecha, sexo, correo } = this.props;
+    const { imagen, nombre, fecha, sexo, correo, foto } = this.props;
 
     return(
       <View style = {{ flex: 1, backgroundColor: '#FFFFFF' }}>
@@ -13,7 +13,7 @@ class Perfil extends Component {
           <View style = {{ alignItems: 'center'}}>
             <Image
               style = {{ width: 150, height: 150, borderRadius: 100 }}
-              source = {{ uri: imagen }}
+              source = {{ uri: foto }}
             />
           </View>
           <View style = {{ marginTop: 20 }}>
@@ -86,7 +86,7 @@ const estilo = StyleSheet.create({
 });
 
 Perfil.defaultProps = {
-  imagen: 'https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg',
+  foto: 'https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg',
   nombre: 'nombre',
   fecha: 'DD-MM-AAAA',
   sexo: 'Hombre',

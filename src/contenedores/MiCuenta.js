@@ -51,7 +51,7 @@ componentDidMount() {
                 ? <View style={{ flex: 1 }}>
                     <Text>No hay Datos</Text>
                   </View>
-                : <Perfil nombre = { repartidor.data.nombre } fecha = { repartidor.data.fecha } sexo = { repartidor.data.sexo } correo = { repartidor.data.correo }/>
+                : <Perfil nombre = { repartidor.data.nombre } fecha = { repartidor.data.fecha } sexo = { repartidor.data.sexo } correo = { repartidor.data.correo } foto = { repartidor.data.foto }/>
               }
               </View>
             }

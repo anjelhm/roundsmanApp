@@ -8,7 +8,8 @@ import {
   ESCANNER,
   LISTA,
   LISTA_HISTORIAL,
-  ATRAS
+  ATRAS,
+  FOTOS
 } from '../../constantes/ActionTypes';
 
 export const pantallaCuenta = id =>
@@ -25,6 +26,9 @@ export const pantallaIniciaSesion = () =>
 
 export const pantallaAnterior = () =>
   ({ type: ATRAS });
+
+export const pantallaFotos = () =>
+  ({ type: FOTOS });
 
 export const pantallaLista = (idUsuario, solicitud) =>
   ({ type: LISTA, idUsuario, solicitud });

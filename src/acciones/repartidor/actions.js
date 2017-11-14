@@ -1,4 +1,4 @@
-import firebase, { firebaseRef, firebaseAuth } from '../../firebase';
+import firebase, { firebaseRef, firebaseAuth, firebaseStorage } from '../../firebase';
 import {
   GUARDAR_REPARTIDOR_INICIA,
   GUARDAR_REPARTIDOR_OK,
@@ -34,17 +34,25 @@ export const iniciaGuardarRepartidor = data => {
        };
        const usuario = snapshot.uid;
 
-       const userRef = firebaseRef.child(`repartidor/${usuario}`);
+       const storageFoto = firebaseStorage.ref(`archivos/${usuario}/foto`).put(data.foto);
+              storageFoto.on('state_changed', snapshot => {
+                var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+              }, (error) => {console.log(error);}, () => {
+                const userRef = firebaseRef.child(`repartidor/${usuario}`);
 
-      return userRef.set({
-        'data': {
-          'nombre':  data.nombre + ' ' + data.paterno + ' ' + data.materno,
-          'fecha': data.fecha,
-          'sexo': data.sexo,
-          'correo': data.correo,
-          'id': usuario
-        }
-      });
+               return userRef.set({
+                 'data': {
+                   'nombre':  data.nombre + ' ' + data.paterno + ' ' + data.materno,
+                   'fecha': data.fecha,
+                   'sexo': data.sexo,
+                   'correo': data.correo,
+                   'id': usuario,
+                   'foto': storageFoto.snapshot.downloadURL
+                 }
+               });
+
+              })
     })
   };
 };

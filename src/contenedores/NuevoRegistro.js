@@ -6,7 +6,7 @@ import Registro from '../componentes/Registro';
 import Barra_nav from '../comunes/Barra_nav';
 
 import { iniciaGuardarRepartidor } from '../acciones/repartidor/actions'
-import { lanzarAnterior } from '../acciones/navegador/actions';
+import { lanzarAnterior, lanzarFotos } from '../acciones/navegador/actions';
 
 class contenedorNuevoRegistro extends Component {
 
@@ -17,7 +17,7 @@ class contenedorNuevoRegistro extends Component {
 /**
 * Función que recibe los datos para nuevo registro y los pasa a la acción para ingresarlos a la base de datos
 */
-  recibeDatos( nombre, apellidom, apellidop, date, sexo, correo,  clave1 ) {
+  recibeDatos( nombre, apellidom, apellidop, date, sexo, correo,  clave1, foto ) {
 
 
     const data = {
@@ -27,7 +27,8 @@ class contenedorNuevoRegistro extends Component {
       fecha: date,
       sexo: sexo,
       correo: correo,
-      clave: clave1
+      clave: clave1,
+      foto: foto
     };
 
      this.props.iniciaGuardarRepartidor(data);
@@ -36,6 +37,10 @@ class contenedorNuevoRegistro extends Component {
 
   retroceder(){
     this.props.lanzarAnterior();
+  }
+
+  irHaciaFotos() {
+    this.props.lanzarFotos();
   }
 
   render() {
@@ -52,7 +57,7 @@ class contenedorNuevoRegistro extends Component {
     return (
       <View style = { estilo.contenedor }>
       <Barra_nav titulo = "Nuevo Registro" retroceder = { this.retroceder.bind(this) }/>
-        <Registro enviaDatos={ this.recibeDatos.bind(this) }/>
+        <Registro enviaDatos={ this.recibeDatos.bind(this) } irHaciaFotos = { this.irHaciaFotos.bind(this) }/>
       </View>
     );
   }
@@ -71,7 +76,7 @@ const mapStateToProps = ({ repartidor: guardar }) => ({
 
  const NuevoRegistro = connect (
    mapStateToProps,
-   { iniciaGuardarRepartidor, lanzarAnterior }
+   { iniciaGuardarRepartidor, lanzarAnterior, lanzarFotos }
   )( contenedorNuevoRegistro );
 
 export default NuevoRegistro;

@@ -13,4 +13,5 @@ var config = {
 
   export const firebaseRef = firebase.database().ref();
   export const firebaseAuth = firebase.auth();
+  export const firebaseStorage = firebase.storage();
   export default firebase;
