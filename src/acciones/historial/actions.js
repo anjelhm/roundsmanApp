@@ -1,15 +1,15 @@
 import firebase, { firebaseRef } from '../../firebase';
 import {
-        OBTENER_HISTORIAL_INICIA,
-        OBTENER_HISTORIAL_OK,
-        OBTENER_HISTORIAL_ERROR,
-        OBTENER_LISTA_HISTORIAL_INICIA,
-        OBTENER_LISTA_HISTORIAL_OK,
-        OBTENER_LISTA_HISTORIAL_ERROR,
-        ELIMINAR_ITEM_HISTORIAL_INICIA,
-        ELIMINAR_ITEM_HISTORIAL_OK,
-        ELIMINAR_ITEM_HISTORIAL_ERROR
-      } from '../../constantes/ActionTypes';
+  OBTENER_HISTORIAL_INICIA,
+  OBTENER_HISTORIAL_OK,
+  OBTENER_HISTORIAL_ERROR,
+  OBTENER_LISTA_HISTORIAL_INICIA,
+  OBTENER_LISTA_HISTORIAL_OK,
+  OBTENER_LISTA_HISTORIAL_ERROR,
+  ELIMINAR_ITEM_HISTORIAL_INICIA,
+  ELIMINAR_ITEM_HISTORIAL_OK,
+  ELIMINAR_ITEM_HISTORIAL_ERROR
+} from '../../constantes/ActionTypes';
 
 export const obtenerHistorialInicia = () => ({
   type: OBTENER_HISTORIAL_INICIA });
@@ -32,17 +32,21 @@ export const eliminarItemHistorialOk = payload =>
 export const eliminarItemHistorialError = error =>
   ({ type: ELIMINAR_ITEM_HISTORIAL_ERROR, error });
 
-  export const iniciaObtenerHistorial = ( idRepartidor ) => {
-    return dispatch => {
-       dispatch(obtenerHistorialInicia());
+/**
+* accion que obtiene el historial de pedidos completados del repartidor
+* @param { string } idRepartidor
+*/
+export const iniciaObtenerHistorial = ( idRepartidor ) => {
+  return dispatch => {
+     dispatch(obtenerHistorialInicia());
 
-        firebaseRef.child(`repartidor/${idRepartidor}/historial/`).on('value', snapshot => {
-            dispatch(obtenerHistorialOk(snapshot.val() ) );
-        });
+      firebaseRef.child(`repartidor/${idRepartidor}/historial/`).on('value', snapshot => {
+          dispatch(obtenerHistorialOk(snapshot.val() ) );
+      });
 
-    };
   };
-  
+};
+
 /**
 * accion que recupera la lista del pedido en el historial
 * @param { string } idRepartidor
@@ -68,7 +72,7 @@ export const iniciaEliminarItemHistorial = (idRepartidor, idHistorial) => {
   return dispatch => {
     dispatch(eliminarItemHistorialInicia());
     let actualiza = {};
-    
+
     actualiza[`repartidor/${idRepartidor}/historial/${idHistorial}`] = null;
 
     firebaseRef.update(actualiza)

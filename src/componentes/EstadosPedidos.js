@@ -125,5 +125,6 @@ class EstadoPedidos extends Component {
       </View>
     ) ;
   }
-  }
+}
+
 export default EstadoPedidos;

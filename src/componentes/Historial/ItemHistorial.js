@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import {
   View,
-   TouchableOpacity,
-   Text,
-   StyleSheet } from 'react-native';
-   import Icon from 'react-native-vector-icons/MaterialIcons';
+  TouchableOpacity,
+  Text,
+  StyleSheet
+ } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Boton from '../Menu/Boton'
 
 class ItemHistorial extends Component {
-  
+
   haciaListaHistorial() {
     this.props.haciaListaHistorial(this.props.historial);
   }
-  
+
   eliminarItem(){
     this.props.eliminarItem(this.props.historial, this.props.nombre);
   }

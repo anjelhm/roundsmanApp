@@ -38,11 +38,11 @@ class MiHistorial extends Component {
       this.cargarDatos();
     }
   }
-  
+
   haciaListaHistorial(historial) {
     this.props.verListaHistorial(historial);
   }
-  
+
   eliminarItem(historial, nombre) {
     this.props.eliminar(historial, nombre);
   }
@@ -87,7 +87,5 @@ class MiHistorial extends Component {
     );
   }
 }
-
-const ListData = [{ nombre: 'Módulo en desarrollo ...', precio: '????', ubicacion: '????'}];
 
 export default MiHistorial;

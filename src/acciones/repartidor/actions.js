@@ -52,7 +52,7 @@ export const iniciaGuardarRepartidor = data => {
                  }
                });
 
-              })
+            })
     })
   };
 };

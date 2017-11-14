@@ -12,6 +12,10 @@ export const obtenerRepartidorOk = payload => ({
 export const obtenerRepartidorError = error =>
   ({ type: OBTENER_REPARTIDOR_ERROR, error });
 
+/**
+* accion que obtiene los datos del repartidor
+* @param { string } idRepartidor
+*/
 export const iniciaObtenerRepartidor = (idRepartidor) => {
   return dispatch => {
     dispatch(obtenerRepartidorInicia());

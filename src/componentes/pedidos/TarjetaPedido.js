@@ -1,7 +1,6 @@
 import React, { Component } from  'react';
 import { Text, View, StyleSheet, Modal, StatusBar } from 'react-native';
 
-//importar la clase Boton
 import Boton from '../../comunes/Boton';
 import MapaPedidos from '../../contenedores/MapaPedidos';
 

@@ -50,10 +50,6 @@ class Fotos extends Component {
     .then(blob => {
       this.props.enviaData(imagen, blob);
     });
-    // RNFetchBlob.fs.readFile(imagen, 'base64')
-    //   .then(data => {
-    //
-    //   });
   }
 
   render() {

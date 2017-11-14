@@ -6,7 +6,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import ListaPedidos from '../componentes/pedidos/ListaPedidos';
 import { iniciaTomarPedido,iniciaObtenerPedido } from '../acciones/pedidos/actions'
 
-
 class contenedorObtenerRegistro extends Component {
 
   componentDidMount() {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList } from 'react-native';;
 
-//importar la clase TarjetaPedido
 import TarjetaPedido from './TarjetaPedido';
 
 class ListaPedidos extends Component {

@@ -62,8 +62,6 @@ class Inicio extends Component {
     const { height } = Dimensions.get('window');
     const altura = height - 50;
 
-    //console.warn('UID: ', this.props.navigation.state.params.id);
-
     return (
       <Drawer
         ref = { ref => this.drawer = ref }

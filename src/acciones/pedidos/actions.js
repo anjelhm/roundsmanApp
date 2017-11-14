@@ -57,15 +57,13 @@ export const pantallaInicio = id =>
   ({ type: INICIO, id });
 
 /**
-* funcion para obtener pedido
-**/
+* funcion para obtener pedidos
+* @param { Object } pedidos
+*/
 export const iniciaObtenerPedido = () => {
   return dispatch => {
      dispatch(obtenerPedidosInicia());
-      /**
-      * funcion para obtener pedidos y envia
-      * @param { Object } pedidos
-      **/
+
       firebaseRef.child('pedidos').on('value', snapshot => {
         dispatch(obtenerPedidosOk( snapshot.val() ) );
       });
@@ -131,6 +129,9 @@ export const iniciaObtenerPedidosAceptados = ( id ) => {
  * funcion que cierra el pedido
  * elmina el pedido de misPedidos
  * Agrega el pedido al historial
+ * @param { string } solicitud
+ * @param { string } idRepartidor
+ * @param { string } idPedidoAceptado
 */
 export const iniciaCerrarPedido = (solicitud, idRepartidor, idPedidoAceptado) => {
   return dispatch => {
@@ -189,7 +190,6 @@ export const iniciaCerrarPedido = (solicitud, idRepartidor, idPedidoAceptado) =>
 * @param { string } solicitud
 * @param { string } idUsuario
 */
-
 export const iniciaObtenerLista = (solicitud, idUsuario) => {
   return dispatch => {
     dispatch(obtenerListaInicia());

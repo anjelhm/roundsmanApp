@@ -11,10 +11,9 @@ import NuevoRegistro from '../contenedores/NuevoRegistro';
 import EstadosPedidos from '../contenedores/EstadosPedidos';
 import Lista from '../contenedores/Lista';
 import ListaHistorial from '../contenedores/ListaHistorial';
+import ScannerQR from '../componentes/ScannerQR';
 
 import Mapa from '../componentes/Mapa/Mapa';
-import ListaActual from '../componentes/ListaActual/ListaActual';
-import ScannerQR from '../componentes/ScannerQR';
 
 const rutas = {
   Inicio: { screen: Inicio },
@@ -24,7 +23,6 @@ const rutas = {
   Sesion: { screen: MiSesion },
   Registro: { screen: NuevoRegistro },
   Mapa: { screen: Mapa },
-  ListaActual: { screen: ListaActual },
   ScannerQR: { screen: ScannerQR },
   Estados: { screen: EstadosPedidos },
   Lista: { screen: Lista },

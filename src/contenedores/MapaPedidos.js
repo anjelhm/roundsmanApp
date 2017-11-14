@@ -45,8 +45,8 @@ class MapaPedidos extends Component {
                   latitude: ubicacion.lat,
                   longitude: ubicacion.long,
                 },
-                nombre : 'Nombre',
-                descripcion: 'Direccion',
+                nombre : 'Entregar aquí',
+                descripcion: 'Dirección del pedido',
                 color: '#F44336'
             },
             {
@@ -54,7 +54,7 @@ class MapaPedidos extends Component {
                   latitude: this.state.latitude,
                   longitude: this.state.longitude,
                 },
-                nombre : 'Nombre 2',
+                nombre : 'Yo',
                 descripcion: 'Mi ubicación',
                 color: '#3F51B5'
             }
