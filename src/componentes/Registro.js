@@ -9,7 +9,7 @@ import {
   Image,
   Modal
 } from 'react-native';
-import DatePicker from 'react-native-datepicker';
+import DateTimePicker from 'react-native-modal-datetime-picker'
 
 import Input from '../comunes/Input';
 import Boton from '../comunes/Boton';
@@ -31,10 +31,10 @@ class Registro extends Component {
           estado: '',
           modalVisible: false,
           imagen: 'https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg',
-          foto: null
+          foto: null,
+          isDateTimePickerVisible: false,
     };
   }
-
   /**
   * función que muestra/oculta el modal
   * @param { bool } visible
@@ -79,27 +79,65 @@ class Registro extends Component {
        });
    }
  }
+ _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
 
+ _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+
+ _handleDatePicked = (dato) => {
+           var day = dato.getDate();
+           var month = dato.getMonth()+1;
+           var year = dato.getFullYear();
+           var fecha= day+"-"+month+"-"+year;
+           this.setState({
+             date : fecha
+             });
+   this._hideDateTimePicker();
+ };
  /**
  * función que envía el correo y la clave al contenedor IniciaSesion para verificar al usuario, y limpia los input
  */
  enviaDatos() {
-   if( this.state.estado === "true"){
-     this.props.enviaDatos(this.state.nombre, this.state.apellidom, this.state.apellidop, this.state.date, this.state.sexo, this.state.correo,  this.state.clave1, this.state.foto);
-     this.setState({
-       date: '',
-       sexo: '',
-       apellidop: '',
-       apellidom: '',
-       nombre: '',
-       clave1:'',
-       clave2:'',
-       correo: '',
-       estado: '',
-       foto: null,
-       imagen: 'https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg'
-     });
+   if (this.state.nombre === "") {
+     alert("El campo nombre no debe de quedar vacio");
+   }else{
+     if (this.state.apellidop === "") {
+       alert("El campo apellido paterno no debe de quedar vacio");
+     }else{
+       if (this.state.apellidom === "") {
+         alert("El campo apellido materno no debe de quedar vacio");
+       }else{
+         if (this.state.sexo === "") {
+           alert("El campo sexo no debe de quedar vacio");
+         }else{
+           if (this.state.correo === "") {
+             alert("El campo correo no debe de quedar vacio");
+           }else{
+             if (this.state.date === "") {
+               alert("El campo fecha de nacimiento no debe de quedar vacio");
+             }else{
+               if( this.state.estado === "true"){
+                    this.props.enviaDatos(this.state.nombre, this.state.apellidom, this.state.apellidop, this.state.date, this.state.sexo, this.state.correo,  this.state.clave1, this.state.foto);
+                    this.setState({
+                      date: '',
+                      sexo: '',
+                      apellidop: '',
+                      apellidom: '',
+                      nombre: '',
+                      clave1:'',
+                      clave2:'',
+                      correo: '',
+                      estado: '',
+                      foto: null,
+                      imagen: 'https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg'
+                    });
+                  }
+             }
+           }
+         }
+       }
+     }
    }
+
  }
 
  enviaData(imagen, blob) {
@@ -152,7 +190,6 @@ class Registro extends Component {
             <View style = {{ width:300 }}>
               <Text style = {{color: '#607D8B', width: '100%', fontSize: 15, justifyContent: 'center', alignItems: 'center' }}>Sexo</Text>
             </View>
-
             <Picker
               style = { styles.picker }
               mode = "dropdown"
@@ -175,28 +212,15 @@ class Registro extends Component {
             <View style = {{ width:300 }}>
               <Text style = {{color: '#607D8B', width: '100%', fontSize: 15, justifyContent: 'center', alignItems: 'center' }}>Fecha de Nacimiento</Text>
             </View>
-            <DatePicker
-              style = {{ width: 200 }}
-              date = { this.state.date }
-              mode = "date"
-              format = "YYYY-MM-DD"
-              minDate = "1980-05-01"
-              maxDate = "2500-06-01"
-              confirmBtnText = "Confirm"
-              cancelBtnText = "Cancel"
-              customStyles = {{
-                dateIcon: {
-                  position: 'absolute',
-                  left: 0,
-                  top: 4,
-                  marginLeft: 0
-                },
-                dateInput: {
-                  marginLeft: 36
-                }
-                }}
-              minuteInterval = { 10 }
-              onDateChange = { this.onChange.bind(this, 'date') }
+            <TouchableOpacity style={{ backgroundColor:'red' }}  onPress={this._showDateTimePicker}>
+              <Text>Show TimePicker</Text>
+            </TouchableOpacity>
+            <DateTimePicker
+              mode='date'
+              datePickerModeAndroid='spinner'
+              isVisible={this.state.isDateTimePickerVisible}
+              onConfirm={this._handleDatePicked}
+              onCancel={this._hideDateTimePicker}
             />
             <Input
               etiqueta = "Contraseña"
