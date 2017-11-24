@@ -212,8 +212,9 @@ class Registro extends Component {
             <View style = {{ width:300 }}>
               <Text style = {{color: '#607D8B', width: '100%', fontSize: 15, justifyContent: 'center', alignItems: 'center' }}>Fecha de Nacimiento</Text>
             </View>
-            <TouchableOpacity style={{ backgroundColor:'red' }}  onPress={this._showDateTimePicker}>
-              <Text>Show TimePicker</Text>
+            <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', width: 150 , height: 40 ,borderRadius: 5, backgroundColor: '#757575' }}  onPress={this._showDateTimePicker}>
+              <Text style={{ color: 'white' }}>Seleccionar Fecha</Text>
+              <Text style={{ color: 'white' }}>{this.state.date}</Text>
             </TouchableOpacity>
             <DateTimePicker
               mode='date'
