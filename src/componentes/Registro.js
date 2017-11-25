@@ -7,13 +7,15 @@ import {
   Picker,
   ScrollView,
   Image,
-  Modal
+  StatusBar
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker'
 
 import Input from '../comunes/Input';
 import Boton from '../comunes/Boton';
 import Fotos from './Fotos';
+import Barra_nav from '../comunes/Barra_nav';
+import Modal from '../comunes/Modal';
 
 class Registro extends Component {
 
@@ -248,13 +250,17 @@ class Registro extends Component {
           </View>
         </ScrollView>
         <Modal
-          animationType = "slide"
-          transparent = { false }
-          visible = { this.state.modalVisible }
-          onRequestClose = { () => {} }
+          ver = { this.state.modalVisible }
           >
             <View style = {{ flex: 1 }}>
-              <Fotos enviaData = { this.enviaData.bind(this) }/>
+            <StatusBar hidden/>
+            <Barra_nav
+              titulo = "Fotos"
+              retroceder = { () => this.setModalVisible(false)}
+            />
+              <Fotos
+                enviaData = { this.enviaData.bind(this) }
+              />
             </View>
         </Modal>
       </View>
