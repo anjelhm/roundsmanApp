@@ -6,8 +6,7 @@ import {
   Text,
   CameraRoll,
   ScrollView,
-  Dimensions,
-  StatusBar
+  Dimensions
 } from 'react-native';
 import RNFetchBlob from 'react-native-fetch-blob';
 import Barra_nav from '../comunes/Barra_nav';
@@ -57,7 +56,6 @@ class Fotos extends Component {
   render() {
     return (
       <View style ={{ flex:  1, justifyContent: 'center', alignItems: 'center' }}>
-        <StatusBar hidden/>
         <ScrollView contentContainerStyle = {{ flexWrap: 'wrap', flexDirection: 'row' }}>
           {
             this.state.fotos.map((p,i) => {

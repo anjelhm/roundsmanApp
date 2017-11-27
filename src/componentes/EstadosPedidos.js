@@ -55,7 +55,7 @@ class EstadoPedidos extends Component {
       }}>
         <View style = {{ padding: 40  }}>
           <View style = {{ marginBottom: 10 }} >
-            <Interruptor nombre = "aceptado" activo deshabilitado/>
+            <Interruptor nombre = "Aceptado" activo deshabilitado/>
           </View>
           <View style = {{ marginBottom: 10 }} >
             {
@@ -76,6 +76,7 @@ class EstadoPedidos extends Component {
                       width = { 250 }
                       onChange = { this.onChange.bind(this, 'precio') }
                       value = { this.state.precio }
+                      tipo = "numeric"
                     />
                   </View>
                   <Interruptor nombre = "Compra finalizada" enviaEstado = { this.realizaCompra.bind(this) }/>

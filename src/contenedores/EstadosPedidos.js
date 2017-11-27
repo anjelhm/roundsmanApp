@@ -45,7 +45,7 @@ import { lanzarEscanner, lanzarAnterior } from '../acciones/navegador/actions';
      const { estadoPedido } = this.props;
      return (
        <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFFFFF' }}>
-        <Barra_nav titulo = "Nuevo Registro" retroceder = { this.retroceder.bind(this) }/>
+        <Barra_nav titulo = "Editar estado" retroceder = { this.retroceder.bind(this) }/>
          <View style = {{ flex: 1 }}>
            {
              estadoPedido.estadoPedido !== null ? (

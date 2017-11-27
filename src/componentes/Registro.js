@@ -6,8 +6,7 @@ import {
   StyleSheet,
   Picker,
   ScrollView,
-  Image,
-  StatusBar
+  Image
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker'
 
@@ -253,7 +252,6 @@ class Registro extends Component {
           ver = { this.state.modalVisible }
           >
             <View style = {{ flex: 1 }}>
-            <StatusBar hidden/>
             <Barra_nav
               titulo = "Fotos"
               retroceder = { () => this.setModalVisible(false)}
