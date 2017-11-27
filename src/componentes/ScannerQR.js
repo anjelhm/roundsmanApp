@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  ActivityIndicator,
-  BackHandler
+  ActivityIndicator
 } from 'react-native';
 import Camera from 'react-native-camera';
 import { connect } from 'react-redux';
@@ -18,10 +17,10 @@ class ContenedorScannerQR extends Component {
   static navigationOptions = {
     header: null
   };
-
   retroceder(){
     this.props.lanzarAnterior();
   }
+
   constructor() {
     super();
 
@@ -57,12 +56,12 @@ class ContenedorScannerQR extends Component {
               onBarCodeRead = { this.leeCodigo.bind(this) }
             >
             </Camera>
-            //Boton retreceder al accion anterior
-              <View>
-              <Boton etiqueta = "Retroceder" accion = { this.retroceder.bind(this) }/>
-              <View/>
 
+            <View>
+              <Boton etiqueta = { 'Atras' } accion = {this.retroceder.bind(this) }/>
             </View>
+
+          </View>
           : <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
              {
                cierra !== null ? (
@@ -94,9 +93,7 @@ class ContenedorScannerQR extends Component {
   }
 }
 
-const mapStateToProps = ({ pedidosaceptados: { cierra } }) => ({
-  cierra
-});
+const mapStateToProps = ({ pedidosaceptados: { cierra } }) => ({ cierra });
 
 const ScannerQR = connect(
   mapStateToProps,
