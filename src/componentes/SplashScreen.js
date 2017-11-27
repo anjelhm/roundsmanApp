@@ -25,7 +25,7 @@ class SplashScreen extends Component {
               </View>
 
               <View style = {{ marginTop: 15  }}>
-                <Text style = {{ fontSize: 30 , color: '#607D8B' }}>Mandadito</Text>
+                <Text style = {{ fontSize: 30 , color: '#607D8B' }}>Markethome</Text>
               </View>
 
           </View>
