@@ -102,7 +102,7 @@ export const iniciaTomarPedido = ( datos ) => {
       actualizaRepartidor[`pedidos/${datos.idPedidos}`] = null;
 
       firebaseRef.update(actualizaRepartidor)
-      .then( () => tomarPedidoOk("aceptado") )
+      .then( () => tomarPedidoOk("Aceptado") )
       .catch( () => tomarPedidoError("Error") );
 
 
@@ -169,7 +169,7 @@ export const iniciaCerrarPedido = (solicitud, idRepartidor, idPedidoAceptado) =>
 
                   firebaseRef.update(actualiza)
                   .then( () => {
-                    cerrarPedidoOk("aceptado");
+                    cerrarPedidoOk("Aceptado");
                     dispatch(pantallaInicio(idRepartidor));
                   })
                   .catch( () => cerrarPedidoError("Error") );

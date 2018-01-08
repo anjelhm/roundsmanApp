@@ -14,9 +14,10 @@ import MenuDrawer from './drawer/Drawer';
 import Boton from './Menu/Boton';
 import Menubar from './Menu/Menubar';
 import ListaActual from './ListaActual/ListaActual';
-import Pedidos from '../contenedores/Pedidos'
+import Pedidos from '../contenedores/Pedidos';
 import PedidosActuales from '../contenedores/PedidosActuales';
 import Historial from '../contenedores/Historial';
+import LlamadasYSMS from '../contenedores/LlamadasYSMS';
 
 class Inicio extends Component {
 
@@ -28,7 +29,7 @@ class Inicio extends Component {
     super();
 
     this.state = {
-      pagina: 0
+      pagina: 1
     };
 
   }
@@ -87,8 +88,11 @@ class Inicio extends Component {
             style = {{ height: altura }}
             ref = { vp => this.ViewPager = vp }
             onPageSelected = { this.cambiapagina.bind(this) }
-            initialPage = { 0 }
+            initialPage = { 1 }
           >
+            <View style = {{ paddingTop: 60}}>
+              <LlamadasYSMS idRepartidor  = { this.props.navigation.state.params.id } />
+            </View>
             <View style = {{ paddingTop: 60}}>
               <Pedidos idRepartidor  = { this.props.navigation.state.params.id } />
             </View>
@@ -100,9 +104,10 @@ class Inicio extends Component {
             </View>
           </ViewPagerAndroid>
           <Menubar activo = { this.state.pagina }>
-            <Boton accion = { () => this.ir(0) } etiqueta = { "Pedidos" } icono = { "shopping-basket" } />
-            <Boton accion = { () => this.ir(1) } etiqueta = { "Pedidos Aceptados" } icono = { "local-mall" } />
-            <Boton accion = { () => this.ir(2) } etiqueta = { "Historial" } icono = { "history" } />
+            <Boton accion = { () => this.ir(0) } etiqueta = { "Llamadas y SMS" } icono = { "perm-phone-msg" } />
+            <Boton accion = { () => this.ir(1) } etiqueta = { "Pedidos" } icono = { "shopping-basket" } />
+            <Boton accion = { () => this.ir(2) } etiqueta = { "Pedidos Aceptados" } icono = { "local-mall" } />
+            <Boton accion = { () => this.ir(3) } etiqueta = { "Historial" } icono = { "history" } />
           </Menubar>
         </View>
       </Drawer>
