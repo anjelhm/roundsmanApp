@@ -84,6 +84,7 @@ export const iniciaTomarPedido = ( datos ) => {
     firebaseRef.child(`repartidor/${datos.idRepartidor}/data`).once( 'value' )
     .then( snapshot => {
       const nombreRepartidor = snapshot.val().nombre;
+      const fotoRepartidor = snapshot.val().foto;
 
       const pedidosRepartidor = firebaseRef.child(`repartidor/${datos.idRepartidor}/pedidos`).push();
       const keyPedido = pedidosRepartidor.key;
@@ -99,6 +100,7 @@ export const iniciaTomarPedido = ( datos ) => {
       actualizaRepartidor[`repartidor/${datos.idRepartidor}/pedidos/${keyPedido}/pedidoRepartidor`] = keyPedido;
       actualizaRepartidor[`usuarios/${datos.uid}/pedidos/${datos.idPedido}/estado`] = 'aceptado';
       actualizaRepartidor[`usuarios/${datos.uid}/pedidos/${datos.idPedido}/repartidor`] = nombreRepartidor;
+      actualizaRepartidor[`usuarios/${datos.uid}/pedidos/${datos.idPedido}/foto`] = fotoRepartidor;
       actualizaRepartidor[`pedidos/${datos.idPedidos}`] = null;
 
       firebaseRef.update(actualizaRepartidor)
