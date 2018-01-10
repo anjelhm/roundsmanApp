@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-import { View } from 'react-native';
+import {
+  View,
+  Image
+} from 'react-native';
 
 import Boton from '../comunes/Boton'
 
@@ -10,12 +13,14 @@ class Sesion extends Component {
 
     return(
         <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-          <View style = {{ height: 200,
-            width: 200,
-            borderRadius: 100,
+          <View style = {{
             justifyContent: 'center',
             elevation: 4 }}
           >
+          <Image source={require('../publica/MarketHome.png')} style = {{
+            height: 200,
+            width: 200,
+            borderRadius: 100}}/>
           </View >
           <View style = {{ marginTop: 20 }}>
             <Boton etiqueta = 'Ingresar' accion = { iniciar } />
