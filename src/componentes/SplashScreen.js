@@ -17,12 +17,12 @@ class SplashScreen extends Component {
             justifyContent: 'center',
             flex:1 }}>
 
-              <View style = {{
-                 width: 200,
-                 height: 200,
-                 backgroundColor: '#607D8B',
-                 borderRadius: 100}}>
-              </View>
+            <View>
+               <Image source={require('../publica/MarketHome.png')} style = {{
+                  width: 200,
+                  height: 200,
+                  borderRadius: 100}}/>
+            </View>
 
               <View style = {{ marginTop: 15  }}>
                 <Text style = {{ fontSize: 30 , color: '#607D8B' }}>Markethome</Text>
