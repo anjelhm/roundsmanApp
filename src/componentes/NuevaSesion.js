@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Modal,
-  StyleSheet
+  StyleSheet,
+  Image
 } from 'react-native';
 
 import Input from '../comunes/Input';
@@ -74,6 +75,14 @@ class NuevaSesion extends Component {
     return (
       <View style = { estilo.contenedor }>
         <View style = { estilo.logo }>
+
+            <Image
+            source={require('../publica/MarketHome.png')}
+            style = {{
+              height: 150,
+              width: 150,
+              borderRadius: 100 }}/>
+
         </View>
         <Input
           etiqueta = "Correo Electrónico"
@@ -169,7 +178,6 @@ const estilo = StyleSheet.create({
   logo: {
     height: 150,
     width: 150,
-    backgroundColor: '#FF5722',
     borderRadius: 100,
     elevation: 4,
     marginBottom: 20

@@ -14,6 +14,9 @@ class Sesion extends Component {
     return(
         <View style = {{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <View style = {{
+            height: 200,
+            width: 200,
+            borderRadius: 100,
             justifyContent: 'center',
             elevation: 4 }}
           >

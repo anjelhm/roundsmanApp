@@ -18,7 +18,12 @@ class MenuDrawer extends Component {
     return (
       <View style = {{ flex: 1, backgroundColor: '#FAFAFA' }}>
           <View style = {{ flex: 1, backgroundColor: '#607D8B', elevation: 4, marginBottom: 20, justifyContent: 'center', alignItems: 'center' }}>
-            <View style={{ elevation: 5 }}>
+            <View
+            style={{
+              elevation: 3,
+              width: 120,
+              height: 120,
+              borderRadius: 100 }}>
               <Image source={require('../../publica/MarketHome.png')} style = {{
                 width: 120,
                 height: 120,

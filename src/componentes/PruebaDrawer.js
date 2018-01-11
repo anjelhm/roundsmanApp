@@ -36,7 +36,7 @@ class PruebaDrawer extends Component {
           openDrawerOffset = { 0.2 }
           panCloseMask = { 0.2 }
           closedDrawerOffset = { -3 }
-          style = {{ shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3 }}
+          style = {{ shadowColor: '#'000000, shadowOpacity: 0.8, shadowRadius: 3 }}
         >
           <View style = {{ flex: 1, backgroundColor: '#FFFFFF', justifyContent: 'center', alignItems: 'center' }}>
             <TouchableOpacity onPress = { this.verDrawer.bind(this) }>
