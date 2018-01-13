@@ -9,6 +9,7 @@ import pedidosaceptados from './pedidosaceptados';
 import estados from './estados';
 import perfil from './perfil';
 import historial from './historial';
+import llamadas from './llamadas';
 
 const rootReducer = combineReducers({
   navegador,
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   pedidosaceptados,
   estados,
   perfil,
-  historial
+  historial,
+  llamadas
 });
 
 export default rootReducer;

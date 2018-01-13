@@ -60,3 +60,19 @@ export const OBTENER_LISTA_HISTORIAL_ERROR = "@@obtenerListaHistorial/ERROR";
 export const ELIMINAR_ITEM_HISTORIAL_INICIA = "@@eliminarItemHistorial/INICIA";
 export const ELIMINAR_ITEM_HISTORIAL_OK = "@@eliminarItemHistorial/OK";
 export const ELIMINAR_ITEM_HISTORIAL_ERROR = "@@eliminarItemHistorial/ERROR";
+
+export const OBTENER_LISTA_LLAMADAS_INICIA = "@@obtenerListaLlamadas/INICIA";
+export const OBTENER_LISTA_LLAMADAS_OK = "@@obtenerListaLlamadas/OK";
+export const OBTENER_LISTA_LLAMADAS_ERROR = "@@obtenerListaLlamadas/ERROR";
+
+export const TOMAR_PEDIDO_LLAMADA_INICIA = "@@tomarPedidoLlamada/INICIA";
+export const TOMAR_PEDIDO_LLAMADA_OK = "@@tomarPedidoLlamada/OK";
+export const TOMAR_PEDIDO_LLAMADA_ERROR = "@@tomarPedidoLlamada/ERROR";
+
+export const OBTENER_PEDIDOS_ACEPTADOS_LLAMADAS_INICIA = "@@obtenerPedidosAceptadosLlamadas/INICIA";
+export const OBTENER_PEDIDOS_ACEPTADOS_LLAMADAS_OK = "@@obtenerPedidosAceptadosLlamadas/OK";
+export const OBTENER_PEDIDOS_ACEPTADOS_LLAMADAS_ERROR = "@@obtenerPedidosAceptadosLlamadas/ERROR";
+
+export const OBTENER_PEDIDOS_LLAMADAS_INICIA = "@@obtenerPedidosLlamadas/INICIA";
+export const OBTENER_PEDIDOS_LLAMADAS_OK = "@@obtenerPedidosLlamadas/OK";
+export const OBTENER_PEDIDOS_LLAMADAS_ERROR = "@@obtenerPedidosLlamadas/ERROR";
