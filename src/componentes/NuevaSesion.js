@@ -79,8 +79,8 @@ class NuevaSesion extends Component {
             <Image
             source={require('../publica/MarketHome.png')}
             style = {{
-              height: 150,
-              width: 150,
+              height: 130,
+              width: 130,
               borderRadius: 100 }}/>
 
         </View>
@@ -179,8 +179,9 @@ const estilo = StyleSheet.create({
     height: 150,
     width: 150,
     borderRadius: 100,
-    elevation: 4,
-    marginBottom: 20
+    marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 

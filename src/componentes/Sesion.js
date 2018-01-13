@@ -18,11 +18,12 @@ class Sesion extends Component {
             width: 200,
             borderRadius: 100,
             justifyContent: 'center',
-            elevation: 4 }}
+            alignItems: 'center',
+            backgroundColor: '#FFFFFF'}}
           >
           <Image source={require('../publica/MarketHome.png')} style = {{
-            height: 200,
-            width: 200,
+            height: 160,
+            width: 160,
             borderRadius: 100}}/>
           </View >
           <View style = {{ marginTop: 20 }}>

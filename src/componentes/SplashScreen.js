@@ -23,10 +23,11 @@ class SplashScreen extends Component {
                 width: 200,
                 height: 200,
                 borderRadius: 100,
-                elevation: 4}}>
+                alignItems: 'center',
+                justifyContent: 'center'}}>
                  <Image source={require('../publica/MarketHome.png')} style = {{
-                    width: 200,
-                    height: 200,
+                    width: 170,
+                    height: 170,
                     borderRadius: 100}}/>
               </View>
 
@@ -37,10 +38,10 @@ class SplashScreen extends Component {
           </View>
 
           <View style = {{
-              marginBottom: 15,
+              marginBottom: 2,
                alignItems: 'center'
              }}>
-            <Text  style = {{ color: '#607D8B' }} >
+            <Text  style = {{ fontSize: 12, color: '#607D8B' }} >
               F4Lab
             </Text>
           </View>
