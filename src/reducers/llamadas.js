@@ -11,7 +11,7 @@ import {
 
 const estadoInicial = {
   pedidoLlamada : null,
-  listaLlamadas : null
+  listaLlamadas : {}
 };
 
 const  pedidoLlamada = (state = estadoInicial.pedidoLlamada, action) => {
@@ -44,8 +44,7 @@ const listaLlamadas = (state = estadoInicial.listaLlamadas, action) => {
     case OBTENER_LISTA_LLAMADAS_INICIA:
       return {
         ...state,
-        descargando: true,
-        pedido: null
+        descargando: true
       };
     case OBTENER_LISTA_LLAMADAS_OK:
       return {
